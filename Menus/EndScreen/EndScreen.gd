@@ -1,14 +1,21 @@
 extends Node
 @export var mainMenu = "res://Menus/MainMenu/MainMenu.tscn"
 
+const winText = "c'est gagner!"
+const loseText = "c'est perdut :("
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+	if(Main.getCurrentGameMode() == Main.GAME_MODE.IN_LEVEL_WIN): 
+		self._showWinScreen()
+	else: 
+		self._showLoseScreen()	
+	
+func _showWinScreen():
+	%RichTextLabel.text = winText
+	
+func _showLoseScreen():
+	%RichTextLabel.text = loseText
 	
 func onReloadGameSceneButtonPressed():
 	get_tree().reload_current_scene()
@@ -18,4 +25,3 @@ func onMainMenuButtonPressed():
 
 func onQuitButtonPressed():
 	get_tree().quit()
-

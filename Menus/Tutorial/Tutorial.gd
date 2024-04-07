@@ -5,4 +5,5 @@ func _ready():
 	pass # Replace with function body.
 
 func onCloseButtonPressed():
+		Main.setInMainMenuMainGameMode()
 		queue_free()

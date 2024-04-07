@@ -17,11 +17,15 @@ func _initialization():
 func _inputsHandler():
 	self._handlePauseInput()
 
-func _handlePauseInput():
+func _handlePauseInput():	
 	if(Input.is_action_just_pressed("pause")):
+		if(Main.getCurrentGameMode() == Main.GAME_MODE.IN_LEVEL_LOST || Main.getCurrentGameMode() == Main.GAME_MODE.IN_LEVEL_WIN):
+			return
+		
 		var paused = get_node("/root").get_child(0).get_tree().paused
 		pauseMenu.visible = !paused
 		get_node("/root").get_child(0).get_tree().paused = !paused
+		Main.setInLevelPauseGameMode(paused)
 
 func _onResumeButtonPressed():
 	get_node("/root").get_child(0).get_tree().paused = false
