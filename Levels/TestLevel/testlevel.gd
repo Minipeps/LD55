@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var popossum:MeshInstance3D  = get_node("Popossum")
+@onready var popossum:CSGBox3D  = get_node("Popossum")
 @onready var pauseMenu  = load("res://Menus/PauseMenu.tscn")
 
 @export var speed: float = 45
@@ -11,4 +11,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	popossum.rotation_degrees.y += speed * delta
+	pass
+	# popossum.rotation_degrees.y += speed * delta
