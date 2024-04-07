@@ -6,7 +6,7 @@ func _ready():
 	self._initialization()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	self._inputsHandler()
 	
 func _initialization():

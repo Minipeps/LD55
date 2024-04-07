@@ -1,6 +1,6 @@
 extends Control
 
-@onready var tutorialScene = load("res://Menus/tutorial.tscn")
+@onready var tutorialScene = load("res://Menus/Tutorial.tscn")
 
 func onStartButtonPressed():
 	var startButton = get_node("VBoxContainer/StartButton")

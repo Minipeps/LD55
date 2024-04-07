@@ -6,13 +6,13 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	_handlePlayerPosition(delta)
+func _process(_delta):
+	_handlePlayerPosition()
 	
-func _handlePlayerPosition(delta):
-	position += self._computePlayerMove(delta)
+func _handlePlayerPosition():
+	position += self._computePlayerMove()
 
-func _computePlayerMove(delta) -> Vector3:
+func _computePlayerMove() -> Vector3:
 	var vertical_input = Input.get_action_strength("player_move_up") - Input.get_action_strength("player_move_down")
 	var horizontal_input = Input.get_action_strength("player_move_right") - Input.get_action_strength("player_move_left")
 	var moveVector = Vector3(horizontal_input, 0, -vertical_input).normalized() * speed
