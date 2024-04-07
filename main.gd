@@ -5,9 +5,11 @@ extends Node
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	self._test()
+
+func _test():
 	if(Input.is_action_just_pressed("space")):
 		space_count += 1
-		# print(space_count)
+		print(space_count)
