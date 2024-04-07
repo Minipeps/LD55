@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8kfo50a4t6dn"
-path.s3tc="res://.godot/imported/640px-Opossum_1.jpg-7a7f5bd3a1a4cbffcf8ce74a7e049c20.s3tc.ctex"
+path.s3tc="res://.godot/imported/640px-Opossum_1.jpg-3d7672d255c2b7aa9390e7203e41641b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Menus/640px-Opossum_1.jpg"
-dest_files=["res://.godot/imported/640px-Opossum_1.jpg-7a7f5bd3a1a4cbffcf8ce74a7e049c20.s3tc.ctex"]
+source_file="res://Menus/MainMenu/640px-Opossum_1.jpg"
+dest_files=["res://.godot/imported/640px-Opossum_1.jpg-3d7672d255c2b7aa9390e7203e41641b.s3tc.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://50rk2abdetvs"]
 
-[ext_resource type="Script" path="res://Menus/Tutorial.gd" id="1_8l405"]
+[ext_resource type="Script" path="res://Menus/Tutorial/Tutorial.gd" id="1_8l405"]
 
 [node name="Tutorial" type="Control"]
 z_index = 3
