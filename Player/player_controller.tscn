@@ -12,12 +12,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 script = ExtResource("1_2anyx")
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 23.04, 0)
-projection = 1
+[node name="HeadPivot" type="Node3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.96046e-08, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/HeadPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.990119, -0.140227, 0, 0.140227, 0.990119, 0, 0.740282, 0)
 size = 32.25
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+[node name="Mesh" type="MeshInstance3D" parent="CharacterBody3D"]
 mesh = SubResource("CapsuleMesh_x0xk6")
 skeleton = NodePath("../..")
 
