@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://Menus/MainMenu/MainMenu.gd" id="1_vk5ut"]
 [ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/MainMenu/640px-Opossum_1.jpg" id="2_r8l7y"]
-[ext_resource type="Script" path="res://Menus/StartButton/StartButton.gd" id="3_f6s35"]
+
+[sub_resource type="GDScript" id="GDScript_cxd8h"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -36,7 +37,7 @@ grow_vertical = 0
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Start"
-script = ExtResource("3_f6s35")
+script = SubResource("GDScript_cxd8h")
 
 [node name="TutorialButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2

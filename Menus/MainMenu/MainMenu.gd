@@ -1,11 +1,11 @@
 extends Control
 
 @onready var tutorialScene = load("res://Menus/Tutorial/Tutorial.tscn")
+@export var testLevel = "res://Levels/TestLevel/TestLevel.tscn"
 
 func onStartButtonPressed():
-	var startButton = get_node("VBoxContainer/StartButton")
-	print("start button pressed: first scene" + startButton.getFirstScene())
-	get_tree().change_scene_to_file(startButton.getFirstScene())
+	get_tree().change_scene_to_file(testLevel)
+	print("start button pressed: first scene" + testLevel)	
 
 func onTutorialButtonPressed():
 	var tutorialSceneInstance = tutorialScene.instantiate()

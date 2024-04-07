@@ -1,7 +1,8 @@
 extends Node3D
 
 @onready var popossum:MeshInstance3D  = get_node("Popossum")
-@onready var pauseMenu  = load("res://Menus/PauseMenu.tscn")
+@onready var pauseMenu  = load("res://Menus/PauseMenu/PauseMenu.tscn")
+@onready var endScreen = load("res://Menus/EndScreen/EndScreen.tscn")
 
 @export var speed: float = 45
 
@@ -11,4 +12,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	self._rotateBackground(delta)
+	self._handleInputs()
+
+func _rotateBackground(delta):
 	popossum.rotation_degrees.y += speed * delta
+
+func _handleInputs():
+	self._handleEndScreen()
+
+func _handleEndScreen():
+	if(Input.is_action_just_pressed("display_end_screen")):
+			var endScreenInstance = endScreen.instantiate()
+			get_tree().current_scene.add_child(endScreenInstance)
