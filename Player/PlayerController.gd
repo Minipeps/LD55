@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @onready var headPivot: Node3D = $HeadPivot
+@onready var controller: Node3D = $".."
 const SPEED = 1000.0
 const JUMP_VELOCITY = 4.5
 
@@ -12,7 +13,8 @@ func _ready():
 	
 func _input(event):
 	if (event is InputEventMouseMotion):
-		headPivot.rotate_y(event.relative.x * -0.001)
+		self.rotate_y(event.relative.x * -0.001)
+		headPivot.rotate_object_local(Vector3(1,0,0), event.relative.y * -0.001)
 	
 func _handleMovement(delta): 
 	# Add the gravity.
@@ -29,7 +31,7 @@ func _handleMovement(delta):
 	var vertical_input = Input.get_action_strength("player_move_up") - Input.get_action_strength("player_move_down")
 	var horizontal_input = Input.get_action_strength("player_move_right") - Input.get_action_strength("player_move_left")
 	var moveVector = Vector3(horizontal_input, 0, -vertical_input).normalized()
-	var direction = (headPivot.transform.basis * moveVector).normalized()
+	var direction = (self.transform.basis * moveVector).normalized()
 	if direction:
 		self.velocity.x = direction.x * SPEED * delta
 		self.velocity.z = direction.z * SPEED * delta
