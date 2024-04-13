@@ -1,13 +1,20 @@
 extends Node
 
+const InventoryItem = preload("InventoryItem.gd")
+
 var selectedItem: int = 0
 var newSelectedItem: int
 var nbTotalItems: int
 
+var inventoryPool: Array[int] = []
+var items: Array[Node] = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	nbTotalItems = $InventoryBar.get_child_count()
-	print(nbTotalItems)
+	items = $InventoryBar.get_children()
+	fillInventory([1,2,3,4,5])
+	self._onSelectedItemChanges()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,4 +44,26 @@ func _inputsHandler():
 func _onSelectedItemChanges():
 	print("Selected Item: ", selectedItem)
 	for child in nbTotalItems:
-		($InventoryBar.get_child(child).get_child(0)).visible = child == selectedItem
+		items[child].setSelectedState( child == selectedItem)
+
+func _onInventoryChanged():
+	print("Inventory: ", inventoryPool)
+	for child in nbTotalItems:
+		items[child].updateItemCount(inventoryPool[child])
+
+func fillInventory(newInventoryPool: Array[int]):
+	if (newInventoryPool.size() != nbTotalItems):
+		printerr("fillInventory() - newInventory size is not the expected size (", newInventoryPool.size(), "vs", nbTotalItems)
+		return
+	
+	inventoryPool = newInventoryPool
+	self._onInventoryChanged()
+
+func useSelectedItem() -> bool:
+	if (inventoryPool[selectedItem] <= 0):
+		printerr("No item left with id ", selectedItem)
+		return false
+
+	inventoryPool[selectedItem] -= 1
+	print("Used item ", selectedItem, ". Remaining: ", inventoryPool[selectedItem])
+	return true
