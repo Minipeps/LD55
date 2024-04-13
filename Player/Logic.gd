@@ -88,3 +88,8 @@ func _handleCursorPosition():
 	var finalVector = directionVector.normalized() * finalVectorLength
 	finalVector.z = 0
 	spherePivot.global_position = global_position + finalVector
+
+
+func _on_actual_death_area_body_entered(body):
+	if(body.name == "Logic"):
+		health = 0
