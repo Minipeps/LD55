@@ -71,6 +71,8 @@ mesh = SubResource("CapsuleMesh_ljj3r")
 
 [node name="Camera3D" type="Camera3D" parent="Logic"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 9)
+projection = 1
+size = 10.0
 
 [node name="SpherePivot" type="Node3D" parent="Logic"]
 
