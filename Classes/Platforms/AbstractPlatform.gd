@@ -12,6 +12,9 @@ var counter: float = 0
 
 var isMad: bool = false
 
+var mesh: CSGPrimitive3D = null
+
+
 # Common methods
 func activate():
 	is_active = true
