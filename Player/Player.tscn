@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://31kb25j7ypfh"]
+[gd_scene load_steps=6 format=3 uid="uid://31kb25j7ypfh"]
 
 [ext_resource type="Script" path="res://Player/Logic.gd" id="2_224jm"]
+[ext_resource type="PackedScene" uid="uid://t0ghx0kwuppd" path="res://Inventory/Inventory.tscn" id="2_umft1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xvqk6"]
 
@@ -29,3 +30,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 9)
 [node name="Sphere" type="MeshInstance3D" parent="Logic/SpherePivot"]
 mesh = SubResource("SphereMesh_utoh7")
 skeleton = NodePath("../..")
+
+[node name="Inventory" parent="." instance=ExtResource("2_umft1")]

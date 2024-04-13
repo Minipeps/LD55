@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://t0ghx0kwuppd"]
 
-[ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/640px-Opossum_1.jpg" id="1_cu6ed"]
 [ext_resource type="Script" path="res://Inventory/Inventory.gd" id="1_tqqwf"]
+[ext_resource type="PackedScene" uid="uid://cfbylu8ab134" path="res://Inventory/InventoryItem.tscn" id="2_132ey"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -26,72 +26,17 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="Item1" type="TextureRect" parent="InventoryBar"]
-custom_minimum_size = Vector2(64, 64)
+[node name="Item1" parent="InventoryBar" instance=ExtResource("2_132ey")]
 layout_mode = 2
-size_flags_horizontal = 0
-texture = ExtResource("1_cu6ed")
-expand_mode = 4
-stretch_mode = 4
 
-[node name="ReferenceRect" type="ReferenceRect" parent="InventoryBar/Item1"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-editor_only = false
-
-[node name="Item2" type="TextureRect" parent="InventoryBar"]
-custom_minimum_size = Vector2(64, 64)
+[node name="Item2" parent="InventoryBar" instance=ExtResource("2_132ey")]
 layout_mode = 2
-size_flags_horizontal = 0
-texture = ExtResource("1_cu6ed")
-expand_mode = 4
-stretch_mode = 4
 
-[node name="ReferenceRect" type="ReferenceRect" parent="InventoryBar/Item2"]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-editor_only = false
-
-[node name="Item3" type="TextureRect" parent="InventoryBar"]
-custom_minimum_size = Vector2(64, 64)
+[node name="Item3" parent="InventoryBar" instance=ExtResource("2_132ey")]
 layout_mode = 2
-size_flags_horizontal = 0
-texture = ExtResource("1_cu6ed")
-expand_mode = 4
-stretch_mode = 4
 
-[node name="ReferenceRect" type="ReferenceRect" parent="InventoryBar/Item3"]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-editor_only = false
-
-[node name="Item4" type="TextureRect" parent="InventoryBar"]
-custom_minimum_size = Vector2(64, 64)
+[node name="Item4" parent="InventoryBar" instance=ExtResource("2_132ey")]
 layout_mode = 2
-size_flags_horizontal = 0
-texture = ExtResource("1_cu6ed")
-expand_mode = 4
-stretch_mode = 4
 
-[node name="ReferenceRect" type="ReferenceRect" parent="InventoryBar/Item4"]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-editor_only = false
-
-[node name="Item5" type="TextureRect" parent="InventoryBar"]
-custom_minimum_size = Vector2(64, 64)
+[node name="Item5" parent="InventoryBar" instance=ExtResource("2_132ey")]
 layout_mode = 2
-size_flags_horizontal = 0
-texture = ExtResource("1_cu6ed")
-expand_mode = 4
-stretch_mode = 4
-
-[node name="ReferenceRect" type="ReferenceRect" parent="InventoryBar/Item5"]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-editor_only = false
