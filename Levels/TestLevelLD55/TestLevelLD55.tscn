@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dembth2h1lvkh"]
+
+[ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="1_l1db0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xmf08"]
+size = Vector3(100, 1, 1)
+
+[node name="TestLevelLd55" type="Node3D"]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+use_collision = true
+mesh = SubResource("BoxMesh_xmf08")
+
+[node name="Player" parent="." instance=ExtResource("1_l1db0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88984, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

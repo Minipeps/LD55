@@ -12,4 +12,4 @@ func _process(_delta):
 func _test():
 	if(Input.is_action_just_pressed("space")):
 		space_count += 1
-		print(space_count)
+		# print(space_count)
