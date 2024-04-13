@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://duilavst5goen"]
+
+[ext_resource type="Script" path="res://Levels/LevelManager/NextLevelPoint.gd" id="1_8rr2x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qoinr"]
+
+[node name="NextLevelPoint" type="Node3D"]
+script = ExtResource("1_8rr2x")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_qoinr")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
