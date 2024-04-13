@@ -3,12 +3,14 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-const PLATFORM_RANGE = 3
+const PLATFORM_RANGE = 5
 var dropPlane  = Plane(Vector3(0, 0, 1), Vector3.AXIS_Z)
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var camera = $Camera3D
 @onready var spherePivot = $SpherePivot
+
+signal create_platform(type: int, position: Vector3)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -43,6 +45,7 @@ func _handleSpawnSphere():
 	var finalVector = directionVector.normalized() * finalVectorLength
 	finalVector.z = 0
 	spherePivot.global_position = global_position + finalVector
+	create_platform.emit(0, spherePivot.global_position)
 	
 	
 	
