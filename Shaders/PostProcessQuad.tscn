@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dacqi65qy8880"]
+[gd_scene load_steps=6 format=3 uid="uid://dacqi65qy8880"]
 
-[ext_resource type="Shader" path="res://Shaders/PostProcesses/GaussianBlur.gdshader" id="1_utsm7"]
+[ext_resource type="Shader" path="res://Shaders/PostProcesses/shadow_hatching.gdshader" id="1_g0xun"]
 [ext_resource type="Script" path="res://Shaders/PostProcessQuad.gd" id="2_4c5vc"]
+[ext_resource type="Texture2D" uid="uid://sdtwi1p53uax" path="res://Textures/pointscomplete.png" id="2_kua2m"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_ofkmq"]
 flip_faces = true
@@ -9,8 +10,12 @@ size = Vector2(2, 2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vqqqp"]
 render_priority = 0
-shader = ExtResource("1_utsm7")
-shader_parameter/blur_strength = 3
+shader = ExtResource("1_g0xun")
+shader_parameter/uv_scaling = 2.0
+shader_parameter/u_contrast = 1.0
+shader_parameter/u_offset = 0.0
+shader_parameter/background_color = Color(1, 1, 1, 1)
+shader_parameter/HATCH_TEXTURE = ExtResource("2_kua2m")
 
 [node name="PostProcessQuad" type="Node3D"]
 
