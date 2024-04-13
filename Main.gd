@@ -16,9 +16,8 @@ func getCurrentGameMode():
 	return _CurrentGameMode
 
 func _test():
-	if(Input.is_action_just_pressed("space")):
-		space_count += 1
-		# print(space_count)
+	pass
+
 func setInLevelPlayingGameMode():
 	_CurrentGameMode = GAME_MODE.IN_LEVEL_PLAYING
 	print(GAME_MODE.keys()[_CurrentGameMode])

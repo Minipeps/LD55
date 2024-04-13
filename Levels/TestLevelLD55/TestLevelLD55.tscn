@@ -3,11 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="1_l1db0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xmf08"]
-size = Vector3(100, 1, 1)
+size = Vector3(100, 100, 1)
 
 [node name="TestLevelLd55" type="Node3D"]
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
 use_collision = true
 mesh = SubResource("BoxMesh_xmf08")
 
