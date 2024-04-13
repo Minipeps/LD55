@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/640px-Opossum_1.jpg" id="1_mr3hr"]
 [ext_resource type="Script" path="res://Levels/TestLevelLD55/TestLevelLD55.gd" id="1_vq12a"]
 [ext_resource type="PackedScene" uid="uid://cgvjvqo546f6g" path="res://Controllers/PauseController.tscn" id="2_q8jhh"]
-[ext_resource type="PackedScene" uid="uid://codfph46kk8ut" path="res://Platforms/troll_platform.tscn" id="5_4kuj5"]
+[ext_resource type="PackedScene" uid="uid://fuw44dc536s3" path="res://Classes/Platforms/ConcretePlatorms/TrampolinePlatform/TrampolinePlatform.tscn" id="5_ir0yv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h10yg"]
 albedo_texture = ExtResource("1_mr3hr")
@@ -39,5 +39,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88984, 0)
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.80371, 0)
 
-[node name="TrollPlatform" parent="." instance=ExtResource("5_4kuj5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.630144, 0)
+[node name="TrampolinePlatform" parent="." instance=ExtResource("5_ir0yv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38702, 0.555492, 0)
