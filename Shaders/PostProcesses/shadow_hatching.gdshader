@@ -28,13 +28,13 @@ void fragment() {
 	luminance = clamp(luminance, 0.0, 1.0);
 	
 	// screen_color.rgb = background_color;
-	if (luminance < 0.4) {
+	if (luminance < 0.75) {
 		screen_color = screen_color * hatch_texture_r;
 	}
-	if (luminance < 0.25) {
+	if (luminance < 0.5) {
 		screen_color = screen_color.rgb * hatch_texture_g;
 	}
-	if (luminance < 0.15) {
+	if (luminance < 0.25) {
 		screen_color = screen_color * hatch_texture_b;
 	}
 	
