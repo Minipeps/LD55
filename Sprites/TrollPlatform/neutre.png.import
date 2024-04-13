@@ -3,26 +3,25 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bahrdbnpwki62"
-path.s3tc="res://.godot/imported/neutre.png-31b7a4ea7698fa455c59c5aeb1c205cc.s3tc.ctex"
+path="res://.godot/imported/neutre.png-31b7a4ea7698fa455c59c5aeb1c205cc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Sprites/TrollPlatform/neutre.png"
-dest_files=["res://.godot/imported/neutre.png-31b7a4ea7698fa455c59c5aeb1c205cc.s3tc.ctex"]
+dest_files=["res://.godot/imported/neutre.png-31b7a4ea7698fa455c59c5aeb1c205cc.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
