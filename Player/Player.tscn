@@ -31,4 +31,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 9)
 mesh = SubResource("SphereMesh_utoh7")
 skeleton = NodePath("../..")
 
-[node name="Inventory" parent="." instance=ExtResource("2_umft1")]
+[node name="Inventory" parent="Logic" instance=ExtResource("2_umft1")]

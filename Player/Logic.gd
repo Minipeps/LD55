@@ -9,8 +9,15 @@ var dropPlane  = Plane(Vector3(0, 0, 1), Vector3.AXIS_Z)
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var camera = $Camera3D
 @onready var spherePivot = $SpherePivot
+@onready var inventory = $Inventory
 
 signal create_platform(type: int, position: Vector3)
+
+func _process(delta):
+	# Handle platform spawning action
+	if Input.is_action_just_pressed("spawn_platform"):
+		if inventory.useSelectedItem():
+			create_platform.emit(inventory.selectedItem, spherePivot.global_position)
 
 func _physics_process(delta):
 	# Add the gravity.

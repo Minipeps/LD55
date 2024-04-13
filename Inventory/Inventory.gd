@@ -9,6 +9,9 @@ var nbTotalItems: int
 var inventoryPool: Array[int] = []
 var items: Array[Node] = []
 
+signal onItemUsed(platformType: int)
+signal onItemChanged(newPlatformType: int)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	nbTotalItems = $InventoryBar.get_child_count()
@@ -45,11 +48,15 @@ func _onSelectedItemChanges():
 	print("Selected Item: ", selectedItem)
 	for child in nbTotalItems:
 		items[child].setSelectedState( child == selectedItem)
+	onItemChanged.emit(selectedItem)
 
 func _onInventoryChanged():
 	print("Inventory: ", inventoryPool)
 	for child in nbTotalItems:
-		items[child].updateItemCount(inventoryPool[child])
+		_updateInventoryItemCount(child)
+
+func _updateInventoryItemCount(itemId: int):
+	items[itemId].updateItemCount(inventoryPool[itemId])
 
 func fillInventory(newInventoryPool: Array[int]):
 	if (newInventoryPool.size() != nbTotalItems):
@@ -59,6 +66,7 @@ func fillInventory(newInventoryPool: Array[int]):
 	inventoryPool = newInventoryPool
 	self._onInventoryChanged()
 
+# returns true if the item has successfully been used
 func useSelectedItem() -> bool:
 	if (inventoryPool[selectedItem] <= 0):
 		printerr("No item left with id ", selectedItem)
@@ -66,4 +74,6 @@ func useSelectedItem() -> bool:
 
 	inventoryPool[selectedItem] -= 1
 	print("Used item ", selectedItem, ". Remaining: ", inventoryPool[selectedItem])
+	_updateInventoryItemCount(selectedItem)
+	onItemUsed.emit(selectedItem)
 	return true
