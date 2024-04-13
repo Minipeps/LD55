@@ -14,12 +14,12 @@ signal onItemChanged(newPlatformType: int)
 func _ready():
 	nbTotalItems = $InventoryBar.get_child_count()
 	items = $InventoryBar.get_children()
-	fillInventory([1,2,3,4,5])
+	fillInventory([5,5,5,5,5])
 	self._onSelectedItemChanges()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	self._inputsHandler()
 
 func _inputsHandler():
