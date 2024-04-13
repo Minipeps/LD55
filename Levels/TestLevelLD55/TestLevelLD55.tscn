@@ -1,18 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://dembth2h1lvkh"]
+[gd_scene load_steps=8 format=3 uid="uid://dembth2h1lvkh"]
 
 [ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="1_l1db0"]
+[ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/640px-Opossum_1.jpg" id="1_mr3hr"]
+[ext_resource type="PackedScene" uid="uid://cgvjvqo546f6g" path="res://Controllers/PauseController.tscn" id="2_q8jhh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h10yg"]
+albedo_texture = ExtResource("1_mr3hr")
 
 [sub_resource type="BoxMesh" id="BoxMesh_xmf08"]
 size = Vector3(100, 100, 1)
+
+[sub_resource type="ImageTexture" id="ImageTexture_6m1t1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onmnc"]
+albedo_texture = SubResource("ImageTexture_6m1t1")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv2_scale = Vector3(0.5, 0.5, 0.5)
 
 [node name="TestLevelLd55" type="Node3D"]
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
+material_override = SubResource("StandardMaterial3D_h10yg")
 use_collision = true
 mesh = SubResource("BoxMesh_xmf08")
+material = SubResource("StandardMaterial3D_onmnc")
 
 [node name="Player" parent="." instance=ExtResource("1_l1db0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88984, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="PauseController" parent="." instance=ExtResource("2_q8jhh")]
