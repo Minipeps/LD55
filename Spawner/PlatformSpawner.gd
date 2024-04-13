@@ -1,6 +1,7 @@
 extends Node3D
 
 const AbstractPlatform = preload("res://Classes/Platforms/AbstractPlatform.gd")
+const TrollPlatform = preload("res://Classes/Platforms/ConcretePlatorms/TrollPlatform/TrollPlatform.gd")
 
 @onready var playerLogic = get_node("../Player/Logic")
 
@@ -15,9 +16,10 @@ func _ready():
 	playerLogic.create_platform.connect(spawnPlatform)
 
 func spawnPlatform(platformType: int, platformPosition: Vector3):
-	print(platformType)
 	var platform = platformTypes[platformType].instantiate()
 	add_child(platform)
 	platform.transform.origin = platformPosition
-	if (platform is AbstractPlatform):
+	if (platform is TrollPlatform):
+		platform.setOrigin(platformPosition)
+	elif (platform is AbstractPlatform):
 		platform.setPlayer(playerLogic)
