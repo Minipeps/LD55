@@ -8,7 +8,6 @@ func _init():
 	speed = 0
 
 func _ready():
-	add_child(self.mesh)
 	shootTimer.timeout.connect(shoot)
  
 func getMad():
