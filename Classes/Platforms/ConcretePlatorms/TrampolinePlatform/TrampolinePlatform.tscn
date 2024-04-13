@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://fuw44dc536s3"]
+
+[ext_resource type="Script" path="res://Classes/Platforms/ConcretePlatorms/TrampolinePlatform/trampoline_platform.gd" id="1_of3ma"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_aju7d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p57v8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ne0h1"]
+
+[node name="TrampolinePlatform" type="StaticBody3D"]
+collision_layer = 4
+script = ExtResource("1_of3ma")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_aju7d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_p57v8")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_ne0h1")
