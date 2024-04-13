@@ -5,7 +5,8 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8ok60"]
 
-[node name="Bullet" type="Node3D"]
+[node name="Bullet" type="Area3D"]
+collision_layer = 8
 script = ExtResource("1_r252l")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
@@ -17,10 +18,8 @@ wait_time = 10.0
 one_shot = true
 autostart = true
 
-[node name="Area3D" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_8ok60")
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

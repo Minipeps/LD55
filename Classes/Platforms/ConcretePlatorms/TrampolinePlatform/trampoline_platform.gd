@@ -5,8 +5,11 @@ extends Node3D
 
 var bounceCount : int
 
+@onready var animatedSprite: AnimatedSprite3D = $AnimatedSprite3D
+
 func _ready():
 	bounceCount = maxBounce
+	_updateSprite(0)
 
 func _on_player_area_detector_top_body_entered(body):
 	if(bounceCount > 0):
@@ -22,3 +25,8 @@ func _on_player_area_detector_top_body_entered(body):
 		bounceCount -= 1
 	else:
 		body.health -= 1
+		print("kill player")
+	_updateSprite(maxBounce - bounceCount)
+
+func _updateSprite(index):
+	animatedSprite.frame = index
