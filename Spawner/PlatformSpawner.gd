@@ -1,5 +1,7 @@
 extends Node3D
 
+const AbstractPlatform = preload("res://Classes/Platforms/AbstractPlatform.gd")
+
 @onready var playerLogic = get_node("../Player/Logic")
 
 var blinkingPlatform = preload("res://Classes/Platforms/ConcretePlatorms/BlinkingPlatform/BlinkingPlatform.tscn")
@@ -16,4 +18,5 @@ func spawnPlatform(platformType: int, platformPosition: Vector3):
 	var platform = platformTypes[platformType].instantiate()
 	add_child(platform)
 	platform.transform.origin = platformPosition
-	platform.setPlayer(playerLogic)
+	if (platform is AbstractPlatform):
+		platform.setPlayer(playerLogic)
