@@ -3,7 +3,7 @@ extends Node3D
 # Common properties
 var is_active: bool = true
 
-var speed: float = 100
+var speed: float = 1
 
 var direction = Vector3(1, 0, 0)
 
@@ -14,17 +14,21 @@ var isMad: bool = false
 
 # Common methods
 func activate():
-    is_active = true
+	is_active = true
 
 func deactivate():
-    is_active = false
+	is_active = false
 
 func countDown(delta):
-    if(self.isMad): return # if already mad, doesn't need to countdown
-    
-    counter -= delta
-    if(counter <= 0):
-        getMad()
+	if(self.isMad): return # if already mad, doesn't need to countdown
+	
+	counter -= delta
+	if(counter <= 0):
+		getMad()
+
+func move(delta):
+	if(is_active):
+		self.pos += direction * speed * delta
 
 func getMad():
-    self.isMad = true
+	self.isMad = true
