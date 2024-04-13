@@ -34,6 +34,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88984, 0)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 
 [node name="PauseController" parent="." instance=ExtResource("2_q8jhh")]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.80371, 0)

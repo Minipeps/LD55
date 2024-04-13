@@ -8,7 +8,7 @@ var speed: float = 1
 var direction = Vector3(1, 0, 0)
 
 # time in ms before the platform gets mad
-var counter: float = 1
+var counter: float = 0
 
 var isMad: bool = false
 
