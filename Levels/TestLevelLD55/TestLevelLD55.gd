@@ -14,5 +14,5 @@ func _process(delta):
 	# Create a BasePlatform
 func _createBasePlatform(platformPosition: Vector3 = Vector3(0, 0, 0)):
 	print("Creating Base Platform")
-	var basePlatform = BasePlatform.new(platformPosition)
+	var basePlatform = BasePlatform.new(platformPosition, 2)
 	add_child(basePlatform)
