@@ -37,7 +37,8 @@ animations = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_um6wu"]
 size = Vector3(3.39832, 0.764587, 1)
 
-[node name="BlinkingPlatform" type="Node3D"]
+[node name="BlinkingPlatform" type="StaticBody3D"]
+collision_layer = 4
 script = ExtResource("1_tyrdk")
 counter = 1.0
 
@@ -47,8 +48,6 @@ animation = &"neutral"
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.998919, 0, 0, 0, 1.57454, 0, 0, 0, 3.33776, 0.00177172, -0.234232, 0)
 shape = SubResource("BoxShape3D_um6wu")
