@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfbylu8ab134"]
+[gd_scene load_steps=5 format=3 uid="uid://cfbylu8ab134"]
 
-[ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/MainMenu/640px-Opossum_1.jpg" id="1_vw8tr"]
+[ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/640px-Opossum_1.jpg" id="1_vw8tr"]
 [ext_resource type="Script" path="res://Inventory/InventoryItem.gd" id="2_qj6ea"]
 [ext_resource type="LabelSettings" uid="uid://dwa7branldni6" path="res://UI/label_settings.tres" id="3_hkqux"]
+[ext_resource type="Texture2D" uid="uid://c45812st2q0tg" path="res://UI/Inventory/Actions/Idle/halo.png" id="4_lo3me"]
 
 [node name="Item1" type="TextureRect"]
 custom_minimum_size = Vector2(64, 64)
@@ -11,12 +12,6 @@ texture = ExtResource("1_vw8tr")
 expand_mode = 4
 stretch_mode = 4
 script = ExtResource("2_qj6ea")
-
-[node name="ReferenceRect" type="ReferenceRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-editor_only = false
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -34,3 +29,13 @@ text = "000"
 label_settings = ExtResource("3_hkqux")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="halo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_lo3me")
+expand_mode = 3

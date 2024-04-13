@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://hskv4ha8wops"]
+[gd_scene load_steps=20 format=3 uid="uid://hskv4ha8wops"]
 
 [ext_resource type="Script" path="res://Levels/TestLevelLD55/TestLevelLD55.gd" id="1_6fluc"]
 [ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/640px-Opossum_1.jpg" id="2_hvwrg"]
@@ -12,6 +12,7 @@
 [ext_resource type="ArrayMesh" uid="uid://c8rp3h2gdot75" path="res://Meshes/Window1.obj" id="9_x8c5l"]
 [ext_resource type="ArrayMesh" uid="uid://dwrpm1hcvfkgr" path="res://Meshes/Ballustrade.obj" id="10_wmqcy"]
 [ext_resource type="PackedScene" uid="uid://dacqi65qy8880" path="res://Shaders/PostProcessQuad.tscn" id="11_rc40l"]
+[ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="13_s0vd5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h10yg"]
 albedo_texture = ExtResource("2_hvwrg")
@@ -330,3 +331,5 @@ skeleton = NodePath("../..")
 environment = SubResource("Environment_uc6ca")
 
 [node name="PostProcessQuad" parent="." instance=ExtResource("11_rc40l")]
+
+[node name="PlatformSpawner" parent="." instance=ExtResource("13_s0vd5")]
