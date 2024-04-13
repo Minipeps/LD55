@@ -17,5 +17,5 @@ func getMad():
 func shoot():
 	# Shoot bullet towards the player
 	var bullet = bulletPrefab.instantiate()
-	bullet.setTarget(player.transform.origin)
+	bullet.setTarget(player.global_position)
 	add_child(bullet)

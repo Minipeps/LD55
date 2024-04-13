@@ -20,5 +20,7 @@ func setTarget(target: Vector3):
 func destroy():
 	queue_free()
 
-func _on_area_3d_body_entered(body):
-	print("player collision! ", body.name)
+func _on_body_entered(body):
+	if(body.name == "Logic"):
+		print("player collision!")
+		destroy()
