@@ -1,8 +1,6 @@
 extends Node3D
 
 @onready var popossum:CSGBox3D  = get_node("Popossum")
-@onready var pauseMenu  = load("res://Menus/PauseMenu.tscn")
-@onready var popossum:MeshInstance3D  = get_node("Popossum")
 @onready var pauseMenu  = load("res://Menus/PauseMenu/PauseMenu.tscn")
 @onready var endScreen = load("res://Menus/EndScreen/EndScreen.tscn")
 
