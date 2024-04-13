@@ -5,11 +5,15 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const PLATFORM_RANGE = 5
 var dropPlane  = Plane(Vector3(0, 0, 1), Vector3.AXIS_Z)
+var previousVelocity = Vector3(0,0,0)
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var camera = $Camera3D
 @onready var spherePivot = $SpherePivot
 @onready var inventory = $Inventory
+
+@onready var visual = $Visual
 
 signal create_platform(type: int, position: Vector3)
 
@@ -20,6 +24,7 @@ func _process(delta):
 			create_platform.emit(inventory.selectedItem, spherePivot.global_position)
 
 func _physics_process(delta):
+	previousVelocity = velocity
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -34,14 +39,31 @@ func _physics_process(delta):
 	var direction = (transform.basis * Vector3(input_dir.x, 0, 0)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
 	
 	_handleCursorPosition()
+	_handleAnimation()
+	
+
+func _handleAnimation():
+	var changeDirection = (!visual.flip_h && velocity.x < 0) || (visual.flip_h && velocity.x > 0)
+	if(changeDirection):
+		visual.flip_h = !visual.flip_h
+	if(velocity.y < 0):
+		visual.play("jump_fall")
+		return
+	if(velocity.y > 0):
+		visual.play("jump_rise")
+		return
+	if(velocity.x != 0 ):
+		visual.play("walk")
+		return
+	visual.play('idle')	
+	
+	
 	
 func _handleCursorPosition():
 	var position2D = get_viewport().get_mouse_position()
