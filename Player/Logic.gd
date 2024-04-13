@@ -41,9 +41,9 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
-	_handleSpawnSphere()
+	_handleCursorPosition()
 	
-func _handleSpawnSphere():
+func _handleCursorPosition():
 	var position2D = get_viewport().get_mouse_position()
 	var position3D = dropPlane.intersects_ray(camera.project_ray_origin(position2D), camera.project_ray_normal(position2D))
 	var directionVector = position3D - global_position
@@ -52,7 +52,3 @@ func _handleSpawnSphere():
 	var finalVector = directionVector.normalized() * finalVectorLength
 	finalVector.z = 0
 	spherePivot.global_position = global_position + finalVector
-	create_platform.emit(0, spherePivot.global_position)
-	
-	
-	
