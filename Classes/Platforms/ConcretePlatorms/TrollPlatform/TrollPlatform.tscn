@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://codfph46kk8ut"]
 
-[ext_resource type="Script" path="res://Classes/Platforms/ConcretePlatorms/TrollPlatform.gd" id="1_1ol1v"]
+[ext_resource type="Script" path="res://Classes/Platforms/ConcretePlatorms/TrollPlatform/TrollPlatform.gd" id="1_1ol1v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vs5o2"]
 size = Vector3(2, 1, 1)
