@@ -1,7 +1,5 @@
 extends Node
 
-const InventoryItem = preload("InventoryItem.gd")
-
 var selectedItem: int = 0
 var newSelectedItem: int
 var nbTotalItems: int
