@@ -53,7 +53,7 @@ animations = [{
 
 [node name="Player" type="Node3D"]
 
-[node name="Logic" type="CharacterBody3D" parent="."]
+[node name="Logic" type="CharacterBody3D" parent="." groups=["Player"]]
 collision_mask = 15
 script = ExtResource("2_224jm")
 
