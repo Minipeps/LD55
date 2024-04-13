@@ -6,9 +6,6 @@ var isPlayerOnTop = false
 
 func _ready():
 	originalPosition = position
-	
-func _process(delta):
-	print(isPlayerOnTop)
 
 func snap(direction):
 	if(!isSnapped && !isPlayerOnTop):
