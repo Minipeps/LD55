@@ -34,7 +34,7 @@ func countDown(delta):
 		getMad()
 
 func move(delta):
-	if(isActive):
+	if(isActive && self.mesh):
 		self.mesh.transform.origin += self.direction * self.speed * delta
 
 func getMad():
