@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://fuw44dc536s3"]
+
+[ext_resource type="Script" path="res://Classes/Platforms/ConcretePlatorms/TrampolinePlatform/trampoline_platform.gd" id="1_of3ma"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_aju7d"]
+size = Vector3(2, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p57v8"]
+size = Vector3(2, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ne0h1"]
+size = Vector3(1.75, 0.05, 1)
+
+[node name="TrampolinePlatform" type="StaticBody3D"]
+collision_layer = 4
+script = ExtResource("1_of3ma")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_aju7d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_p57v8")
+
+[node name="PlayerAreaDetectorTop" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.498439, 0)
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerAreaDetectorTop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0230556, 0)
+shape = SubResource("BoxShape3D_ne0h1")
+
+[connection signal="body_entered" from="PlayerAreaDetectorTop" to="." method="_on_player_area_detector_top_body_entered"]
