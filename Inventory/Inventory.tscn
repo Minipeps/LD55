@@ -34,19 +34,24 @@ alignment = 1
 [node name="Item1" parent="InventoryBar" instance=ExtResource("2_132ey")]
 layout_mode = 2
 texture = ExtResource("3_k4o5e")
+keyNumber = 1
 
 [node name="Item2" parent="InventoryBar" instance=ExtResource("2_132ey")]
 layout_mode = 2
 texture = ExtResource("4_qhpfs")
+keyNumber = 2
 
 [node name="Item3" parent="InventoryBar" instance=ExtResource("2_132ey")]
 layout_mode = 2
 texture = ExtResource("5_dsuh2")
+keyNumber = 3
 
 [node name="Item4" parent="InventoryBar" instance=ExtResource("2_132ey")]
 layout_mode = 2
 texture = ExtResource("6_y3p73")
+keyNumber = 4
 
 [node name="Item5" parent="InventoryBar" instance=ExtResource("2_132ey")]
 layout_mode = 2
 texture = ExtResource("7_nncfj")
+keyNumber = 5
