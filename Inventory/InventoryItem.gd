@@ -27,4 +27,8 @@ func setSelectedState(newState: bool):
 func updateItemCount(itemCount: int):
 	count = itemCount
 	countLabel.text = "x" + str(count)
+	if (itemCount == 0):
+		self_modulate.a = 0.1
+	else:
+		self_modulate.a = 1
 
