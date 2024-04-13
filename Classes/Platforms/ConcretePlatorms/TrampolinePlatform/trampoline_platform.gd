@@ -21,4 +21,4 @@ func _on_player_area_detector_top_body_entered(body):
 		body.velocity.y = bounceAddVelocity
 		bounceCount -= 1
 	else:
-		print("kill player")
+		body.health -= 1
