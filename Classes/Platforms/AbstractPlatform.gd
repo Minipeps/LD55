@@ -13,6 +13,8 @@ var counter: float = 0
 var isMad: bool = false
 @onready  var mesh = $mesh
 
+var player: Node3D
+
 func _process(delta):
 	self.countDown(delta)
 	self.move(delta)
@@ -38,3 +40,6 @@ func move(delta):
 func getMad():
 	print("I'm mad!")
 	self.isMad = true
+
+func setPlayer(playerNode: Node3D):
+	player = playerNode

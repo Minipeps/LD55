@@ -16,3 +16,4 @@ func spawnPlatform(platformType: int, platformPosition: Vector3):
 	var platform = platformTypes[platformType].instantiate()
 	add_child(platform)
 	platform.transform.origin = platformPosition
+	platform.setPlayer(playerLogic)
