@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://codfph46kk8ut"]
+[gd_scene load_steps=6 format=3 uid="uid://codfph46kk8ut"]
 
 [ext_resource type="Script" path="res://Classes/Platforms/ConcretePlatorms/TrollPlatform.gd" id="1_1ol1v"]
 
@@ -8,6 +8,9 @@ size = Vector3(2, 1, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_adcx5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u1lqe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ebx0"]
+size = Vector3(2.5, 0.5, 1)
 
 [node name="TrollPlatform" type="StaticBody3D"]
 collision_layer = 4
@@ -34,9 +37,18 @@ collision_layer = 8
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerAreaDetectorLeft"]
 shape = SubResource("BoxShape3D_u1lqe")
 
+[node name="PlayerAreaDetectorTop" type="Area3D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerAreaDetectorTop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.749961, 0)
+shape = SubResource("BoxShape3D_1ebx0")
+
 [node name="SnapDuration" type="Timer" parent="."]
 one_shot = true
 
 [connection signal="body_entered" from="PlayerAreaDetectorRight" to="." method="_on_player_area_detector_right_body_entered"]
 [connection signal="body_entered" from="PlayerAreaDetectorLeft" to="." method="_on_player_area_detector_left_body_entered"]
+[connection signal="body_entered" from="PlayerAreaDetectorTop" to="." method="_on_player_area_detector_top_body_entered"]
+[connection signal="body_exited" from="PlayerAreaDetectorTop" to="." method="_on_player_area_detector_top_body_exited"]
 [connection signal="timeout" from="SnapDuration" to="." method="_on_snap_duration_timeout"]
