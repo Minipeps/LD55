@@ -14,13 +14,15 @@ func setOrigin(origin: Vector3):
 
 func _ready():
 	movingTimer.wait_time = movingDistance / speed
+	counter = 5 * movingDistance / speed
 
-func _process(_delta):
+func _process(delta):
+	super._process(delta)
 	if isMad: return
 	var t = movingTimer.time_left / movingTimer.wait_time
 	var moveFactor = cos(2 * PI * t) * movingDistance
 	position = originalPosition + direction * moveFactor
-	animatedSprite.frame = 2 if t > 0.5 else 1
+	animatedSprite.frame = t > 0.5
 
 func getMad():
 	super.getMad()
@@ -29,7 +31,7 @@ func getMad():
 
 func snap(snapDirection):
 	if(!isSnapped && !isPlayerOnTop):
-		position = originalPosition + snapDirection
+		position = originalPosition + snapDirection * movingDistance
 		isSnapped = true
 		$SnapDuration.start()
 
@@ -45,13 +47,13 @@ func _on_player_area_detector_right_body_entered(body):
 	if body.name != "Logic": return
 	if !isMad: return
 	snap(Vector3(-1,0,0))
-	animatedSprite.frame = 2
+	animatedSprite.frame = 1
 
 func _on_player_area_detector_left_body_entered(body):
 	if body.name != "Logic": return
 	if !isMad: return
 	snap(Vector3(1,0,0))
-	animatedSprite.frame = 1
+	animatedSprite.frame = 0
 
 func _on_player_area_detector_top_body_entered(body):
 	if body.name != "Logic": return
