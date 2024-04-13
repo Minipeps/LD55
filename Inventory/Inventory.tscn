@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://t0ghx0kwuppd"]
+[gd_scene load_steps=8 format=3 uid="uid://t0ghx0kwuppd"]
 
 [ext_resource type="Script" path="res://Inventory/Inventory.gd" id="1_tqqwf"]
 [ext_resource type="PackedScene" uid="uid://cfbylu8ab134" path="res://Inventory/InventoryItem.tscn" id="2_132ey"]
+[ext_resource type="Texture2D" uid="uid://cnqeh4ex8hx18" path="res://UI/Inventory/Actions/Idle/bloc-transparent.png" id="3_k4o5e"]
+[ext_resource type="Texture2D" uid="uid://t80qmc5puvo8" path="res://UI/Inventory/Actions/Idle/bloc-movement.png" id="4_qhpfs"]
+[ext_resource type="Texture2D" uid="uid://pusynmek66is" path="res://UI/Inventory/Actions/Idle/bloc-fire.png" id="5_dsuh2"]
+[ext_resource type="Texture2D" uid="uid://dbave40045lvm" path="res://UI/Inventory/Actions/Idle/bloc-venom.png" id="6_y3p73"]
+[ext_resource type="Texture2D" uid="uid://4k7if5i77xc1" path="res://UI/Inventory/Actions/Idle/bloc-trampoline.png" id="7_nncfj"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -28,15 +33,20 @@ alignment = 1
 
 [node name="Item1" parent="InventoryBar" instance=ExtResource("2_132ey")]
 layout_mode = 2
+texture = ExtResource("3_k4o5e")
 
 [node name="Item2" parent="InventoryBar" instance=ExtResource("2_132ey")]
 layout_mode = 2
+texture = ExtResource("4_qhpfs")
 
 [node name="Item3" parent="InventoryBar" instance=ExtResource("2_132ey")]
 layout_mode = 2
+texture = ExtResource("5_dsuh2")
 
 [node name="Item4" parent="InventoryBar" instance=ExtResource("2_132ey")]
 layout_mode = 2
+texture = ExtResource("6_y3p73")
 
 [node name="Item5" parent="InventoryBar" instance=ExtResource("2_132ey")]
 layout_mode = 2
+texture = ExtResource("7_nncfj")

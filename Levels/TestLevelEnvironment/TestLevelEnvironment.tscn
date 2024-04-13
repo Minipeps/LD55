@@ -1,0 +1,335 @@
+[gd_scene load_steps=20 format=3 uid="uid://hskv4ha8wops"]
+
+[ext_resource type="Script" path="res://Levels/TestLevelLD55/TestLevelLD55.gd" id="1_6fluc"]
+[ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/640px-Opossum_1.jpg" id="2_hvwrg"]
+[ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="3_jlx8v"]
+[ext_resource type="PackedScene" uid="uid://cgvjvqo546f6g" path="res://Controllers/PauseController.tscn" id="4_7e2ur"]
+[ext_resource type="ArrayMesh" uid="uid://bpf684q2u20n" path="res://Meshes/Chandelier.obj" id="5_5vwlv"]
+[ext_resource type="ArrayMesh" uid="uid://pwj1xq1sw34l" path="res://Meshes/Bench.obj" id="5_okw1v"]
+[ext_resource type="ArrayMesh" uid="uid://dwustk5jqrhj1" path="res://Meshes/Column.obj" id="6_ewbho"]
+[ext_resource type="ArrayMesh" uid="uid://bvnfseyhw3a2o" path="res://Meshes/Door.obj" id="7_g8wv2"]
+[ext_resource type="ArrayMesh" uid="uid://d20sckuoftp2j" path="res://Meshes/Window2.obj" id="8_7bsrr"]
+[ext_resource type="ArrayMesh" uid="uid://c8rp3h2gdot75" path="res://Meshes/Window1.obj" id="9_x8c5l"]
+[ext_resource type="ArrayMesh" uid="uid://dwrpm1hcvfkgr" path="res://Meshes/Ballustrade.obj" id="10_wmqcy"]
+[ext_resource type="PackedScene" uid="uid://dacqi65qy8880" path="res://Shaders/PostProcessQuad.tscn" id="11_rc40l"]
+[ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="13_s0vd5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h10yg"]
+albedo_texture = ExtResource("2_hvwrg")
+
+[sub_resource type="BoxMesh" id="BoxMesh_xmf08"]
+size = Vector3(100, 100, 1)
+
+[sub_resource type="ImageTexture" id="ImageTexture_6m1t1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onmnc"]
+albedo_texture = SubResource("ImageTexture_6m1t1")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv2_scale = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g2wf3"]
+
+[sub_resource type="Environment" id="Environment_uc6ca"]
+ambient_light_source = 2
+ambient_light_color = Color(0.207843, 0.321569, 0.478431, 1)
+volumetric_fog_enabled = true
+volumetric_fog_detail_spread = 6.0
+volumetric_fog_ambient_inject = 0.57
+
+[node name="TestLevelLd55" type="Node3D"]
+script = ExtResource("1_6fluc")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
+material_override = SubResource("StandardMaterial3D_h10yg")
+use_collision = true
+mesh = SubResource("BoxMesh_xmf08")
+material = SubResource("StandardMaterial3D_onmnc")
+
+[node name="Player" parent="." instance=ExtResource("3_jlx8v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88984, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.992037, 0.125852, -0.00483841, 0.121062, 0.963471, 0.238887, 0.034726, 0.236399, -0.971035, 0, 0, 0)
+light_color = Color(0.819608, 0.32549, 0.572549, 1)
+light_volumetric_fog_energy = 3.264
+shadow_enabled = true
+
+[node name="PauseController" parent="." instance=ExtResource("4_7e2ur")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.80371, 0)
+
+[node name="EnvTest" type="Node" parent="."]
+
+[node name="Chandelier" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9831, 7.3837, 5.72214)
+mesh = ExtResource("5_5vwlv")
+skeleton = NodePath("../..")
+
+[node name="Chandelier2" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6374, 7.3837, 5.72214)
+mesh = ExtResource("5_5vwlv")
+skeleton = NodePath("../..")
+
+[node name="Chandelier3" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6241, 7.3837, 5.72214)
+mesh = ExtResource("5_5vwlv")
+skeleton = NodePath("../..")
+
+[node name="Bench" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.0252871, 0, -0.99968, 0, 1, 0, 0.99968, 0, 0.0252871, -6.62182, -0.000442505, 5.56823)
+mesh = ExtResource("5_okw1v")
+skeleton = NodePath("../..")
+
+[node name="Bench6" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.20785, 0, -80.6394, 0, -4.41722, 0, -47.7501, 0, 2.03979, 0, -2.21408, 0)
+mesh = SubResource("BoxMesh_g2wf3")
+skeleton = NodePath("../..")
+
+[node name="Bench7" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-0.158753, 0, -83.3225, 0, -0.212321, 0, -6.27602, 0, 2.10766, 0.311303, 8.38064, -5.21153)
+mesh = SubResource("BoxMesh_g2wf3")
+skeleton = NodePath("../..")
+
+[node name="Bench2" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.0252871, 0, -0.99968, 0, 1, 0, 0.99968, 0, 0.0252871, -3.93709, -0.000442505, 5.56823)
+mesh = ExtResource("5_okw1v")
+skeleton = NodePath("../..")
+
+[node name="Bench3" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.0252871, 0, -0.99968, 0, 1, 0, 0.99968, 0, 0.0252871, -0.899187, -0.000442505, 5.56823)
+mesh = ExtResource("5_okw1v")
+skeleton = NodePath("../..")
+
+[node name="Bench4" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.0252871, 0, -0.99968, 0, 1, 0, 0.99968, 0, 0.0252871, 2.9232, -0.000442505, 5.56823)
+mesh = ExtResource("5_okw1v")
+skeleton = NodePath("../..")
+
+[node name="Bench5" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.0252871, 0, -0.99968, 0, 1, 0, 0.99968, 0, 0.0252871, 6.48289, -0.000442505, 5.56823)
+mesh = ExtResource("5_okw1v")
+skeleton = NodePath("../..")
+
+[node name="Column" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, -12.0407, 0, -1.99779)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Column2" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 1.65062, 0, -1.99779)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Column3" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 14.7898, 0, -1.99779)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Column4" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 27.6743, 0, -1.99779)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Column5" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, -24.4828, 0, -1.99779)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Window1" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, -27.936, 0, -7.23745)
+mesh = ExtResource("7_g8wv2")
+skeleton = NodePath("../..")
+
+[node name="Window2" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, -19.084, 0, -7.23745)
+mesh = ExtResource("8_7bsrr")
+skeleton = NodePath("../..")
+
+[node name="Window7" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, -5.80602, 0, -7.23745)
+mesh = ExtResource("8_7bsrr")
+skeleton = NodePath("../..")
+
+[node name="Window3" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, -12.3793, 0, -7.2378)
+mesh = ExtResource("9_x8c5l")
+skeleton = NodePath("../..")
+
+[node name="Window4" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, -14.658, 0, -7.23745)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Window6" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, -10.232, 0, -7.23745)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Window5" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, -23.51, 0, -7.23745)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Window8" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, -1.38003, 0, -7.23745)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Window9" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 3.04596, 0, -7.23745)
+mesh = ExtResource("7_g8wv2")
+skeleton = NodePath("../..")
+
+[node name="Window10" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 11.8979, 0, -7.23745)
+mesh = ExtResource("8_7bsrr")
+skeleton = NodePath("../..")
+
+[node name="Window11" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 25.1759, 0, -7.23745)
+mesh = ExtResource("8_7bsrr")
+skeleton = NodePath("../..")
+
+[node name="Window12" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 18.6026, 0, -7.2378)
+mesh = ExtResource("9_x8c5l")
+skeleton = NodePath("../..")
+
+[node name="Window13" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 16.3239, 0, -7.23745)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Window14" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 20.7499, 0, -7.23745)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Window15" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 7.47195, 0, -7.23745)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Window16" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 29.6019, 0, -7.23745)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Window17" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, -20.8759, 8.60309, -7.23745)
+mesh = ExtResource("7_g8wv2")
+skeleton = NodePath("../..")
+
+[node name="Window18" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, -12.024, 8.60309, -7.23745)
+mesh = ExtResource("8_7bsrr")
+skeleton = NodePath("../..")
+
+[node name="Window19" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 1.25401, 8.60309, -7.23745)
+mesh = ExtResource("8_7bsrr")
+skeleton = NodePath("../..")
+
+[node name="Window20" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, -5.31926, 8.60309, -7.2378)
+mesh = ExtResource("9_x8c5l")
+skeleton = NodePath("../..")
+
+[node name="Window21" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, -7.59797, 8.60309, -7.23745)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Window22" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, -3.17198, 8.60309, -7.23745)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Window23" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, -16.45, 8.60309, -7.23745)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Window24" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 5.68, 8.60309, -7.23745)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Window25" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 10.106, 8.60309, -7.23745)
+mesh = ExtResource("7_g8wv2")
+skeleton = NodePath("../..")
+
+[node name="Window26" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 18.958, 8.60309, -7.23745)
+mesh = ExtResource("8_7bsrr")
+skeleton = NodePath("../..")
+
+[node name="Window27" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 32.2359, 8.60309, -7.23745)
+mesh = ExtResource("8_7bsrr")
+skeleton = NodePath("../..")
+
+[node name="Window28" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 25.6627, 8.60309, -7.2378)
+mesh = ExtResource("9_x8c5l")
+skeleton = NodePath("../..")
+
+[node name="Window29" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 23.3839, 8.60309, -7.23745)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Window30" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 27.8099, 8.60309, -7.23745)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Window31" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 14.532, 8.60309, -7.23745)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Window32" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.47533, 0, 0, 0, 1.38948, 0, 0, 0, 1, 36.6619, 8.60309, -7.23745)
+mesh = ExtResource("6_ewbho")
+skeleton = NodePath("../..")
+
+[node name="Ballustrade" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.999811, 0, 0.0194592, -0.000678777, 0.999391, 0.0348754, -0.0194474, -0.0348821, 0.999202, -13.5416, 8.38365, -1.76555)
+mesh = ExtResource("10_wmqcy")
+skeleton = NodePath("../..")
+
+[node name="Ballustrade2" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.999811, 0, 0.0194592, -0.000678777, 0.999391, 0.0348754, -0.0194474, -0.0348821, 0.999202, -7.5427, 8.37957, -1.88223)
+mesh = ExtResource("10_wmqcy")
+skeleton = NodePath("../..")
+
+[node name="Ballustrade3" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.999811, 0, 0.0194592, -0.000678777, 0.999391, 0.0348754, -0.0194474, -0.0348821, 0.999202, -1.54384, 8.3755, -1.99892)
+mesh = ExtResource("10_wmqcy")
+skeleton = NodePath("../..")
+
+[node name="Ballustrade4" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.999811, 0, 0.0194592, -0.000678777, 0.999391, 0.0348754, -0.0194474, -0.0348821, 0.999202, 4.45502, 8.37143, -2.1156)
+mesh = ExtResource("10_wmqcy")
+skeleton = NodePath("../..")
+
+[node name="Ballustrade5" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1, 0, 0, 0, 0.997863, 0.0653335, 0, -0.0653335, 0.997863, 10.4466, 8.36652, -2.05441)
+mesh = ExtResource("10_wmqcy")
+skeleton = NodePath("../..")
+
+[node name="Ballustrade6" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4466, 8.36652, -1.59709)
+mesh = ExtResource("10_wmqcy")
+skeleton = NodePath("../..")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uc6ca")
+
+[node name="PostProcessQuad" parent="." instance=ExtResource("11_rc40l")]
+
+[node name="PlatformSpawner" parent="." instance=ExtResource("13_s0vd5")]

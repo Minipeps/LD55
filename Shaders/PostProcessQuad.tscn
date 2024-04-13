@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dacqi65qy8880"]
 
-[ext_resource type="Shader" path="res://Shaders/PostProcesses/GaussianBlur.gdshader" id="1_utsm7"]
+[ext_resource type="Shader" path="res://Shaders/PostProcesses/NormalEdgeDetection.gdshader" id="1_d73dd"]
 [ext_resource type="Script" path="res://Shaders/PostProcessQuad.gd" id="2_4c5vc"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_ofkmq"]
@@ -9,8 +9,10 @@ size = Vector2(2, 2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vqqqp"]
 render_priority = 0
-shader = ExtResource("1_utsm7")
-shader_parameter/blur_strength = 3
+shader = ExtResource("1_d73dd")
+shader_parameter/edge_threshold = 0.3
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/background_color = Color(1, 1, 1, 1)
 
 [node name="PostProcessQuad" type="Node3D"]
 

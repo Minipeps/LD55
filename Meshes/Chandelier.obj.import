@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bpf684q2u20n"
+path="res://.godot/imported/Chandelier.obj-0b0db212713aaa12e44e3a77c5fea25b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Chandelier.obj-0b0db212713aaa12e44e3a77c5fea25b.mesh"]
+
+source_file="res://Meshes/Chandelier.obj"
+dest_files=["res://.godot/imported/Chandelier.obj-0b0db212713aaa12e44e3a77c5fea25b.mesh", "res://.godot/imported/Chandelier.obj-0b0db212713aaa12e44e3a77c5fea25b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
