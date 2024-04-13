@@ -11,15 +11,13 @@ var direction = Vector3(1, 0, 0)
 var counter: float = 0
 
 var isMad: bool = false
-
-var mesh: CSGPrimitive3D = null
+@onready  var mesh = $mesh
 
 func _process(delta):
 	self.countDown(delta)
 	self.move(delta)
 
 
-# Common methods
 func activate():
 	isActive = true
 
@@ -27,7 +25,7 @@ func deactivate():
 	isActive = false
 
 func countDown(delta):
-	if(self.isMad): return # if already mad, doesn't need to countdown
+	if(self.isMad): return
 	
 	counter -= delta
 	if(counter <= 0):

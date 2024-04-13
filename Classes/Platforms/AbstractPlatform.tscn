@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpu5fd4j8fnuc"]
+
+[ext_resource type="Script" path="res://Classes/Platforms/AbstractPlatform.gd" id="1_71npb"]
+
+[node name="AbstractPlatform" type="Node3D"]
+script = ExtResource("1_71npb")
+
+[node name="mesh" type="CSGMesh3D" parent="."]

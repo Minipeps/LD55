@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5ixssgmsugdt"]
+
+[ext_resource type="Script" path="res://Classes/Platforms/ConcretePlatorms/BlinkingPlatform/BlinkingPlatform.gd" id="1_tyrdk"]
+
+[node name="BlinkingPlatform" type="Node3D"]
+script = ExtResource("1_tyrdk")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

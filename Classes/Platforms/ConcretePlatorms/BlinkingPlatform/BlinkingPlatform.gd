@@ -1,4 +1,4 @@
-extends "../AbstractPlatform.gd"
+extends "res://Classes/Platforms/AbstractPlatform.gd"
 
 class_name BlinkingPlatform
 
@@ -10,6 +10,7 @@ func _init(input_position = Vector3(), counter = 0):
 	position = input_position
 	self.counter = counter
 	self.remainingBlinkingTime = blinkingFrq
+
 
 func _ready():
 	self.mesh = CSGBox3D.new()
@@ -31,3 +32,7 @@ func _togglePlatform(isActive: bool):
 	self.isActive = isActive
 	self.mesh.visible = isActive
 	self.mesh.use_collision = isActive
+
+
+func _on_area_3d_body_entered(body):
+	pass # Replace with function body.
