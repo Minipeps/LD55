@@ -3,7 +3,7 @@ extends Node3D
 # Common properties
 var isActive: bool = true
 
-var speed: float = 1
+@export var speed: float = 1
 
 var direction = Vector3(1, 0, 0)
 

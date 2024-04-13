@@ -1,37 +1,71 @@
-[gd_scene load_steps=6 format=3 uid="uid://codfph46kk8ut"]
+[gd_scene load_steps=11 format=3 uid="uid://codfph46kk8ut"]
 
 [ext_resource type="Script" path="res://Classes/Platforms/ConcretePlatorms/TrollPlatform/TrollPlatform.gd" id="1_1ol1v"]
+[ext_resource type="Texture2D" uid="uid://bahrdbnpwki62" path="res://Sprites/TrollPlatform/neutre.png" id="2_ctanr"]
+[ext_resource type="Texture2D" uid="uid://x7d5otmakq5h" path="res://Sprites/TrollPlatform/regard-droite.png" id="3_chfud"]
+[ext_resource type="Texture2D" uid="uid://cvc3becn1qi5f" path="res://Sprites/TrollPlatform/regard-gauche.png" id="4_uc4xh"]
+[ext_resource type="Texture2D" uid="uid://f1cbln65jhaw" path="res://Sprites/TrollPlatform/rigole-2.png" id="5_u3dyh"]
+[ext_resource type="Texture2D" uid="uid://i1dg5dm4ritk" path="res://Sprites/TrollPlatform/rigole-1.png" id="6_1i5bq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vs5o2"]
-size = Vector3(2, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_adcx5"]
+size = Vector3(2.02734, 1.20679, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u1lqe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ebx0"]
 size = Vector3(2.5, 0.5, 1)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_a7322"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ctanr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_chfud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uc4xh")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ctanr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u3dyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1i5bq")
+}],
+"loop": true,
+"name": &"snapping",
+"speed": 5.0
+}]
+
 [node name="TrollPlatform" type="StaticBody3D"]
 collision_layer = 4
 script = ExtResource("1_1ol1v")
+movingDistance = 3
+speed = 0.5
+counter = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(3.2, 0, 0, 0, 1, 0, 0, 0, 4, 0.04375, 0.172485, 0)
 shape = SubResource("BoxShape3D_vs5o2")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_adcx5")
-
 [node name="PlayerAreaDetectorRight" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.847, 1.053, 0)
 collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerAreaDetectorRight"]
 shape = SubResource("BoxShape3D_u1lqe")
 
 [node name="PlayerAreaDetectorLeft" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.975, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.048, 1.067, 0)
 collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerAreaDetectorLeft"]
@@ -41,14 +75,24 @@ shape = SubResource("BoxShape3D_u1lqe")
 collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerAreaDetectorTop"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.749961, 0)
+transform = Transform3D(2.57191, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.749961, 0)
 shape = SubResource("BoxShape3D_1ebx0")
 
 [node name="SnapDuration" type="Timer" parent="."]
 one_shot = true
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+offset = Vector2(0, 37.095)
+sprite_frames = SubResource("SpriteFrames_a7322")
+animation = &"moving"
+
+[node name="MovingTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
 
 [connection signal="body_entered" from="PlayerAreaDetectorRight" to="." method="_on_player_area_detector_right_body_entered"]
 [connection signal="body_entered" from="PlayerAreaDetectorLeft" to="." method="_on_player_area_detector_left_body_entered"]
 [connection signal="body_entered" from="PlayerAreaDetectorTop" to="." method="_on_player_area_detector_top_body_entered"]
 [connection signal="body_exited" from="PlayerAreaDetectorTop" to="." method="_on_player_area_detector_top_body_exited"]
 [connection signal="timeout" from="SnapDuration" to="." method="_on_snap_duration_timeout"]
+[connection signal="timeout" from="MovingTimer" to="." method="_on_moving_timer_timeout"]
