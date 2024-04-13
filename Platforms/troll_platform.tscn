@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://codfph46kk8ut"]
+
+[ext_resource type="Script" path="res://Classes/Platforms/ConcretePlatorms/TrollPlatform.gd" id="1_1ol1v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vs5o2"]
+size = Vector3(2, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_adcx5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u1lqe"]
+
+[node name="TrollPlatform" type="StaticBody3D"]
+collision_layer = 4
+script = ExtResource("1_1ol1v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_vs5o2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_adcx5")
+
+[node name="PlayerAreaDetectorRight" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925, 1, 0)
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerAreaDetectorRight"]
+shape = SubResource("BoxShape3D_u1lqe")
+
+[node name="PlayerAreaDetectorLeft" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.975, 1, 0)
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerAreaDetectorLeft"]
+shape = SubResource("BoxShape3D_u1lqe")
+
+[node name="SnapDuration" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="PlayerAreaDetectorRight" to="." method="_on_player_area_detector_right_body_entered"]
+[connection signal="body_entered" from="PlayerAreaDetectorLeft" to="." method="_on_player_area_detector_left_body_entered"]
+[connection signal="timeout" from="SnapDuration" to="." method="_on_snap_duration_timeout"]
