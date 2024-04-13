@@ -3,7 +3,7 @@ extends Node3D
 @onready var playerLogic = get_node("../Player/Logic")
 
 var blinkingPlatform = preload("res://Classes/Platforms/ConcretePlatorms/BlinkingPlatform/BlinkingPlatform.tscn")
-var trollPlatform = preload("res://Classes/Platforms/ConcretePlatorms/TrollPlatform/troll_platform.tscn")
+var trollPlatform = preload("res://Classes/Platforms/ConcretePlatorms/TrollPlatform/TrollPlatform.tscn")
 var shootingPlatform = preload("res://Classes/Platforms/ConcretePlatorms/ShootingPlatform/ShootingPlatform.tscn")
 
 var platformTypes = [blinkingPlatform, trollPlatform, shootingPlatform]
