@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://npiw5x7k444u"]
+[gd_scene load_steps=6 format=3 uid="uid://bme3xpw8xhe17"]
 
 [ext_resource type="Script" path="res://Classes/Platforms/ConcretePlatorms/ShootingPlatform.gd" id="1_h6cgo"]
 
