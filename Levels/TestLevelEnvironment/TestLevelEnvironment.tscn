@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://hskv4ha8wops"]
+[gd_scene load_steps=19 format=3 uid="uid://hskv4ha8wops"]
 
 [ext_resource type="Script" path="res://Levels/TestLevelLD55/TestLevelLD55.gd" id="1_6fluc"]
 [ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/640px-Opossum_1.jpg" id="2_hvwrg"]
 [ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="3_jlx8v"]
 [ext_resource type="PackedScene" uid="uid://cgvjvqo546f6g" path="res://Controllers/PauseController.tscn" id="4_7e2ur"]
+[ext_resource type="ArrayMesh" uid="uid://bpf684q2u20n" path="res://Meshes/Chandelier.obj" id="5_5vwlv"]
 [ext_resource type="ArrayMesh" uid="uid://pwj1xq1sw34l" path="res://Meshes/Bench.obj" id="5_okw1v"]
 [ext_resource type="ArrayMesh" uid="uid://dwustk5jqrhj1" path="res://Meshes/Column.obj" id="6_ewbho"]
 [ext_resource type="ArrayMesh" uid="uid://bvnfseyhw3a2o" path="res://Meshes/Door.obj" id="7_g8wv2"]
@@ -48,7 +49,7 @@ material = SubResource("StandardMaterial3D_onmnc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88984, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.992037, 0.125852, -0.00483839, 0.118509, 0.945785, 0.3024, 0.0426336, 0.299419, -0.953169, 0, 0, 0)
+transform = Transform3D(-0.992037, 0.125852, -0.00483841, 0.121062, 0.963471, 0.238887, 0.034726, 0.236399, -0.971035, 0, 0, 0)
 light_color = Color(0.819608, 0.32549, 0.572549, 1)
 light_volumetric_fog_energy = 3.264
 shadow_enabled = true
@@ -59,6 +60,21 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.80371, 0)
 
 [node name="EnvTest" type="Node" parent="."]
+
+[node name="Chandelier" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9831, 7.3837, 5.72214)
+mesh = ExtResource("5_5vwlv")
+skeleton = NodePath("../..")
+
+[node name="Chandelier2" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6374, 7.3837, 5.72214)
+mesh = ExtResource("5_5vwlv")
+skeleton = NodePath("../..")
+
+[node name="Chandelier3" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6241, 7.3837, 5.72214)
+mesh = ExtResource("5_5vwlv")
+skeleton = NodePath("../..")
 
 [node name="Bench" type="MeshInstance3D" parent="EnvTest"]
 transform = Transform3D(0.0252871, 0, -0.99968, 0, 1, 0, 0.99968, 0, 0.0252871, -6.62182, -0.000442505, 5.56823)
