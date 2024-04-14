@@ -4,7 +4,7 @@ class_name BlinkingPlatform
 
 @onready var timer: Timer = $Timer
 
-@export var blinkingFrq: float = 0.5
+@export var blinkingFrq: float = 1.1
 var remainingBlinkingTime: float
 
 @onready var animatedSprite: Node = $AnimatedSprite3D

@@ -39,7 +39,6 @@ size = Vector3(3.39832, 0.764587, 1)
 
 [node name="BlinkingPlatform" type="Node3D"]
 script = ExtResource("1_tyrdk")
-blinkingFrq = 1.0
 counter = 1.0
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
