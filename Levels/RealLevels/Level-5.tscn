@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://l5dox3afy44i"]
+[gd_scene load_steps=11 format=3 uid="uid://dqp60hvuvqhdt"]
 
 [ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/640px-Opossum_1.jpg" id="1_ap7wi"]
 [ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="2_rjywd"]
