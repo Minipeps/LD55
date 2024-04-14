@@ -8,6 +8,7 @@ var isPlayerOnTop = false
 
 @onready var animatedSprite: AnimatedSprite3D = $AnimatedSprite3D
 @onready var movingTimer: Timer = $MovingTimer
+@onready var sounds = $AudioStreamPlayer3D
 
 func setOrigin(origin: Vector3):
 	originalPosition = origin
@@ -35,6 +36,7 @@ func getMad():
 
 func snap(snapDirection):
 	if(!isSnapped && !isPlayerOnTop):
+		sounds.play()
 		position = originalPosition + snapDirection * movingDistance
 		isSnapped = true
 		$SnapDuration.start()
