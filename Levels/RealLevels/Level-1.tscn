@@ -100,6 +100,9 @@ volumetric_fog_detail_spread = 6.0
 [node name="Player" parent="." instance=ExtResource("2_82d0c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0903, 3.79143, 0)
 
+[node name="Inventory" parent="Player/Logic" index="6"]
+inventoryStartAmount = Array[int]([2, 1, 0, 0, 0])
+
 [node name="PlatformSpawner" parent="." instance=ExtResource("3_gtln3")]
 
 [node name="Platforms" type="Node3D" parent="."]
@@ -4046,3 +4049,7 @@ environment = SubResource("Environment_lda6s")
 
 [node name="PostProcessQuad" parent="." instance=ExtResource("17_d57aa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.25, 0)
+
+[editable path="Player"]
+[editable path="Player/Sounds/SonsMorts"]
+[editable path="Player/Sounds/SonsSaut"]
