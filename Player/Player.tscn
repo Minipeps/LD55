@@ -96,10 +96,14 @@ texture = ExtResource("8_itjpk")
 [node name="Inventory" parent="Logic" instance=ExtResource("2_umft1")]
 
 [node name="ResetTexture" type="TextureRect" parent="Logic"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
 offset_left = 37.0
-offset_top = 576.765
+offset_top = -71.235
 offset_right = 165.0
-offset_bottom = 634.765
+offset_bottom = -13.235
+grow_vertical = 0
 texture = ExtResource("9_r4baw")
 expand_mode = 2
 stretch_mode = 4
