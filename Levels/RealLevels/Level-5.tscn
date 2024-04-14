@@ -91,7 +91,7 @@ volumetric_fog_detail_spread = 6.0
 [node name="Level-0" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("2_rjywd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98523, 42.7268, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.201171, 4.35422, -0.0288715)
 
 [node name="Camera3D" parent="Player/Logic" index="3"]
 current = true
