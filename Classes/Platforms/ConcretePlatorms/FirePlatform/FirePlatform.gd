@@ -11,6 +11,7 @@ var timersMem: Array = [2, 2, 0.5] #memorize original times to reset 'timers' ar
 var timerIndex = 0
 
 var isLethal: bool = false
+var playerOnPlatform: bool = false
 
 @onready var animatedSprite: Node = $AnimatedSprite3D
 @onready var staticBody: StaticBody3D = $StaticBody3D
@@ -29,6 +30,8 @@ func _process(delta):
 		timerIndex+=1
 		if(timerIndex >= timers.size()):
 			timerIndex = 1
+	if (playerOnPlatform && isLethal):
+		player.health -= 1
 		
 func _definePlatformState(timerIndex):
 	if(timerIndex == 0):
@@ -42,7 +45,9 @@ func _definePlatformState(timerIndex):
 
 
 func _on_area_3d_body_entered(body):
-	print(isLethal)
-	if(body.name == "Logic" && isLethal):
-		body.health -= 1
-		print("kill player")
+	if(body.name == "Logic"):
+		playerOnPlatform = true
+
+func _on_area_3d_body_exited(body):
+	if(body.name == "Logic"):
+		playerOnPlatform = false
