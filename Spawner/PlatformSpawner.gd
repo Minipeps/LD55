@@ -11,7 +11,7 @@ var shootingPlatform = preload("res://Classes/Platforms/ConcretePlatorms/Shootin
 var trampolinePlatform = preload("res://Classes/Platforms/ConcretePlatorms/TrampolinePlatform/TrampolinePlatform.tscn")
 var firePlatform = preload("res://Classes/Platforms/ConcretePlatorms/FirePlatform/FirePlatform.tscn")
 
-var platformTypes = [blinkingPlatform, trollPlatform, shootingPlatform, trampolinePlatform, firePlatform]
+var platformTypes = [blinkingPlatform, trollPlatform, firePlatform, shootingPlatform, trampolinePlatform ]
 
 func _ready():
 	playerLogic.create_platform.connect(spawnPlatform)
