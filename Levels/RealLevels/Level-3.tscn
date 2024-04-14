@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="2_o3qyi"]
 [ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="3_dw14o"]
 [ext_resource type="PackedScene" uid="uid://duilavst5goen" path="res://Levels/LevelManager/NextLevelPoint.tscn" id="4_0n0bk"]
+[ext_resource type="Texture2D" path="res://Sprites/Map/level4.png" id="5_8myjv"]
 [ext_resource type="Material" uid="uid://bulmujgbjqrls" path="res://Materials/TriplanarHatchedMat.tres" id="4_xf4rq"]
 [ext_resource type="ArrayMesh" uid="uid://bpf684q2u20n" path="res://Meshes/Chandelier.obj" id="5_yty2i"]
 [ext_resource type="ArrayMesh" uid="uid://bvnfseyhw3a2o" path="res://Meshes/Door.obj" id="6_jix5q"]
@@ -186,6 +187,18 @@ shape = SubResource("BoxShape3D_j0j4n")
 [node name="NextLevelPoint" parent="." instance=ExtResource("4_0n0bk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.0193, 28.0518, 0)
 nextSceneFile = "res://Levels/RealLevels/Level-4.tscn"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -261.0
+offset_top = -261.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("5_8myjv")
 
 [node name="Chandelier2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.025514, 0, -0.999674, 0, 1, 0, 0.999674, 0, -0.025514, -0.22611, 7.3837, -29.5343)

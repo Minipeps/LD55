@@ -23,12 +23,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -328.0
-offset_top = -111.965
-offset_right = 328.0
-offset_bottom = -11.965
+offset_left = -376.0
+offset_top = -198.0
+offset_right = 140.0
+offset_bottom = -98.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(1.25, 1.25)
 alignment = 1
 
 [node name="Item1" parent="InventoryBar" instance=ExtResource("2_132ey")]
