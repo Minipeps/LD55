@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://5gnnpmsfwmq3"]
+[gd_scene load_steps=36 format=3 uid="uid://5gnnpmsfwmq3"]
 
 [ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="2_mpjms"]
 [ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="3_n2tci"]
@@ -18,6 +18,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dwrpm1hcvfkgr" path="res://Meshes/Ballustrade.obj" id="16_54li4"]
 [ext_resource type="PackedScene" uid="uid://dacqi65qy8880" path="res://Shaders/PostProcessQuad.tscn" id="17_c0a37"]
 [ext_resource type="ArrayMesh" uid="uid://pwj1xq1sw34l" path="res://Meshes/Bench.obj" id="18_65yqe"]
+[ext_resource type="PackedScene" uid="uid://f2ac2cgofrib" path="res://Levels/LevelManager/deathArea.tscn" id="19_un0rm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_067kb"]
 
@@ -4276,6 +4277,15 @@ transform = Transform3D(2.21362, 0, 0, 0, 1.65672, 0, 0, 0, 1.78893, -5.75244, 3
 material_override = ExtResource("4_xg8yj")
 mesh = ExtResource("9_n421t")
 
+[node name="DeathArea" parent="." instance=ExtResource("19_un0rm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.882039, -4.01692, 0)
+
+[node name="CollisionShape3D" parent="DeathArea/ActualDeathArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -55, 0)
+
+[connection signal="body_entered" from="DeathArea/ActualDeathArea" to="Player/Logic" method="_on_actual_death_area_body_entered"]
+
 [editable path="Player"]
 [editable path="Player/Sounds/SonsMorts"]
 [editable path="Player/Sounds/SonsSaut"]
+[editable path="DeathArea"]

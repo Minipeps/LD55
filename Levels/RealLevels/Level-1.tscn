@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://d1bve6mkhijv1"]
+[gd_scene load_steps=35 format=3 uid="uid://d1bve6mkhijv1"]
 
 [ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="2_82d0c"]
 [ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="3_gtln3"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://qjw7tyb07rwb" path="res://Textures/StainedGlass/petit-vitrail-bateau-violet.png" id="15_3lj1n"]
 [ext_resource type="ArrayMesh" uid="uid://dwrpm1hcvfkgr" path="res://Meshes/Ballustrade.obj" id="16_wuqj3"]
 [ext_resource type="PackedScene" uid="uid://dacqi65qy8880" path="res://Shaders/PostProcessQuad.tscn" id="17_d57aa"]
+[ext_resource type="PackedScene" uid="uid://f2ac2cgofrib" path="res://Levels/LevelManager/deathArea.tscn" id="18_xmujv"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_067kb"]
 
@@ -4037,6 +4038,12 @@ environment = SubResource("Environment_lda6s")
 [node name="PostProcessQuad" parent="." instance=ExtResource("17_d57aa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.25, 0)
 
+[node name="DeathArea" parent="." instance=ExtResource("18_xmujv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -55, 0)
+
+[connection signal="body_entered" from="DeathArea/ActualDeathArea" to="Player/Logic" method="_on_actual_death_area_body_entered"]
+
 [editable path="Player"]
 [editable path="Player/Sounds/SonsMorts"]
 [editable path="Player/Sounds/SonsSaut"]
+[editable path="DeathArea"]

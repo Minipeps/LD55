@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Levels/LevelManager/ActualDeathArea.gd" id="1_qv8dl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lpoh2"]
-size = Vector3(100, 100, 100)
+size = Vector3(1000, 100, 100)
 
 [node name="DeathArea" type="Node3D"]
 
