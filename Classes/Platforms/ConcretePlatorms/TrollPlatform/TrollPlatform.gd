@@ -15,7 +15,7 @@ func setOrigin(origin: Vector3):
 
 func _ready():
 	movingTimer.wait_time = movingDistance / speed
-	counter = 5 * movingDistance / speed
+	counter = 2 * movingDistance / speed
 
 func _process(delta):
 	super._process(delta)
