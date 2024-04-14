@@ -21,7 +21,7 @@ size = Vector3(8, 3, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0902996, 3.79143, 0)
 
 [node name="Inventory" parent="Player/Logic" index="6"]
-inventoryStartAmount = Array[int]([2, 2, 2, 2, 0])
+inventoryStartAmount = Array[int]([2, 2, 2, 2, 2])
 
 [node name="PlatformSpawner" parent="." instance=ExtResource("3_wqe3u")]
 
