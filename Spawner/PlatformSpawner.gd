@@ -21,5 +21,5 @@ func spawnPlatform(platformType: int, platformPosition: Vector3):
 	platform.transform.origin = platformPosition
 	if (platform is TrollPlatform):
 		platform.setOrigin(platformPosition)
-	elif (platform is AbstractPlatform):
+	if (platform is AbstractPlatform):
 		platform.setPlayer(playerLogic)
