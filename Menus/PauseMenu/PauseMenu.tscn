@@ -1,4 +1,20 @@
-[gd_scene format=3 uid="uid://dhgd3qlrgsk8g"]
+[gd_scene load_steps=10 format=3 uid="uid://dhgd3qlrgsk8g"]
+
+[ext_resource type="FontFile" uid="uid://b6ll0xloonax6" path="res://UI/Fonts/gloriahallelujah.ttf" id="2_5ff5q"]
+[ext_resource type="Texture2D" uid="uid://c072gk843ujsf" path="res://UI/Menu/button-restart.png" id="5_jfyjc"]
+[ext_resource type="Texture2D" uid="uid://crc55a33ydu58" path="res://UI/Menu/button-restart-on-clic.png" id="6_xpaiu"]
+[ext_resource type="Texture2D" uid="uid://dfca0k1cuq0wg" path="res://UI/Menu/button-restart-hover.png" id="7_18v21"]
+[ext_resource type="Texture2D" uid="uid://b65jch8rcdwjl" path="res://UI/Menu/button-quit.png" id="8_2ebrk"]
+[ext_resource type="Texture2D" uid="uid://bxdj55chiem5l" path="res://UI/Menu/fermeture-fenetre.png" id="8_3j5fx"]
+[ext_resource type="Texture2D" uid="uid://bcabipm074qu1" path="res://UI/Menu/button-quit-on-clic.png" id="9_3idjg"]
+[ext_resource type="Texture2D" uid="uid://bledaju7x1vs5" path="res://UI/Menu/button-quit-hover.png" id="10_xhkv0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r0p0w"]
+font = ExtResource("2_5ff5q")
+font_size = 40
+outline_size = 1
+shadow_size = 7
+shadow_color = Color(0.0862745, 0.0862745, 0.0862745, 0.929412)
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -9,40 +25,102 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_right = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.211765, 0.635294, 0.839216, 0.670588)
+color = Color(0, 0, 0, 0.478431)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -132.5
-offset_right = 132.5
-offset_bottom = 40.0
-grow_horizontal = 2
-text = "PAUSé"
-
-[node name="ResumeButton" type="Button" parent="."]
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -244.5
+offset_top = -324.0
+offset_right = 244.5
+offset_bottom = -85.9998
 grow_horizontal = 2
 grow_vertical = 2
-text = "ON REPREND????
-"
+text = "PAUSE"
+label_settings = SubResource("LabelSettings_r0p0w")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 655.5
+offset_top = -554.5
+offset_right = 813.5
+offset_bottom = -453.5
+grow_vertical = 0
+
+[node name="ReloadGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Reload game"
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back to main menu"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit game"
+
+[node name="RestartButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -205.0
+offset_top = -395.0
+offset_right = 816.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
+theme_type_variation = &"FlatButton"
+texture_normal = ExtResource("5_jfyjc")
+texture_pressed = ExtResource("6_xpaiu")
+texture_hover = ExtResource("7_18v21")
+
+[node name="QuitButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -205.0
+offset_top = -280.0
+offset_right = 816.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
+theme_type_variation = &"FlatButton"
+texture_normal = ExtResource("8_2ebrk")
+texture_pressed = ExtResource("9_3idjg")
+texture_hover = ExtResource("10_xhkv0")
+
+[node name="ResumeButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1099.0
+offset_top = 15.0
+offset_right = 1139.0
+offset_bottom = 55.0
+texture_normal = ExtResource("8_3j5fx")
