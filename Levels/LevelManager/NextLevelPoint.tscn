@@ -1,8 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://duilavst5goen"]
+[gd_scene load_steps=10 format=3 uid="uid://duilavst5goen"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager/NextLevelPoint.gd" id="1_8rr2x"]
+[ext_resource type="Texture2D" uid="uid://cg5ecc5a56h2o" path="res://Sprites/Pentagrams/pentagram-bleu1.png" id="2_g41u0"]
+[ext_resource type="Texture2D" uid="uid://f6t8gspwm35d" path="res://Sprites/particule.png" id="3_l4utl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qoinr"]
+
+[sub_resource type="Curve" id="Curve_c16w6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.53717, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2xvuh"]
+curve = SubResource("Curve_c16w6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2e2r4"]
+particle_flag_damping_as_friction = true
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_max = 10.0
+damping_min = 21.542
+damping_max = 74.2
+attractor_interaction_enabled = false
+scale_min = 0.2
+scale_curve = SubResource("CurveTexture_2xvuh")
+color = Color(0.0784314, 0.611765, 0.878431, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5puhu"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 1, 1, 1)
+albedo_texture = ExtResource("3_l4utl")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_7cswk"]
+material = SubResource("StandardMaterial3D_5puhu")
+size = Vector2(0.5, 0.5)
 
 [node name="NextLevelPoint" type="Node3D"]
 script = ExtResource("1_8rr2x")
@@ -12,5 +47,18 @@ collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_qoinr")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1.15938e-07, -1, 0, 2.65234, -4.37114e-08, 0, -0.499566, 0)
+texture = ExtResource("2_g41u0")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0389676, -0.480417, 0)
+amount = 10
+lifetime = 0.67
+preprocess = 0.34
+explosiveness = 0.28
+process_material = SubResource("ParticleProcessMaterial_2e2r4")
+draw_pass_1 = SubResource("QuadMesh_7cswk")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
