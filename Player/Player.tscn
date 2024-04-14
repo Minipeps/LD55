@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://31kb25j7ypfh"]
+[gd_scene load_steps=34 format=3 uid="uid://31kb25j7ypfh"]
 
 [ext_resource type="Script" path="res://Player/Logic.gd" id="2_224jm"]
 [ext_resource type="Texture2D" uid="uid://bc0dttgc6xcrh" path="res://Sprites/Perso/marche-droite-1.png" id="2_cyol1"]
@@ -14,7 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://dp6ovswyanqhl" path="res://UI/curseur.png" id="8_itjpk"]
 [ext_resource type="Texture2D" uid="uid://tvp8o5a0edr0" path="res://UI/reset-level.png" id="9_r4baw"]
 [ext_resource type="Script" path="res://Player/Reset.gd" id="14_jalpw"]
-[ext_resource type="PackedScene" uid="uid://diaww2hvh0uf" path="res://Audio/RandomSoundPlayer.tscn" id="15_qndnf"]
+[ext_resource type="PackedScene" uid="uid://cgvjvqo546f6g" path="res://Controllers/PauseController.tscn" id="15_e2nkq"]
+[ext_resource type="PackedScene" path="res://Audio/RandomSoundPlayer.tscn" id="15_qndnf"]
 [ext_resource type="AudioStream" uid="uid://b6wuo11lgy3hj" path="res://Audio/Perso/Mort/mort1.ogg" id="16_dmga2"]
 [ext_resource type="AudioStream" uid="uid://v3abru8t20nd" path="res://Audio/Perso/Mort/mort2.ogg" id="17_ltbyp"]
 [ext_resource type="AudioStream" uid="uid://bku8l6y6vfm82" path="res://Audio/Perso/Mort/mort3.ogg" id="18_iuj0a"]
@@ -163,6 +164,8 @@ texture = ExtResource("8_itjpk")
 [node name="GhostPlatform" parent="Logic/SpherePivot" instance=ExtResource("7_k55x5")]
 
 [node name="Inventory" parent="Logic" instance=ExtResource("2_umft1")]
+
+[node name="PauseController" parent="Logic" instance=ExtResource("15_e2nkq")]
 
 [node name="ResetTexture" type="TextureRect" parent="Logic"]
 anchors_preset = 2
