@@ -68,4 +68,10 @@ draw_pass_1 = SubResource("QuadMesh_7cswk")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 texture = ExtResource("4_ntmfl")
 
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.364866, 0)
+light_color = Color(0.898039, 0.905882, 0.509804, 1)
+light_energy = 0.0
+light_volumetric_fog_energy = 20.0
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
