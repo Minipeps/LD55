@@ -1,18 +1,20 @@
-[gd_scene load_steps=34 format=3 uid="uid://31kb25j7ypfh"]
+[gd_scene load_steps=36 format=3 uid="uid://31kb25j7ypfh"]
 
 [ext_resource type="Script" path="res://Player/Logic.gd" id="2_224jm"]
 [ext_resource type="Texture2D" uid="uid://bc0dttgc6xcrh" path="res://Sprites/Perso/marche-droite-1.png" id="2_cyol1"]
 [ext_resource type="PackedScene" uid="uid://t0ghx0kwuppd" path="res://Inventory/Inventory.tscn" id="2_umft1"]
 [ext_resource type="Texture2D" uid="uid://4auy6y7q6xkc" path="res://Sprites/Perso/lecture-sort-droit.png" id="2_xxvqb"]
 [ext_resource type="Texture2D" uid="uid://cvg1j7v2r8tpg" path="res://Sprites/Perso/dead-animation-1.png" id="3_5ugup"]
-[ext_resource type="Texture2D" uid="uid://6f1a72jgow8x" path="res://Sprites/Perso/marche-droite-2.png" id="3_7xc1i"]
 [ext_resource type="Texture2D" uid="uid://bux00l65iqicc" path="res://Sprites/Perso/saut-bas-droit.png" id="3_rjji6"]
 [ext_resource type="Texture2D" uid="uid://db55iyvu068sl" path="res://Sprites/Perso/dead-animation-2.png" id="4_3j6iu"]
 [ext_resource type="Texture2D" uid="uid://bk453poy77b0" path="res://Sprites/Perso/saut-haut-droit.png" id="4_b2r7t"]
 [ext_resource type="Texture2D" uid="uid://dsngt7tgyg7vl" path="res://Sprites/Perso/choix-sort-droit.png" id="7_g6kp5"]
 [ext_resource type="PackedScene" uid="uid://d3wtltyt0b71m" path="res://Classes/Platforms/ConcretePlatorms/GhostPlatforms/GhostPlatform.tscn" id="7_k55x5"]
 [ext_resource type="Texture2D" uid="uid://dp6ovswyanqhl" path="res://UI/curseur.png" id="8_itjpk"]
+[ext_resource type="Texture2D" uid="uid://cssipp7udosfs" path="res://Sprites/Perso/passage-de-niveau.png" id="9_ii4o3"]
 [ext_resource type="Texture2D" uid="uid://tvp8o5a0edr0" path="res://UI/reset-level.png" id="9_r4baw"]
+[ext_resource type="Texture2D" uid="uid://b3ei48xcvoly2" path="res://Sprites/Perso/marche-1.png" id="10_rlr4w"]
+[ext_resource type="Texture2D" uid="uid://dopv1y5qqf5ga" path="res://Sprites/Perso/marche-2.png" id="11_gy214"]
 [ext_resource type="Script" path="res://Player/Reset.gd" id="14_jalpw"]
 [ext_resource type="PackedScene" uid="uid://cgvjvqo546f6g" path="res://Controllers/PauseController.tscn" id="15_e2nkq"]
 [ext_resource type="PackedScene" path="res://Audio/RandomSoundPlayer.tscn" id="15_qndnf"]
@@ -85,10 +87,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_cyol1")
+"texture": ExtResource("9_ii4o3")
+}],
+"loop": true,
+"name": &"teleport",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_rlr4w")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_7xc1i")
+"texture": ExtResource("11_gy214")
 }],
 "loop": true,
 "name": &"walk",
@@ -144,7 +154,7 @@ cast_shadow = 2
 alpha_cut = 2
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_fcv6a")
-animation = &"idle"
+animation = &"walk"
 
 [node name="VisualTest" type="MeshInstance3D" parent="Logic"]
 visible = false
