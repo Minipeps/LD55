@@ -18,10 +18,8 @@ func _physics_process(delta):
 	global_position += direction * speed * delta
 
 func setTarget(target: Vector3):
-	print(target)
-	print(global_position)
 	direction = (target - global_position).normalized()
-	print(direction)
+	rotate_object_local(Vector3(0,0,1), atan2(direction.y, direction.x))
 
 func destroy():
 	queue_free()
