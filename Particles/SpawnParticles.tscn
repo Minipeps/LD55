@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://bogfwqot6fa0g"]
+
+[ext_resource type="Texture2D" uid="uid://f6t8gspwm35d" path="res://Sprites/particule.png" id="1_e4iv8"]
+
+[sub_resource type="Curve" id="Curve_2ghq0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.53717, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3yelx"]
+curve = SubResource("Curve_2ghq0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_20a3c"]
+particle_flag_damping_as_friction = true
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+radial_accel_max = 10.0
+damping_min = 21.542
+damping_max = 74.2
+attractor_interaction_enabled = false
+scale_min = 0.2
+scale_curve = SubResource("CurveTexture_3yelx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pt1by"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_e4iv8")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_vk23e"]
+material = SubResource("StandardMaterial3D_pt1by")
+size = Vector2(0.5, 0.5)
+
+[node name="SpawnParticles" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0389676, 0, 0)
+amount = 10
+explosiveness = 0.8
+process_material = SubResource("ParticleProcessMaterial_20a3c")
+draw_pass_1 = SubResource("QuadMesh_vk23e")
