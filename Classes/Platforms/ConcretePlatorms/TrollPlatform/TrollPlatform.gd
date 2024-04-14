@@ -21,8 +21,12 @@ func _process(delta):
 	if isMad: return
 	var t = movingTimer.time_left / movingTimer.wait_time
 	var moveFactor = cos(2 * PI * t) * movingDistance
-	position = originalPosition + direction * moveFactor
+	var newPosition = originalPosition + direction * moveFactor
+	var displacement = newPosition - position
+	position = newPosition
 	animatedSprite.frame = t > 0.5
+	if isPlayerOnTop:
+		player.translate(displacement)
 
 func getMad():
 	super.getMad()
