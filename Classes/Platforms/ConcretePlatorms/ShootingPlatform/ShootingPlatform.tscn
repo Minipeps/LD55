@@ -1,13 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bme3xpw8xhe17"]
+[gd_scene load_steps=7 format=3 uid="uid://bme3xpw8xhe17"]
 
 [ext_resource type="Script" path="res://Classes/Platforms/ConcretePlatorms/ShootingPlatform/ShootingPlatform.gd" id="1_3mch2"]
 [ext_resource type="Texture2D" uid="uid://bv7f468tifa8f" path="res://Sprites/ShootingPlatform/neutre.png" id="2_naot4"]
+[ext_resource type="Texture2D" uid="uid://b4fn8xweobr1w" path="res://Sprites/ShootingPlatform/avant-colere.png" id="3_1gj05"]
 [ext_resource type="Texture2D" uid="uid://cwnwrbhngdpws" path="res://Sprites/ShootingPlatform/colere.png" id="3_lm5jr"]
-[ext_resource type="Texture2D" uid="uid://db31iikm1hiwe" path="res://Sprites/ShootingPlatform/venin-1.png" id="4_b3fln"]
-[ext_resource type="Texture2D" uid="uid://dhh60ytym1oyy" path="res://Sprites/ShootingPlatform/venin-2.png" id="5_50eb0"]
-[ext_resource type="Texture2D" uid="uid://bhwnvcbjnrjg" path="res://Sprites/ShootingPlatform/venin-3.png" id="6_fofut"]
-[ext_resource type="Texture2D" uid="uid://w35au7d01mlc" path="res://Sprites/ShootingPlatform/venin-4.png" id="7_7uyws"]
-[ext_resource type="Texture2D" uid="uid://dmpm0htn3axe" path="res://Sprites/ShootingPlatform/venin-5.png" id="8_253tb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vad1n"]
 animations = [{
@@ -21,7 +17,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_lm5jr")
+"texture": ExtResource("3_1gj05")
 }],
 "loop": true,
 "name": &"mad",
@@ -30,21 +26,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_lm5jr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_b3fln")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_50eb0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_fofut")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_7uyws")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_253tb")
 }],
 "loop": true,
 "name": &"shoot",
@@ -66,7 +47,7 @@ wait_time = 2.0
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 offset = Vector2(0, 28.75)
 sprite_frames = SubResource("SpriteFrames_vad1n")
-animation = &"shoot"
+animation = &"mad"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_t0cwr")

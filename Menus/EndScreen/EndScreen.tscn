@@ -1,7 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://4uepyvot3h3y"]
+[gd_scene load_steps=14 format=3 uid="uid://4uepyvot3h3y"]
 
-[ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/MainMenu/640px-Opossum_1.jpg" id="1_axm2g"]
 [ext_resource type="Script" path="res://Menus/EndScreen/EndScreen.gd" id="1_ulwhw"]
+[ext_resource type="Texture2D" uid="uid://dcn3k5k7bsam8" path="res://UI/Menu/fond-accueil.png" id="2_a8yoh"]
+[ext_resource type="FontFile" uid="uid://b6ll0xloonax6" path="res://UI/Fonts/gloriahallelujah.ttf" id="3_ljrv8"]
+[ext_resource type="Texture2D" uid="uid://xmqxab1asdjl" path="res://Sprites/EndScreen/Frame 39.png" id="4_bjq7a"]
+[ext_resource type="Texture2D" uid="uid://claxvvet242ea" path="res://Sprites/EndScreen/Frame 40.png" id="5_6mm45"]
+[ext_resource type="Texture2D" uid="uid://dklcxqrvom5nw" path="res://UI/Menu/button-gotomenu.png" id="6_8nrb1"]
+[ext_resource type="Texture2D" uid="uid://b65jch8rcdwjl" path="res://UI/Menu/button-quit.png" id="6_ceukv"]
+[ext_resource type="Texture2D" uid="uid://bcabipm074qu1" path="res://UI/Menu/button-quit-on-clic.png" id="7_2grxm"]
+[ext_resource type="Texture2D" uid="uid://ce41esi8evitb" path="res://UI/Menu/button-gotomenu-on-clic.png" id="7_y3o8m"]
+[ext_resource type="Texture2D" uid="uid://juts2dwesdga" path="res://UI/Menu/button-gotomenu-hover.png" id="8_bg42r"]
+[ext_resource type="Texture2D" uid="uid://bledaju7x1vs5" path="res://UI/Menu/button-quit-hover.png" id="8_w1ym1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0d6d8"]
+font = ExtResource("3_ljrv8")
+font_size = 40
+outline_size = 1
+shadow_size = 7
+shadow_color = Color(0.0862745, 0.0862745, 0.0862745, 0.929412)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ahve3"]
+frames = 2
+frame_0/texture = ExtResource("4_bjq7a")
+frame_0/duration = 0.5
+frame_1/texture = ExtResource("5_6mm45")
+frame_1/duration = 0.5
 
 [node name="EndScreen" type="Control"]
 layout_mode = 3
@@ -13,26 +36,37 @@ grow_vertical = 2
 script = ExtResource("1_ulwhw")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_axm2g")
+texture = ExtResource("2_a8yoh")
+expand_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Label" type="Label" parent="."]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 432.0
-offset_top = 38.0
-offset_right = 921.0
-offset_bottom = 126.0
-theme_override_font_sizes/normal_font_size = 53
-text = "C'est gagner"
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -244.5
+offset_top = -324.0
+offset_right = 244.5
+offset_bottom = -85.9998
+grow_horizontal = 2
+grow_vertical = 2
+text = "Congrats,
+you passed the test!"
+label_settings = SubResource("LabelSettings_0d6d8")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -55,6 +89,64 @@ text = "Back to main menu"
 layout_mode = 2
 text = "Quit game"
 
+[node name="Animation" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -113.0
+offset_right = 188.0
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.667741, 0.667741)
+texture_under = SubResource("AnimatedTexture_ahve3")
+
+[node name="MainMenuButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -205.0
+offset_top = -246.0
+offset_right = 816.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
+theme_type_variation = &"FlatButton"
+texture_normal = ExtResource("6_8nrb1")
+texture_pressed = ExtResource("7_y3o8m")
+texture_hover = ExtResource("8_bg42r")
+
+[node name="QuitButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -205.0
+offset_top = -131.0
+offset_right = 816.0
+offset_bottom = 219.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
+theme_type_variation = &"FlatButton"
+texture_normal = ExtResource("6_ceukv")
+texture_pressed = ExtResource("7_2grxm")
+texture_hover = ExtResource("8_w1ym1")
+
 [connection signal="pressed" from="VBoxContainer/ReloadGameButton" to="." method="onReloadGameSceneButtonPressed"]
 [connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="onMainMenuButtonPressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="onQuitButtonPressed"]
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="onQuitButtonPressed"]

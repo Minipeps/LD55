@@ -17,7 +17,7 @@ func getMad():
 	shootTimer.start()
 
 func shoot():
-	animatedSprite.play("mad")
+	animatedSprite.play("shoot")
 	# Shoot bullet towards the player
 	var bullet = bulletPrefab.instantiate()
 	add_child(bullet)
@@ -25,4 +25,4 @@ func shoot():
 
 func _on_animated_sprite_3d_animation_looped():
 	if !isMad: return
-	animatedSprite.play("default")
+	animatedSprite.play("mad")

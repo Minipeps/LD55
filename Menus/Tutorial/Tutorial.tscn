@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://50rk2abdetvs"]
+[gd_scene load_steps=4 format=3 uid="uid://50rk2abdetvs"]
 
 [ext_resource type="Script" path="res://Menus/Tutorial/Tutorial.gd" id="1_8l405"]
+[ext_resource type="Texture2D" uid="uid://cuyfjic75eliw" path="res://UI/Menu/controls.png" id="2_dfmdm"]
+[ext_resource type="Texture2D" uid="uid://dcn3k5k7bsam8" path="res://UI/Menu/fond-accueil.png" id="2_jkpsp"]
 
 [node name="Tutorial" type="Control"]
 z_index = 3
@@ -12,26 +14,38 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8l405")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.121569, 0.113725, 0.0470588, 0.364706)
+texture = ExtResource("2_jkpsp")
+expand_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 15.0
+offset_right = 1110.0
+offset_bottom = 638.0
+texture = ExtResource("2_dfmdm")
+expand_mode = 2
+stretch_mode = 4
 
 [node name="CloseButton" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -17.0
-offset_top = 7.0
-offset_right = -9.0
-offset_bottom = 15.0
+anchors_preset = -1
+anchor_left = 0.912
+anchor_top = 0.126
+anchor_right = 0.912
+anchor_bottom = 0.126
+offset_left = -15.624
+offset_top = -15.648
+offset_right = 16.376
+offset_bottom = 15.352
 grow_horizontal = 0
-text = "x
-"
+theme_type_variation = &"FlatButton"
 
 [connection signal="pressed" from="CloseButton" to="." method="onCloseButtonPressed"]
