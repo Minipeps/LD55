@@ -1,9 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://dp71kfwion643"]
+[gd_scene load_steps=37 format=3 uid="uid://dp71kfwion643"]
 
 [ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="2_na2b1"]
 [ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="3_s7pr5"]
 [ext_resource type="PackedScene" uid="uid://duilavst5goen" path="res://Levels/LevelManager/NextLevelPoint.tscn" id="4_atf0p"]
 [ext_resource type="Material" uid="uid://bulmujgbjqrls" path="res://Materials/TriplanarHatchedMat.tres" id="4_mdcj7"]
+[ext_resource type="Texture2D" uid="uid://b5skwf6h8mebn" path="res://Sprites/Map/level5.png" id="5_c4pat"]
 [ext_resource type="ArrayMesh" uid="uid://bpf684q2u20n" path="res://Meshes/Chandelier.obj" id="5_grjkl"]
 [ext_resource type="PackedScene" uid="uid://f2ac2cgofrib" path="res://Levels/LevelManager/deathArea.tscn" id="5_oq324"]
 [ext_resource type="ArrayMesh" uid="uid://bvnfseyhw3a2o" path="res://Meshes/Door.obj" id="6_6p668"]
@@ -100,6 +101,9 @@ volumetric_fog_detail_spread = 6.0
 
 [node name="Player" parent="." instance=ExtResource("2_na2b1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7863, 3.79143, 0)
+
+[node name="Camera3D" parent="Player/Logic" index="3"]
+current = false
 
 [node name="Inventory" parent="Player/Logic" index="6"]
 inventoryStartAmount = Array[int]([2, 1, 2, 1, 1])
@@ -4466,6 +4470,18 @@ mesh = ExtResource("9_0qy54")
 
 [node name="DeathArea" parent="." instance=ExtResource("5_oq324")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -55, 0)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -262.0
+offset_top = -261.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("5_c4pat")
 
 [connection signal="body_entered" from="DeathArea/ActualDeathArea" to="Player/Logic" method="_on_actual_death_area_body_entered"]
 

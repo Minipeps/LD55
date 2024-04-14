@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://l5dox3afy44i"]
+[gd_scene load_steps=33 format=3 uid="uid://2s3eb3fvsd4m"]
 
 [ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="2_rjywd"]
 [ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="3_wqe3u"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://qjw7tyb07rwb" path="res://Textures/StainedGlass/petit-vitrail-bateau-violet.png" id="15_b34dj"]
 [ext_resource type="ArrayMesh" uid="uid://dwrpm1hcvfkgr" path="res://Meshes/Ballustrade.obj" id="16_3y8aw"]
 [ext_resource type="PackedScene" uid="uid://dacqi65qy8880" path="res://Shaders/PostProcessQuad.tscn" id="17_gb6pw"]
+[ext_resource type="Texture2D" uid="uid://bec8xb3kh0xyc" path="res://Sprites/Map/level6.png" id="18_5m1lb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_067kb"]
 
@@ -4554,6 +4555,18 @@ environment = SubResource("Environment_6cfek")
 
 [node name="PostProcessQuad" parent="." instance=ExtResource("17_gb6pw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.25, 0)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("18_5m1lb")
 
 [editable path="Player"]
 [editable path="Player/Sounds/SonsMorts"]
