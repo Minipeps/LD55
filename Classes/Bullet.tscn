@@ -1,25 +1,33 @@
 [gd_scene load_steps=4 format=3 uid="uid://dcqpii4wsr1wc"]
 
 [ext_resource type="Script" path="res://Classes/Bullet.gd" id="1_r252l"]
-[ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/640px-Opossum_1.jpg" id="2_6lwak"]
+[ext_resource type="Texture2D" uid="uid://d0mwlwyu8jsvo" path="res://Sprites/Bullet/venin-grand.png" id="2_48e2f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8ok60"]
+radius = 0.16
+height = 0.595
 
 [node name="Bullet" type="Area3D"]
 collision_layer = 8
 script = ExtResource("1_r252l")
+speed = 4.0
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-pixel_size = 0.001
-texture = ExtResource("2_6lwak")
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+flip_h = true
+texture = ExtResource("2_48e2f")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="DeathTimer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 autostart = true
 
+[node name="FlipTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_8ok60")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

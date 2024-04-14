@@ -1,26 +1,74 @@
-[gd_scene load_steps=6 format=3 uid="uid://bme3xpw8xhe17"]
+[gd_scene load_steps=11 format=3 uid="uid://bme3xpw8xhe17"]
 
 [ext_resource type="Script" path="res://Classes/Platforms/ConcretePlatorms/ShootingPlatform/ShootingPlatform.gd" id="1_3mch2"]
+[ext_resource type="Texture2D" uid="uid://bv7f468tifa8f" path="res://Sprites/ShootingPlatform/neutre.png" id="2_naot4"]
+[ext_resource type="Texture2D" uid="uid://cwnwrbhngdpws" path="res://Sprites/ShootingPlatform/colere.png" id="3_lm5jr"]
+[ext_resource type="Texture2D" uid="uid://db31iikm1hiwe" path="res://Sprites/ShootingPlatform/venin-1.png" id="4_b3fln"]
+[ext_resource type="Texture2D" uid="uid://dhh60ytym1oyy" path="res://Sprites/ShootingPlatform/venin-2.png" id="5_50eb0"]
+[ext_resource type="Texture2D" uid="uid://bhwnvcbjnrjg" path="res://Sprites/ShootingPlatform/venin-3.png" id="6_fofut"]
+[ext_resource type="Texture2D" uid="uid://w35au7d01mlc" path="res://Sprites/ShootingPlatform/venin-4.png" id="7_7uyws"]
+[ext_resource type="Texture2D" uid="uid://dmpm0htn3axe" path="res://Sprites/ShootingPlatform/venin-5.png" id="8_253tb"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_jhtlp"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_vad1n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_naot4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lm5jr")
+}],
+"loop": true,
+"name": &"mad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lm5jr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b3fln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_50eb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fofut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7uyws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_253tb")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ylykl"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_t0cwr"]
+size = Vector3(3.372, 1.165, 4)
 
-[sub_resource type="Gradient" id="Gradient_nfa1a"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_22bn8"]
-gradient = SubResource("Gradient_nfa1a")
-
-[node name="ShootingPlatform" type="CSGMesh3D"]
-transform = Transform3D(3.38408, 0, 0, 0, 1.37915, 0, 0, 0, 1, -7.17608, 1.90777, 0)
-use_collision = true
+[node name="ShootingPlatform" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.17608, 1.90777, 0)
 collision_layer = 4
-mesh = SubResource("BoxMesh_jhtlp")
-material = SubResource("StandardMaterial3D_ylykl")
 script = ExtResource("1_3mch2")
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-texture = SubResource("GradientTexture2D_22bn8")
+counter = 2.0
 
 [node name="ShootTimer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+offset = Vector2(0, 28.75)
+sprite_frames = SubResource("SpriteFrames_vad1n")
+animation = &"shoot"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_t0cwr")
+
+[connection signal="animation_looped" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_looped"]
