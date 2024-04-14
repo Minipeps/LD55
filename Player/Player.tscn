@@ -97,9 +97,11 @@ texture = ExtResource("8_itjpk")
 
 [node name="ResetTexture" type="TextureRect" parent="Logic"]
 offset_left = 37.0
-offset_top = 566.0
-offset_right = 221.0
-offset_bottom = 624.0
+offset_top = 576.765
+offset_right = 165.0
+offset_bottom = 634.765
 texture = ExtResource("9_r4baw")
+expand_mode = 2
+stretch_mode = 4
 
 [connection signal="onItemChanged" from="Logic/Inventory" to="Logic" method="_on_inventory_on_item_changed"]
