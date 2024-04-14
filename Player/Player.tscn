@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://31kb25j7ypfh"]
+[gd_scene load_steps=19 format=3 uid="uid://31kb25j7ypfh"]
 
 [ext_resource type="Script" path="res://Player/Logic.gd" id="2_224jm"]
 [ext_resource type="Texture2D" uid="uid://bc0dttgc6xcrh" path="res://Sprites/Perso/marche-droite-1.png" id="2_cyol1"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d3wtltyt0b71m" path="res://Classes/Platforms/ConcretePlatorms/GhostPlatforms/GhostPlatform.tscn" id="7_k55x5"]
 [ext_resource type="Texture2D" uid="uid://dp6ovswyanqhl" path="res://UI/curseur.png" id="8_itjpk"]
 [ext_resource type="Texture2D" uid="uid://tvp8o5a0edr0" path="res://UI/reset-level.png" id="9_r4baw"]
+[ext_resource type="Script" path="res://Player/Reset.gd" id="14_jalpw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xvqk6"]
 
@@ -137,5 +138,6 @@ grow_vertical = 0
 texture = ExtResource("9_r4baw")
 expand_mode = 2
 stretch_mode = 4
+script = ExtResource("14_jalpw")
 
 [connection signal="onItemChanged" from="Logic/Inventory" to="Logic" method="_on_inventory_on_item_changed"]
