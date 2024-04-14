@@ -42,7 +42,7 @@ script = ExtResource("1_3mch2")
 counter = 2.0
 
 [node name="ShootTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 4.0
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 offset = Vector2(0, 28.75)
