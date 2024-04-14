@@ -2,6 +2,7 @@ extends TextureRect
 
 var count: int = 0
 var isSelected: bool = false
+@export var keyNumber: int = 0
 
 var selectHalo: TextureRect
 var countLabel: Label
@@ -15,7 +16,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	$KeyNumber.text = str(keyNumber)
 
 func setSelectedState(newState: bool):
 	isSelected = newState
@@ -27,4 +28,8 @@ func setSelectedState(newState: bool):
 func updateItemCount(itemCount: int):
 	count = itemCount
 	countLabel.text = "x" + str(count)
+	if (itemCount == 0):
+		self_modulate.a = 0.1
+	else:
+		self_modulate.a = 1
 

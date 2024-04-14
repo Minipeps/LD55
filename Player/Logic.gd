@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 8
 const PLATFORM_RANGE = 5
 var dropPlane  = Plane(Vector3(0, 0, 1), Vector3.AXIS_Z)
 var previousVelocity = Vector3(0,0,0)
@@ -14,20 +14,30 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var inventory = $Inventory
 
 @onready var visual = $Visual
+var health: int = 1;
+var isAlive: bool = true
 
 signal create_platform(type: int, position: Vector3)
+signal death_player()
 
-func _process(delta):
+func _process(_delta):
+	if(!isAlive):
+		return
 	# Handle platform spawning action
 	if Input.is_action_just_pressed("spawn_platform"):
 		if inventory.useSelectedItem():
 			create_platform.emit(inventory.selectedItem, spherePivot.global_position)
 
 func _physics_process(delta):
+	if(!isAlive):
+		return
 	previousVelocity = velocity
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y -= gravity * delta
+		var amount = gravity * delta
+		if velocity.y < 0:
+			amount *= 2
+		velocity.y -= amount
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -46,7 +56,14 @@ func _physics_process(delta):
 	
 	_handleCursorPosition()
 	_handleAnimation()
+	_checkHealth()
 	
+
+func _checkHealth():
+	if(health <= 0):
+		death_player.emit()
+		isAlive = false
+		visual.play("death")
 
 func _handleAnimation():
 	var changeDirection = (!visual.flip_h && velocity.x < 0) || (visual.flip_h && velocity.x > 0)
@@ -74,3 +91,8 @@ func _handleCursorPosition():
 	var finalVector = directionVector.normalized() * finalVectorLength
 	finalVector.z = 0
 	spherePivot.global_position = global_position + finalVector
+
+
+func _on_actual_death_area_body_entered(body):
+	if(body.name == "Logic"):
+		health = 0

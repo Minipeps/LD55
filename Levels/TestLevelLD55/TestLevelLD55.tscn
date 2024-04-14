@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dembth2h1lvkh"]
+[gd_scene load_steps=13 format=3 uid="uid://dembth2h1lvkh"]
 
 [ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="1_l1db0"]
 [ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/640px-Opossum_1.jpg" id="1_mr3hr"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="6_dwgm5"]
 [ext_resource type="PackedScene" uid="uid://fuw44dc536s3" path="res://Classes/Platforms/ConcretePlatorms/TrampolinePlatform/TrampolinePlatform.tscn" id="6_oub06"]
 [ext_resource type="PackedScene" uid="uid://duilavst5goen" path="res://Levels/LevelManager/NextLevelPoint.tscn" id="7_qtrdq"]
+[ext_resource type="PackedScene" uid="uid://f2ac2cgofrib" path="res://Levels/LevelManager/deathArea.tscn" id="8_1f4fg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h10yg"]
 albedo_texture = ExtResource("1_mr3hr")
@@ -28,6 +29,7 @@ script = ExtResource("1_vq12a")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
 material_override = SubResource("StandardMaterial3D_h10yg")
 use_collision = true
+collision_layer = 2
 mesh = SubResource("BoxMesh_xmf08")
 material = SubResource("StandardMaterial3D_onmnc")
 
@@ -44,8 +46,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.80371, 0)
 [node name="PlatformSpawner" parent="." instance=ExtResource("6_dwgm5")]
 
 [node name="TrampolinePlatform" parent="." instance=ExtResource("6_oub06")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.34329, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.57832, 0.958748, 0)
 
 [node name="NextLevelPoint" parent="." instance=ExtResource("7_qtrdq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76711, 0, 0)
 nextSceneFile = "res://Levels/TestLevel/TestLevel.tscn"
+
+[node name="DeathArea" parent="." instance=ExtResource("8_1f4fg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.193, -118.289, 0)
+
+[node name="ActualDeathArea" parent="DeathArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.2841, 48.1247, 0)
+
+[connection signal="body_entered" from="DeathArea/ActualDeathArea" to="Player/Logic" method="_on_actual_death_area_body_entered"]
+
+[editable path="Player"]
+[editable path="DeathArea"]
