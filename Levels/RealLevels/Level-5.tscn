@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dqp60hvuvqhdt"]
+[gd_scene load_steps=12 format=3 uid="uid://dqp60hvuvqhdt"]
 
 [ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/640px-Opossum_1.jpg" id="1_ap7wi"]
 [ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="2_rjywd"]
 [ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="3_wqe3u"]
 [ext_resource type="PackedScene" uid="uid://duilavst5goen" path="res://Levels/LevelManager/NextLevelPoint.tscn" id="4_dd4is"]
+[ext_resource type="Texture2D" uid="uid://bec8xb3kh0xyc" path="res://Sprites/Map/level6.png" id="5_wmulg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_km1n4"]
 albedo_texture = ExtResource("1_ap7wi")
@@ -104,3 +105,15 @@ shape = SubResource("BoxShape3D_j0j4n")
 
 [node name="NextLevelPoint" parent="." instance=ExtResource("4_dd4is")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0193005, 42, 0)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -261.0
+offset_top = -261.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("5_wmulg")

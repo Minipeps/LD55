@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c0w20gs0f8bdy" path="res://Textures/StainedGlass/petit-vitrail-soleil-jaune.png" id="17_i4oyu"]
 [ext_resource type="Texture2D" uid="uid://qjw7tyb07rwb" path="res://Textures/StainedGlass/petit-vitrail-bateau-violet.png" id="18_1kwcn"]
 [ext_resource type="PackedScene" uid="uid://dacqi65qy8880" path="res://Shaders/PostProcessQuad.tscn" id="19_qn8b0"]
-[ext_resource type="Texture2D" uid="uid://dmqe4rm1j6sol" path="res://icon.svg" id="20_b48iu"]
+[ext_resource type="Texture2D" uid="uid://4of27p4ukikm" path="res://Sprites/Map/level1.png" id="20_v08iw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_km1n4"]
 albedo_texture = ExtResource("1_f5yl3")
@@ -1213,4 +1213,4 @@ offset_left = -128.0
 offset_top = -128.0
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("20_b48iu")
+texture = ExtResource("20_v08iw")

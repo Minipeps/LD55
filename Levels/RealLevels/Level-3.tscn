@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="2_o3qyi"]
 [ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="3_dw14o"]
 [ext_resource type="PackedScene" uid="uid://duilavst5goen" path="res://Levels/LevelManager/NextLevelPoint.tscn" id="4_0n0bk"]
-[ext_resource type="Texture2D" uid="uid://dmqe4rm1j6sol" path="res://icon.svg" id="5_uuqux"]
+[ext_resource type="Texture2D" uid="uid://beij2rqjkpayl" path="res://Sprites/Map/level4.png" id="5_8myjv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_km1n4"]
 albedo_texture = ExtResource("1_71ovb")
@@ -116,3 +116,15 @@ shape = SubResource("BoxShape3D_j0j4n")
 [node name="NextLevelPoint" parent="." instance=ExtResource("4_0n0bk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.0193, 28.267, 0)
 nextSceneFile = "res://Levels/RealLevels/Level-4.tscn"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -261.0
+offset_top = -261.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("5_8myjv")

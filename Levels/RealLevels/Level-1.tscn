@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="2_82d0c"]
 [ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="3_gtln3"]
 [ext_resource type="PackedScene" uid="uid://duilavst5goen" path="res://Levels/LevelManager/NextLevelPoint.tscn" id="4_xi1me"]
-[ext_resource type="Texture2D" uid="uid://dmqe4rm1j6sol" path="res://icon.svg" id="5_tb5e8"]
+[ext_resource type="Texture2D" uid="uid://c2s8xbx8cdylj" path="res://Sprites/Map/level2.png" id="5_3j7vu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_km1n4"]
 albedo_texture = ExtResource("1_7vhh1")
@@ -146,4 +146,4 @@ offset_left = -40.0
 offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("5_tb5e8")
+texture = ExtResource("5_3j7vu")
