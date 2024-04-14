@@ -4,7 +4,7 @@ extends Control
 @onready var lore = $Lore
 
 func _ready():
-	BackgroundMusicPlayer.playMusicLevel(1)
+	BackgroundMusicPlayer.playMusicLevel(-15)
 
 func onStartButtonPressed():
 	lore.visible = true

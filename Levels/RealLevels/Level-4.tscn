@@ -1,10 +1,11 @@
-[gd_scene load_steps=35 format=3 uid="uid://c1g8ixenrm26f"]
+[gd_scene load_steps=36 format=3 uid="uid://dp71kfwion643"]
 
 [ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="2_na2b1"]
 [ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="3_s7pr5"]
 [ext_resource type="PackedScene" uid="uid://duilavst5goen" path="res://Levels/LevelManager/NextLevelPoint.tscn" id="4_atf0p"]
 [ext_resource type="Material" uid="uid://bulmujgbjqrls" path="res://Materials/TriplanarHatchedMat.tres" id="4_mdcj7"]
 [ext_resource type="ArrayMesh" uid="uid://bpf684q2u20n" path="res://Meshes/Chandelier.obj" id="5_grjkl"]
+[ext_resource type="PackedScene" uid="uid://f2ac2cgofrib" path="res://Levels/LevelManager/deathArea.tscn" id="5_oq324"]
 [ext_resource type="ArrayMesh" uid="uid://bvnfseyhw3a2o" path="res://Meshes/Door.obj" id="6_6p668"]
 [ext_resource type="ArrayMesh" uid="uid://d20sckuoftp2j" path="res://Meshes/Window2.obj" id="7_s33tc"]
 [ext_resource type="ArrayMesh" uid="uid://c8rp3h2gdot75" path="res://Meshes/Window1.obj" id="8_ctq06"]
@@ -4463,6 +4464,12 @@ transform = Transform3D(3.19969, 0, 0, 0, 3.14123, 0, 0, 0, 3.28859, -13.0752, 5
 material_override = ExtResource("4_mdcj7")
 mesh = ExtResource("9_0qy54")
 
+[node name="DeathArea" parent="." instance=ExtResource("5_oq324")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -55, 0)
+
+[connection signal="body_entered" from="DeathArea/ActualDeathArea" to="Player/Logic" method="_on_actual_death_area_body_entered"]
+
 [editable path="Player"]
 [editable path="Player/Sounds/SonsMorts"]
 [editable path="Player/Sounds/SonsSaut"]
+[editable path="DeathArea"]
