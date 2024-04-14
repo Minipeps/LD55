@@ -6,7 +6,7 @@ var nbTotalItems: int
 
 var inventoryPool: Array[int] = []
 var items: Array[Node] = []
-var widths: Array[float] = [3.4, 6.4, 3.4, 3.4, 6.4]
+var widths: Array[float] = [3.4, 6.4, 6.4, 3.4, 6.4]
 signal onItemUsed(platformType: int)
 signal onItemChanged(newPlatformType: int)
 
