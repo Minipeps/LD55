@@ -93,7 +93,7 @@ glow_strength = 2.0
 volumetric_fog_enabled = true
 volumetric_fog_detail_spread = 6.0
 
-[node name="Level-2" type="Node3D"]
+[node name="Level-0" type="Node3D"]
 
 [node name="Floor" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
