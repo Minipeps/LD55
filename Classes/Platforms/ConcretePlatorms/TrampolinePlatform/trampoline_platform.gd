@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var maxBounce : int = 3
-@export var bounceVelocity : float = 12
+@export var bounceVelocity : float = 13
 
 var bounceCount : int
 
@@ -25,7 +25,6 @@ func _on_player_area_detector_top_body_entered(body):
 		bounceCount -= 1
 	else:
 		body.health -= 1
-		print("kill player")
 	_updateSprite(maxBounce - bounceCount)
 
 func _updateSprite(index):
