@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dopv1y5qqf5ga" path="res://Sprites/Perso/marche-2.png" id="11_gy214"]
 [ext_resource type="Script" path="res://Player/Reset.gd" id="14_jalpw"]
 [ext_resource type="PackedScene" uid="uid://cgvjvqo546f6g" path="res://Controllers/PauseController.tscn" id="15_e2nkq"]
-[ext_resource type="PackedScene" uid="uid://diaww2hvh0uf" path="res://Audio/RandomSoundPlayer.tscn" id="15_qndnf"]
+[ext_resource type="PackedScene" path="res://Audio/RandomSoundPlayer.tscn" id="15_qndnf"]
 [ext_resource type="AudioStream" uid="uid://b6wuo11lgy3hj" path="res://Audio/Perso/Mort/mort1.ogg" id="16_dmga2"]
 [ext_resource type="AudioStream" uid="uid://v3abru8t20nd" path="res://Audio/Perso/Mort/mort2.ogg" id="17_ltbyp"]
 [ext_resource type="AudioStream" uid="uid://bku8l6y6vfm82" path="res://Audio/Perso/Mort/mort3.ogg" id="18_iuj0a"]
@@ -154,7 +154,7 @@ cast_shadow = 2
 alpha_cut = 2
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_fcv6a")
-animation = &"walk"
+animation = &"death"
 
 [node name="VisualTest" type="MeshInstance3D" parent="Logic"]
 visible = false
@@ -163,7 +163,6 @@ mesh = SubResource("CapsuleMesh_ljj3r")
 [node name="Camera3D" type="Camera3D" parent="Logic"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 11.6588)
 attributes = SubResource("CameraAttributesPractical_i8242")
-current = true
 fov = 60.0
 size = 10.0
 
