@@ -20,7 +20,7 @@ size = Vector3(8, 3, 1)
 [node name="Player" parent="." instance=ExtResource("2_o3qyi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0903, 3.79143, 0)
 
-[node name="Inventory" parent="Player/Logic" index="5"]
+[node name="Inventory" parent="Player/Logic" index="6"]
 inventoryStartAmount = Array[int]([2, 1, 1, 0, 2])
 
 [node name="PlatformSpawner" parent="." instance=ExtResource("3_dw14o")]
@@ -106,3 +106,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.0193, 28.267, 0)
 nextSceneFile = "res://Levels/RealLevels/Level-4.tscn"
 
 [editable path="Player"]
+[editable path="Player/Sounds/SonsMorts"]
+[editable path="Player/Sounds/SonsSaut"]
