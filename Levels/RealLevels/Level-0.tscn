@@ -1,9 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://j6fohibn4phu"]
+[gd_scene load_steps=36 format=3 uid="uid://j6fohibn4phu"]
 
 [ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/640px-Opossum_1.jpg" id="1_f5yl3"]
 [ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="2_wm7ed"]
 [ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="3_twreh"]
 [ext_resource type="PackedScene" uid="uid://duilavst5goen" path="res://Levels/LevelManager/NextLevelPoint.tscn" id="4_n2fc4"]
+[ext_resource type="Material" uid="uid://bulmujgbjqrls" path="res://Materials/TriplanarHatchedMat.tres" id="5_glt33"]
+[ext_resource type="ArrayMesh" uid="uid://bpf684q2u20n" path="res://Meshes/Chandelier.obj" id="6_g5dwo"]
+[ext_resource type="ArrayMesh" uid="uid://pwj1xq1sw34l" path="res://Meshes/Bench.obj" id="7_k8te3"]
+[ext_resource type="ArrayMesh" uid="uid://dwustk5jqrhj1" path="res://Meshes/Column.obj" id="8_c8png"]
+[ext_resource type="ArrayMesh" uid="uid://bvnfseyhw3a2o" path="res://Meshes/Door.obj" id="9_0h4n6"]
+[ext_resource type="ArrayMesh" uid="uid://d20sckuoftp2j" path="res://Meshes/Window2.obj" id="10_vi7tf"]
+[ext_resource type="ArrayMesh" uid="uid://c8rp3h2gdot75" path="res://Meshes/Window1.obj" id="11_dr32j"]
+[ext_resource type="ArrayMesh" uid="uid://dwrpm1hcvfkgr" path="res://Meshes/Ballustrade.obj" id="12_p8t6a"]
+[ext_resource type="Texture2D" uid="uid://cpxk7kshwfylu" path="res://Textures/StainedGlass/grand-vitrail-soleil-rose.png" id="13_xo0d8"]
+[ext_resource type="Texture2D" uid="uid://cd8rt6646sec8" path="res://Textures/StainedGlass/grand-vitrail-bateau-violet.png" id="14_f3axk"]
+[ext_resource type="Texture2D" uid="uid://ca06a88pimnr1" path="res://Textures/StainedGlass/petit-vitrail-bateau-bleu.png" id="15_f8j7k"]
+[ext_resource type="Texture2D" uid="uid://ckk0lgmppawt0" path="res://Textures/StainedGlass/petit-vitrail-soleil-rose.png" id="16_q7a22"]
+[ext_resource type="Texture2D" uid="uid://c0w20gs0f8bdy" path="res://Textures/StainedGlass/petit-vitrail-soleil-jaune.png" id="17_i4oyu"]
+[ext_resource type="Texture2D" uid="uid://qjw7tyb07rwb" path="res://Textures/StainedGlass/petit-vitrail-bateau-violet.png" id="18_1kwcn"]
+[ext_resource type="PackedScene" uid="uid://dacqi65qy8880" path="res://Shaders/PostProcessQuad.tscn" id="19_qn8b0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_km1n4"]
 albedo_texture = ExtResource("1_f5yl3")
@@ -21,6 +36,61 @@ size = Vector3(2.5, 2.5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6o2ty"]
 size = Vector3(2.5, 2.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u6bm0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2fwrf"]
+albedo_texture = ExtResource("14_f3axk")
+emission_enabled = true
+emission_energy_multiplier = 2.0
+emission_texture = ExtResource("14_f3axk")
+
+[sub_resource type="QuadMesh" id="QuadMesh_5encl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qbfsv"]
+albedo_texture = ExtResource("13_xo0d8")
+emission_enabled = true
+emission_energy_multiplier = 2.0
+emission_texture = ExtResource("13_xo0d8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etpt5"]
+albedo_texture = ExtResource("14_f3axk")
+emission_enabled = true
+emission_energy_multiplier = 2.0
+emission_texture = ExtResource("15_f8j7k")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5gax"]
+albedo_texture = ExtResource("16_q7a22")
+emission_enabled = true
+emission_energy_multiplier = 2.0
+emission_texture = ExtResource("16_q7a22")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sus7r"]
+albedo_texture = ExtResource("17_i4oyu")
+emission_enabled = true
+emission_energy_multiplier = 2.0
+emission_texture = ExtResource("17_i4oyu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_edqvk"]
+albedo_texture = ExtResource("18_1kwcn")
+emission_enabled = true
+emission_energy_multiplier = 2.0
+emission_texture = ExtResource("18_1kwcn")
+
+[sub_resource type="BoxMesh" id="BoxMesh_v5kgv"]
+
+[sub_resource type="Environment" id="Environment_ew84y"]
+ambient_light_source = 2
+ambient_light_color = Color(0.207843, 0.321569, 0.478431, 1)
+ambient_light_energy = 1.8
+ssao_enabled = true
+ssao_radius = 3.0
+ssao_intensity = 3.0
+ssil_intensity = 16.05
+glow_intensity = 8.0
+glow_strength = 2.0
+volumetric_fog_enabled = true
+volumetric_fog_detail_spread = 6.0
 
 [node name="Level-0" type="Node3D"]
 
@@ -44,6 +114,7 @@ collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Right"]
 transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_067kb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Right"]
@@ -55,16 +126,19 @@ collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Left"]
 transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_067kb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Left"]
 shape = SubResource("BoxShape3D_bpgsq")
 
 [node name="Box1" type="StaticBody3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.40886, 1.26191, -0.00335765)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Box1"]
+visible = false
+material_override = ExtResource("5_glt33")
 mesh = SubResource("BoxMesh_ixd0i")
 skeleton = NodePath("../..")
 
@@ -76,6 +150,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 5.25, 0)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Box2"]
+visible = false
 mesh = SubResource("BoxMesh_ixd0i")
 skeleton = NodePath("../..")
 
@@ -83,10 +158,11 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_6o2ty")
 
 [node name="Box3" type="StaticBody3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 9.25, 0)
+transform = Transform3D(1, 0, 0, 0, 0.169836, 0, 0, 0, 1, 6, 10.363, 0)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Box3"]
+visible = false
 mesh = SubResource("BoxMesh_ixd0i")
 skeleton = NodePath("../..")
 
@@ -96,3 +172,1032 @@ shape = SubResource("BoxShape3D_6o2ty")
 [node name="NextLevelPoint" parent="." instance=ExtResource("4_n2fc4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 11, 0)
 nextSceneFile = "res://Levels/RealLevels/Level-1.tscn"
+
+[node name="EnvTest" type="Node" parent="."]
+
+[node name="Chandelier2" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-0.025514, 0, -0.999674, 0, 1, 0, 0.999674, 0, -0.025514, -0.22611, 7.3837, -5.75153)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("6_g5dwo")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Chandelier4" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-0.025514, 0, -0.999674, 0, 1, 0, 0.999674, 0, -0.025514, 6.73368, 10.4553, -0.127966)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("6_g5dwo")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Chandelier5" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-0.025514, 0, -0.999674, 0, 1, 0, 0.999674, 0, -0.025514, -3.26632, 10.9628, 6.38151)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("6_g5dwo")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Chandelier6" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-0.025514, 0, -0.999674, 0, 1, 0, 0.999674, 0, -0.025514, 5.43081, 10.4553, -22.5732)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("6_g5dwo")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Chandelier7" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-0.025514, 0, -0.999674, 0, 1, 0, 0.999674, 0, -0.025514, -2.48242, 10.2315, -16.792)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("6_g5dwo")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Bench6" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.0187193, 0, -80.6785, 0, -4.41722, 0, -82.5117, 0, -0.0183062, -0.407264, -2.19837, -18.9535)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_u6bm0")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Bench7" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.00317205, 0, -10.9054, -13.9819, -5.86995e-08, -0.00247446, 6.11167e-07, -1.34289, -3.67921e-10, -9.02715, 13.1808, -39.4348)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_u6bm0")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Bench16" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.00317205, 0, -10.9054, -13.9819, -5.86995e-08, -0.00247446, 6.11167e-07, -1.34289, -3.67921e-10, 9.20993, 13.1808, -39.4348)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_u6bm0")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Bench17" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.00317205, 0, -10.9054, -13.9819, -5.86995e-08, -0.00247446, 6.11167e-07, -1.34289, -3.67921e-10, -0.175036, 23.5303, -39.4348)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_u6bm0")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Bench12" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(3.79544, 0, 0.0191343, 0, -0.212321, 0, 0.000861492, 0, -84.3124, -6.70587, 6.38484, -15.7629)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_u6bm0")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Bench13" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(3.79544, 0, 0.0191343, 0, -0.212321, 0, 0.000861492, 0, -84.3124, 9.12583, 6.385, -15.763)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_u6bm0")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Bench14" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(12.9324, 0.00118097, 0.0143301, -11.4562, 0.00133315, -0.0126943, 0.00392153, 0, -84.3558, 4.0673, 18.168, 2.73419)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_u6bm0")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Bench15" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(12.3232, -0.00124828, 0.0516928, 12.1091, 0.00127035, -0.0520198, 8.4949e-05, -1.54833e-06, -84.3558, -2.08888, 18.168, 2.73059)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_u6bm0")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Column5" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-6.1259e-08, 0, -1.03852, 0, 1.07326, 0, 1.40144, 0, -4.53953e-08, 3.67685, 0.0502158, -39.1254)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Column6" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-6.1259e-08, 0, -1.03852, 0, 1.07326, 0, 1.40144, 0, -4.53953e-08, -3.55855, 0.0502158, -39.1254)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window33" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.0944, 0, 0, 0, 1.07702, 0, -5.27082e-15, 0, 1.00103, 0.0603452, 0.0652404, -38.7997)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("9_0h4n6")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.4256, 6.47474, -35.7857)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade2" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.4256, 6.47474, -29.7857)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade3" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.4256, 6.47474, -23.7857)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade4" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.4256, 6.47474, -17.7857)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade5" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.4256, 6.47474, -11.7857)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade6" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.4256, 6.47474, -5.78572)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade7" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.4256, 6.47474, 0.214275)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade17" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.616096, 0, -3.55271e-15, 0, 0.930484, 0, 0, 0, 1, 6.89875, 1.18593, 0.158362)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade21" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.616096, 0, -3.55271e-15, 0, 0.930484, 0, 0, 0, 1, 6.89875, -0.0532079, 0.158362)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade8" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.4256, 6.47474, 6.21428)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade9" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.4256, 6.47474, 12.2143)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade10" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.4256, 6.47474, 18.2143)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade11" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.03423, 6.47474, -35.7857)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade12" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.03423, 6.47474, -29.7857)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade13" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.03423, 6.47474, -23.7857)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade14" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.03423, 6.47474, -17.7857)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade15" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.03423, 6.47474, -11.7857)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade16" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.03423, 6.47474, -5.78572)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade18" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.03423, 6.47474, 6.21428)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade19" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.03423, 6.47474, 12.2143)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Ballustrade20" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.03423, 6.47474, 18.2143)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("12_p8t6a")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window34" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(2.67222, 0, 0, 0, 1.86411, 0, -1.28698e-14, 0, 1, 0.0225097, 6.14726, -38.7897)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("11_dr32j")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(4.33694, 0, -3.55271e-15, 0, 8.57381, 0, -2.57397e-14, 0, 1, -0.000857979, 12.0066, -38.8397)
+material_override = SubResource("StandardMaterial3D_2fwrf")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="Window17" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.52191e-07, 0, 1, 0, 1.02842, 0, -1.16058, 0, 1.31134e-07, -7.78687, 0.0559721, 10.4354)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("9_0h4n6")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window18" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.52191e-07, 0, 1, 0, 1.02842, 0, -1.16058, 0, 1.31134e-07, -7.78687, 0.0559721, 3.47191)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("10_vi7tf")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window19" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.52191e-07, 0, 1, 0, 1.02842, 0, -1.16058, 0, 1.31134e-07, -7.78687, 0.0559721, -6.97331)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("10_vi7tf")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window20" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.52191e-07, 0, 1, 0, 1.02842, 0, -1.16058, 0, 1.31134e-07, -7.78722, 0.0559721, -1.8024)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("11_dr32j")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window21" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.52191e-07, 0, 1, 0, 1.02842, 0, -1.16058, 0, 1.31134e-07, -7.78687, 0.0559721, -0.00983858)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window22" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.52191e-07, 0, 1, 0, 1.02842, 0, -1.16058, 0, 1.31134e-07, -7.78687, 0.0559721, -3.49158)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window23" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.52191e-07, 0, 1, 0, 1.02842, 0, -1.16058, 0, 1.31134e-07, -7.78687, 0.0559721, 6.95365)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window24" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.52191e-07, 0, 1, 0, 1.02842, 0, -1.16058, 0, 1.31134e-07, -7.78687, 0.0559721, -10.455)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window25" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.52191e-07, 0, 1, 0, 1.02842, 0, -1.16058, 0, 1.31134e-07, -7.78687, 0.0559721, -13.9368)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("9_0h4n6")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window26" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.52191e-07, 0, 1, 0, 1.02842, 0, -1.16058, 0, 1.31134e-07, -7.78687, 0.0559721, -20.9002)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("10_vi7tf")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window27" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.52191e-07, 0, 1, 0, 1.02842, 0, -1.16058, 0, 1.31134e-07, -7.78686, 0.0559721, -31.3454)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("10_vi7tf")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window28" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.52191e-07, 0, 1, 0, 1.02842, 0, -1.16058, 0, 1.31134e-07, -7.78722, 0.0559721, -26.1745)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("11_dr32j")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window29" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.52191e-07, 0, 1, 0, 1.02842, 0, -1.16058, 0, 1.31134e-07, -7.78687, 0.0559721, -24.382)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window30" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.52191e-07, 0, 1, 0, 1.02842, 0, -1.16058, 0, 1.31134e-07, -7.78687, 0.0559721, -27.8637)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window31" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.52191e-07, 0, 1, 0, 1.02842, 0, -1.16058, 0, 1.31134e-07, -7.78687, 0.0559721, -17.4185)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window32" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.52191e-07, 0, 1, 0, 1.02842, 0, -1.16058, 0, 1.31134e-07, -7.78686, 0.0559721, -34.8272)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window53" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.52191e-07, 0, 1, 0, 1.02842, 0, -1.16058, 0, 1.31134e-07, -7.78686, 0.0559721, -39.0372)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(2.47003e-07, 0, 1, 0, 4.7301, 0, -1.88359, 0, 1.31134e-07, -7.83723, 3.28852, -26.1786)
+material_override = SubResource("StandardMaterial3D_qbfsv")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="Window52" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.52191e-07, 0, 1, 0, 1.02842, 0, -1.16058, 0, 1.31134e-07, -7.78722, 0.0559721, -36.8669)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("11_dr32j")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="MeshInstance3D43" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(2.47003e-07, 0, 1, 0, 4.7301, 0, -1.88359, 0, 1.31134e-07, -7.83723, 3.28852, -36.871)
+material_override = SubResource("StandardMaterial3D_qbfsv")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="Window54" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.30933, 0, -1.74846e-07, 0, 1.02842, 0, 2.2893e-07, 0, 1, -5.58786, 0.0559721, -38.7998)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("11_dr32j")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="MeshInstance3D44" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(2.125, 0, -1.74846e-07, 0, 4.7301, 0, 3.71547e-07, 0, 1, -5.58324, 3.28852, -38.8498)
+material_override = SubResource("StandardMaterial3D_qbfsv")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="Window55" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.30933, 0, -1.74846e-07, 0, 1.02842, 0, 2.2893e-07, 0, 1, 5.95564, 0.0559721, -38.7998)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("11_dr32j")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="MeshInstance3D45" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(2.125, 0, -1.74846e-07, 0, 4.7301, 0, 3.71547e-07, 0, 1, 5.96026, 3.28852, -38.8498)
+material_override = SubResource("StandardMaterial3D_qbfsv")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(2.47003e-07, 0, 1, 0, 4.7301, 0, -1.88359, 0, 1.31134e-07, -7.83724, 3.28852, -1.79225)
+material_override = SubResource("StandardMaterial3D_2fwrf")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.73241e-07, 0, 1, 0, 3.35306, 0, -1.3211, 0, 1.31134e-07, -7.83724, 3.646, -5.81245)
+material_override = SubResource("StandardMaterial3D_etpt5")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.73241e-07, 0, 1, 0, 3.35306, 0, -1.3211, 0, 1.31134e-07, -7.83723, 3.646, -30.1798)
+material_override = SubResource("StandardMaterial3D_etpt5")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.73241e-07, 0, 1, 0, 3.35306, 0, -1.3211, 0, 1.31134e-07, -7.83723, 3.646, -32.5158)
+material_override = SubResource("StandardMaterial3D_q5gax")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.73241e-07, 0, 1, 0, 3.35306, 0, -1.3211, 0, 1.31134e-07, -7.83724, 3.646, 2.29947)
+material_override = SubResource("StandardMaterial3D_q5gax")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.73241e-07, 0, 1, 0, 3.35306, 0, -1.3211, 0, 1.31134e-07, -7.83724, 3.646, -19.6991)
+material_override = SubResource("StandardMaterial3D_sus7r")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.73241e-07, 0, 1, 0, 3.35306, 0, -1.3211, 0, 1.31134e-07, -7.83723, 3.646, -22.0723)
+material_override = SubResource("StandardMaterial3D_edqvk")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.73241e-07, 0, 1, 0, 3.35306, 0, -1.3211, 0, 1.31134e-07, -7.83724, 3.646, -8.12201)
+material_override = SubResource("StandardMaterial3D_edqvk")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-0.00010971, 0, 0.146816, 0, 4.94962, 0, -1.57249, 0, -1.02117e-05, -7.91157, 3.31734, -13.1165)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_v5kgv")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-0.00010971, 0, 0.146816, 0, 4.94962, 0, -1.57249, 0, -1.02117e-05, -7.91157, 3.31734, -14.7082)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_v5kgv")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-0.00010971, 0, 0.146816, 0, 4.94962, 0, -1.57249, 0, -1.02117e-05, -7.91157, 3.31734, 11.2699)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_v5kgv")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-0.00010971, 0, 0.146816, 0, 4.94962, 0, -1.57249, 0, -1.02117e-05, -7.91157, 3.31734, 9.67815)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_v5kgv")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(1.73241e-07, 0, 1, 0, 3.35306, 0, -1.3211, 0, 1.31134e-07, -7.83724, 3.646, 4.64843)
+material_override = SubResource("StandardMaterial3D_sus7r")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="Window35" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.07305e-08, 0, -1, 0, 1.02842, 0, 1.16058, 0, -4.37114e-08, 7.73116, 0.0559721, -34.6529)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("9_0h4n6")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window36" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.07305e-08, 0, -1, 0, 1.02842, 0, 1.16058, 0, -4.37114e-08, 7.73116, 0.0559721, -27.6894)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("10_vi7tf")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window37" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.07305e-08, 0, -1, 0, 1.02842, 0, 1.16058, 0, -4.37114e-08, 7.73116, 0.0559721, -17.2442)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("10_vi7tf")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window38" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.07305e-08, 0, -1, 0, 1.02842, 0, 1.16058, 0, -4.37114e-08, 7.73151, 0.0559721, -22.4151)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("11_dr32j")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window39" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.07305e-08, 0, -1, 0, 1.02842, 0, 1.16058, 0, -4.37114e-08, 7.73116, 0.0559721, -24.2077)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window40" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.07305e-08, 0, -1, 0, 1.02842, 0, 1.16058, 0, -4.37114e-08, 7.73116, 0.0559721, -20.726)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window41" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.07305e-08, 0, -1, 0, 1.02842, 0, 1.16058, 0, -4.37114e-08, 7.73116, 0.0559721, -31.1712)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window51" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.07305e-08, 0, -1, 0, 1.02842, 0, 1.16058, 0, -4.37114e-08, 7.73116, 0.0559721, -38.5008)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window42" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.07305e-08, 0, -1, 0, 1.02842, 0, 1.16058, 0, -4.37114e-08, 7.73116, 0.0559721, -13.7625)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window43" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.07305e-08, 0, -1, 0, 1.02842, 0, 1.16058, 0, -4.37114e-08, 7.73116, 0.0559721, -10.2808)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("9_0h4n6")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window44" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.07305e-08, 0, -1, 0, 1.02842, 0, 1.16058, 0, -4.37114e-08, 7.73116, 0.0559721, -3.31731)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("10_vi7tf")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window45" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.07305e-08, 0, -1, 0, 1.02842, 0, 1.16058, 0, -4.37114e-08, 7.73116, 0.0559721, 7.12792)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("10_vi7tf")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window46" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.07305e-08, 0, -1, 0, 1.02842, 0, 1.16058, 0, -4.37114e-08, 7.73151, 0.0559721, 1.95698)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("11_dr32j")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window47" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.07305e-08, 0, -1, 0, 1.02842, 0, 1.16058, 0, -4.37114e-08, 7.73116, 0.0559721, 0.164427)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window90" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-3.13559e-08, 0, -0.687009, 0, 0.408908, 0, 0.71734, 0, -3.00301e-08, 5.15735, 0.0559721, 0.21315)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window48" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.07305e-08, 0, -1, 0, 1.02842, 0, 1.16058, 0, -4.37114e-08, 7.73116, 0.0559721, 3.64617)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window49" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.07305e-08, 0, -1, 0, 1.02842, 0, 1.16058, 0, -4.37114e-08, 7.73116, 0.0559721, -6.79902)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window50" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.07305e-08, 0, -1, 0, 1.02842, 0, 1.16058, 0, -4.37114e-08, 7.73116, 0.0559721, 10.6097)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-8.23342e-08, 0, -1, 0, 4.7301, 0, 1.88359, 0, -4.37114e-08, 7.78153, 3.28852, 1.96108)
+material_override = SubResource("StandardMaterial3D_qbfsv")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D30" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-8.23342e-08, 0, -1, 0, 4.7301, 0, 1.88359, 0, -4.37114e-08, 7.78153, 3.28852, -22.4253)
+material_override = SubResource("StandardMaterial3D_2fwrf")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D31" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.77469e-08, 0, -1, 0, 3.35306, 0, 1.3211, 0, -4.37114e-08, 7.78153, 3.646, -18.4051)
+material_override = SubResource("StandardMaterial3D_etpt5")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D32" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.77469e-08, 0, -1, 0, 3.35306, 0, 1.3211, 0, -4.37114e-08, 7.78153, 3.646, 5.96225)
+material_override = SubResource("StandardMaterial3D_etpt5")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D33" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.77469e-08, 0, -1, 0, 3.35306, 0, 1.3211, 0, -4.37114e-08, 7.78153, 3.646, 8.29823)
+material_override = SubResource("StandardMaterial3D_q5gax")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D34" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.77469e-08, 0, -1, 0, 3.35306, 0, 1.3211, 0, -4.37114e-08, 7.78153, 3.646, -26.517)
+material_override = SubResource("StandardMaterial3D_q5gax")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D35" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.77469e-08, 0, -1, 0, 3.35306, 0, 1.3211, 0, -4.37114e-08, 7.78153, 3.646, -4.51846)
+material_override = SubResource("StandardMaterial3D_sus7r")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D36" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.77469e-08, 0, -1, 0, 3.35306, 0, 1.3211, 0, -4.37114e-08, 7.78153, 3.646, -2.1452)
+material_override = SubResource("StandardMaterial3D_edqvk")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D37" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.77469e-08, 0, -1, 0, 3.35306, 0, 1.3211, 0, -4.37114e-08, 7.78153, 3.646, -16.0955)
+material_override = SubResource("StandardMaterial3D_edqvk")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D38" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.000109848, 0, -0.146816, 0, 4.94962, 0, 1.57249, 0, 1.02245e-05, 7.85586, 3.31734, -11.1011)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_v5kgv")
+
+[node name="MeshInstance3D39" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.000109848, 0, -0.146816, 0, 4.94962, 0, 1.57249, 0, 1.02245e-05, 7.85587, 3.31734, -9.50934)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_v5kgv")
+
+[node name="MeshInstance3D40" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.000109848, 0, -0.146816, 0, 4.94962, 0, 1.57249, 0, 1.02245e-05, 7.85587, 3.31734, -35.4874)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_v5kgv")
+
+[node name="MeshInstance3D41" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.000109848, 0, -0.146816, 0, 4.94962, 0, 1.57249, 0, 1.02245e-05, 7.85587, 3.31734, -33.8957)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_v5kgv")
+
+[node name="MeshInstance3D42" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-5.77469e-08, 0, -1, 0, 3.35306, 0, 1.3211, 0, -4.37114e-08, 7.78153, 3.646, -28.866)
+material_override = SubResource("StandardMaterial3D_sus7r")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="Window56" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.09415e-08, 0, -1, 0, 1.02842, 0, -1.16541, 0, -4.37114e-08, 10.191, 6.49943, 7.64355)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("9_0h4n6")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window57" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.09415e-08, 0, -1, 0, 1.02842, 0, -1.16541, 0, -4.37114e-08, 10.191, 6.49943, 0.651097)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("10_vi7tf")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window58" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.09415e-08, 0, -1, 0, 1.02842, 0, -1.16541, 0, -4.37114e-08, 10.191, 6.49943, -9.83758)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("10_vi7tf")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window59" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.09415e-08, 0, -1, 0, 1.02842, 0, -1.16541, 0, -4.37114e-08, 10.1913, 6.49943, -4.64515)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("11_dr32j")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window60" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.09415e-08, 0, -1, 0, 1.02842, 0, -1.16541, 0, -4.37114e-08, 10.191, 6.49943, -2.84513)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window61" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.09415e-08, 0, -1, 0, 1.02842, 0, -1.16541, 0, -4.37114e-08, 10.191, 6.49943, -6.34136)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window62" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.09415e-08, 0, -1, 0, 1.02842, 0, -1.16541, 0, -4.37114e-08, 10.191, 6.49943, 4.14733)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window63" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.09415e-08, 0, -1, 0, 1.02842, 0, -1.16541, 0, -4.37114e-08, 10.191, 6.49943, 11.5074)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window64" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.09415e-08, 0, -1, 0, 1.02842, 0, -1.16541, 0, -4.37114e-08, 10.191, 6.49943, -13.3338)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window65" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.09415e-08, 0, -1, 0, 1.02842, 0, -1.16541, 0, -4.37114e-08, 10.191, 6.49943, -16.83)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("9_0h4n6")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window66" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.09415e-08, 0, -1, 0, 1.02842, 0, -1.16541, 0, -4.37114e-08, 10.191, 6.49943, -23.8224)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("10_vi7tf")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window67" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.09415e-08, 0, -1, 0, 1.02842, 0, -1.16541, 0, -4.37114e-08, 10.191, 6.49943, -34.3111)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("10_vi7tf")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window68" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.09415e-08, 0, -1, 0, 1.02842, 0, -1.16541, 0, -4.37114e-08, 10.1913, 6.49943, -29.1187)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("11_dr32j")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window69" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.09415e-08, 0, -1, 0, 1.02842, 0, -1.16541, 0, -4.37114e-08, 10.191, 6.49943, -27.3187)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window70" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.09415e-08, 0, -1, 0, 1.02842, 0, -1.16541, 0, -4.37114e-08, 10.191, 6.49943, -30.8149)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window71" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.09415e-08, 0, -1, 0, 1.02842, 0, -1.16541, 0, -4.37114e-08, 10.191, 6.49943, -20.3262)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window72" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.09415e-08, 0, -1, 0, 1.02842, 0, -1.16541, 0, -4.37114e-08, 10.191, 6.49943, -37.8073)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="MeshInstance3D46" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(8.26768e-08, 0, -1, 0, 4.7301, 0, -1.89142, 0, -4.37114e-08, 10.2414, 9.73198, -29.1228)
+material_override = SubResource("StandardMaterial3D_qbfsv")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D47" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(8.26768e-08, 0, -1, 0, 4.7301, 0, -1.89142, 0, -4.37114e-08, 10.2414, 9.73198, -4.63496)
+material_override = SubResource("StandardMaterial3D_2fwrf")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D48" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.79872e-08, 0, -1, 0, 3.35306, 0, -1.32659, 0, -4.37114e-08, 10.2414, 10.0895, -8.67188)
+material_override = SubResource("StandardMaterial3D_etpt5")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D49" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.79872e-08, 0, -1, 0, 3.35306, 0, -1.32659, 0, -4.37114e-08, 10.2414, 10.0895, -33.1406)
+material_override = SubResource("StandardMaterial3D_etpt5")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D50" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.79872e-08, 0, -1, 0, 3.35306, 0, -1.32659, 0, -4.37114e-08, 10.2414, 10.0895, -35.4863)
+material_override = SubResource("StandardMaterial3D_q5gax")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D51" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.79872e-08, 0, -1, 0, 3.35306, 0, -1.32659, 0, -4.37114e-08, 10.2414, 10.0895, -0.526215)
+material_override = SubResource("StandardMaterial3D_q5gax")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D52" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.79872e-08, 0, -1, 0, 3.35306, 0, -1.32659, 0, -4.37114e-08, 10.2414, 10.0895, -22.6163)
+material_override = SubResource("StandardMaterial3D_sus7r")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D53" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.79872e-08, 0, -1, 0, 3.35306, 0, -1.32659, 0, -4.37114e-08, 10.2414, 10.0895, -24.9994)
+material_override = SubResource("StandardMaterial3D_edqvk")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D54" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.79872e-08, 0, -1, 0, 3.35306, 0, -1.32659, 0, -4.37114e-08, 10.2414, 10.0895, -10.9911)
+material_override = SubResource("StandardMaterial3D_edqvk")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D55" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-0.000110305, 0, -0.146795, 0, 4.94962, 0, -1.57903, 0, 1.02231e-05, 10.3157, 9.7608, -16.0063)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_v5kgv")
+
+[node name="MeshInstance3D56" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-0.000110305, 0, -0.146795, 0, 4.94962, 0, -1.57903, 0, 1.02231e-05, 10.3157, 9.7608, -17.6046)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_v5kgv")
+
+[node name="MeshInstance3D57" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-0.000110305, 0, -0.146795, 0, 4.94962, 0, -1.57903, 0, 1.02231e-05, 10.3157, 9.7608, 8.48151)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_v5kgv")
+
+[node name="MeshInstance3D58" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-0.000110305, 0, -0.146795, 0, 4.94962, 0, -1.57903, 0, 1.02231e-05, 10.3157, 9.7608, 6.88317)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_v5kgv")
+
+[node name="MeshInstance3D59" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(5.79872e-08, 0, -1, 0, 3.35306, 0, -1.32659, 0, -4.37114e-08, 10.2414, 10.0895, 1.83252)
+material_override = SubResource("StandardMaterial3D_sus7r")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="Window73" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.52825e-07, 0, 1, 0, 1.02842, 0, 1.16541, 0, 1.31134e-07, -7.87377, 6.49943, -34.7407)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("9_0h4n6")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window74" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.52825e-07, 0, 1, 0, 1.02842, 0, 1.16541, 0, 1.31134e-07, -7.87377, 6.49943, -27.7483)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("10_vi7tf")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window75" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.52825e-07, 0, 1, 0, 1.02842, 0, 1.16541, 0, 1.31134e-07, -7.87377, 6.49943, -17.2596)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("10_vi7tf")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window76" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.52825e-07, 0, 1, 0, 1.02842, 0, 1.16541, 0, 1.31134e-07, -7.87412, 6.49943, -22.452)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("11_dr32j")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window77" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.52825e-07, 0, 1, 0, 1.02842, 0, 1.16541, 0, 1.31134e-07, -7.87377, 6.49943, -24.252)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window78" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.52825e-07, 0, 1, 0, 1.02842, 0, 1.16541, 0, 1.31134e-07, -7.87377, 6.49943, -20.7558)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window79" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.52825e-07, 0, 1, 0, 1.02842, 0, 1.16541, 0, 1.31134e-07, -7.87377, 6.49943, -31.2445)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window80" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.52825e-07, 0, 1, 0, 1.02842, 0, 1.16541, 0, 1.31134e-07, -7.87377, 6.49943, -38.6046)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window81" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.52825e-07, 0, 1, 0, 1.02842, 0, 1.16541, 0, 1.31134e-07, -7.87377, 6.49943, -13.7634)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window82" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.52825e-07, 0, 1, 0, 1.02842, 0, 1.16541, 0, 1.31134e-07, -7.87377, 6.49943, -10.2672)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("9_0h4n6")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window83" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.52825e-07, 0, 1, 0, 1.02842, 0, 1.16541, 0, 1.31134e-07, -7.87377, 6.49943, -3.27474)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("10_vi7tf")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window84" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.52825e-07, 0, 1, 0, 1.02842, 0, 1.16541, 0, 1.31134e-07, -7.87377, 6.49943, 7.21394)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("10_vi7tf")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window85" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.52825e-07, 0, 1, 0, 1.02842, 0, 1.16541, 0, 1.31134e-07, -7.87412, 6.49943, 2.0215)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("11_dr32j")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window86" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.52825e-07, 0, 1, 0, 1.02842, 0, 1.16541, 0, 1.31134e-07, -7.87377, 6.49943, 0.221483)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window87" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.52825e-07, 0, 1, 0, 1.02842, 0, 1.16541, 0, 1.31134e-07, -7.87377, 6.49943, 3.71772)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window88" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.52825e-07, 0, 1, 0, 1.02842, 0, 1.16541, 0, 1.31134e-07, -7.87377, 6.49943, -6.77094)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="Window89" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.52825e-07, 0, 1, 0, 1.02842, 0, 1.16541, 0, 1.31134e-07, -7.87377, 6.49943, 10.7102)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("8_c8png")
+skeleton = NodePath("../../PostProcessQuad")
+
+[node name="MeshInstance3D60" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-2.4803e-07, 0, 1, 0, 4.7301, 0, 1.89142, 0, 1.31134e-07, -7.92414, 9.73198, 2.02561)
+material_override = SubResource("StandardMaterial3D_qbfsv")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D61" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-2.4803e-07, 0, 1, 0, 4.7301, 0, 1.89142, 0, 1.31134e-07, -7.92414, 9.73198, -22.4622)
+material_override = SubResource("StandardMaterial3D_2fwrf")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D62" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.73962e-07, 0, 1, 0, 3.35306, 0, 1.32659, 0, 1.31134e-07, -7.92414, 10.0895, -18.4253)
+material_override = SubResource("StandardMaterial3D_etpt5")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D63" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.73962e-07, 0, 1, 0, 3.35306, 0, 1.32659, 0, 1.31134e-07, -7.92414, 10.0895, 6.04343)
+material_override = SubResource("StandardMaterial3D_etpt5")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D64" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.73962e-07, 0, 1, 0, 3.35306, 0, 1.32659, 0, 1.31134e-07, -7.92414, 10.0895, 8.38912)
+material_override = SubResource("StandardMaterial3D_q5gax")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D65" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.73962e-07, 0, 1, 0, 3.35306, 0, 1.32659, 0, 1.31134e-07, -7.92414, 10.0895, -26.571)
+material_override = SubResource("StandardMaterial3D_q5gax")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D66" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.73962e-07, 0, 1, 0, 3.35306, 0, 1.32659, 0, 1.31134e-07, -7.92414, 10.0895, -4.48089)
+material_override = SubResource("StandardMaterial3D_sus7r")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D67" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.73962e-07, 0, 1, 0, 3.35306, 0, 1.32659, 0, 1.31134e-07, -7.92414, 10.0895, -2.09775)
+material_override = SubResource("StandardMaterial3D_edqvk")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D68" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.73962e-07, 0, 1, 0, 3.35306, 0, 1.32659, 0, 1.31134e-07, -7.92414, 10.0895, -16.1061)
+material_override = SubResource("StandardMaterial3D_edqvk")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="MeshInstance3D69" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.000110167, 0, 0.146795, 0, 4.94962, 0, 1.57903, 0, -1.02103e-05, -7.99847, 9.7608, -11.0909)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_v5kgv")
+
+[node name="MeshInstance3D70" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.000110167, 0, 0.146795, 0, 4.94962, 0, 1.57903, 0, -1.02103e-05, -7.99847, 9.7608, -9.49253)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_v5kgv")
+
+[node name="MeshInstance3D71" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.000110167, 0, 0.146795, 0, 4.94962, 0, 1.57903, 0, -1.02103e-05, -7.99847, 9.7608, -35.5787)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_v5kgv")
+
+[node name="MeshInstance3D72" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(0.000110167, 0, 0.146795, 0, 4.94962, 0, 1.57903, 0, -1.02103e-05, -7.99847, 9.7608, -33.9803)
+material_override = ExtResource("5_glt33")
+mesh = SubResource("BoxMesh_v5kgv")
+
+[node name="MeshInstance3D73" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1.73962e-07, 0, 1, 0, 3.35306, 0, 1.32659, 0, 1.31134e-07, -7.92414, 10.0895, -28.9297)
+material_override = SubResource("StandardMaterial3D_sus7r")
+mesh = SubResource("QuadMesh_5encl")
+
+[node name="Bench" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0307384, 0, -2.43015)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("7_k8te3")
+skeleton = NodePath("../..")
+
+[node name="Bench4" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0307384, 0, 3.56985)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("7_k8te3")
+skeleton = NodePath("../..")
+
+[node name="Bench5" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0307384, 0, 6.56985)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("7_k8te3")
+skeleton = NodePath("../..")
+
+[node name="Bench8" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0307384, 0, 9.56985)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("7_k8te3")
+skeleton = NodePath("../..")
+
+[node name="Bench2" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0307384, 0, -5.43015)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("7_k8te3")
+skeleton = NodePath("../..")
+
+[node name="Bench3" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0307384, 0, -8.43015)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("7_k8te3")
+skeleton = NodePath("../..")
+
+[node name="Bench9" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0307384, 0, -11.4301)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("7_k8te3")
+skeleton = NodePath("../..")
+
+[node name="Bench10" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0307384, 0, -14.4301)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("7_k8te3")
+skeleton = NodePath("../..")
+
+[node name="Bench11" type="MeshInstance3D" parent="EnvTest"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0307384, 0, -17.4301)
+material_override = ExtResource("5_glt33")
+mesh = ExtResource("7_k8te3")
+skeleton = NodePath("../..")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.992037, 0.125851, -0.00483856, 0.121062, 0.963471, 0.238887, 0.034726, 0.236399, -0.971035, 6, 1.25, 0)
+light_color = Color(0.819608, 0.32549, 0.572549, 1)
+light_energy = 2.0
+light_volumetric_fog_energy = 4.773
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ew84y")
+
+[node name="PostProcessQuad" parent="." instance=ExtResource("19_qn8b0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.25, 0)
