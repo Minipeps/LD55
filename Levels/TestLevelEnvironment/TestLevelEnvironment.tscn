@@ -39,10 +39,11 @@ volumetric_fog_ambient_inject = 0.57
 [node name="TestLevelLd55" type="Node3D"]
 script = ExtResource("1_6fluc")
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+[node name="Floor" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
 material_override = SubResource("StandardMaterial3D_h10yg")
 use_collision = true
+collision_layer = 2
 mesh = SubResource("BoxMesh_xmf08")
 material = SubResource("StandardMaterial3D_onmnc")
 
