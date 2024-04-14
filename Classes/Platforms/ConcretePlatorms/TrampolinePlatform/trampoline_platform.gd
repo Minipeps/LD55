@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var maxBounce : int = 3
-@export var bounceVelocity : float = 10
+@export var bounceVelocity : float = 12
 
 var bounceCount : int
 
@@ -16,9 +16,9 @@ func _on_player_area_detector_top_body_entered(body):
 		var bounceAddVelocity : float = 0
 		match bounceCount:
 			3:
-				bounceAddVelocity = bounceVelocity / 2.0
-			2:
 				bounceAddVelocity = bounceVelocity / 1.5
+			2:
+				bounceAddVelocity = bounceVelocity / 1.2
 			1:
 				bounceAddVelocity = bounceVelocity
 		body.velocity.y = bounceAddVelocity
