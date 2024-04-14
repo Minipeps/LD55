@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://duilavst5goen"]
+[gd_scene load_steps=11 format=3 uid="uid://duilavst5goen"]
 
 [ext_resource type="Script" path="res://Levels/LevelManager/NextLevelPoint.gd" id="1_8rr2x"]
 [ext_resource type="Texture2D" uid="uid://cg5ecc5a56h2o" path="res://Sprites/Pentagrams/pentagram-bleu1.png" id="2_g41u0"]
+[ext_resource type="AudioStream" uid="uid://bpt37tbt523i7" path="res://Audio/Level/levelend.ogg" id="3_iuhij"]
 [ext_resource type="Texture2D" uid="uid://f6t8gspwm35d" path="res://Sprites/particule.png" id="3_l4utl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qoinr"]
@@ -51,6 +52,11 @@ shape = SubResource("BoxShape3D_qoinr")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1.15938e-07, -1, 0, 2.65234, -4.37114e-08, 0, -0.499566, 0)
 texture = ExtResource("2_g41u0")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0389676, -0.480417, 0)
+stream = ExtResource("3_iuhij")
+volume_db = 4.0
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0389676, -0.480417, 0)

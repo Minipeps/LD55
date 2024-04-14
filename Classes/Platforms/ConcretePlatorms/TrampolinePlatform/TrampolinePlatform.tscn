@@ -1,7 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://fuw44dc536s3"]
+[gd_scene load_steps=13 format=3 uid="uid://fuw44dc536s3"]
 
 [ext_resource type="Script" path="res://Classes/Platforms/ConcretePlatorms/TrampolinePlatform/trampoline_platform.gd" id="1_of3ma"]
 [ext_resource type="Texture2D" uid="uid://cf6ylqtsdeb7b" path="res://Sprites/TrampolinePlatform/neutre.png" id="2_lvy5i"]
+[ext_resource type="AudioStream" uid="uid://614qtaysqb5f" path="res://Audio/TrampolinePlatform/trampo1.ogg" id="2_twriu"]
+[ext_resource type="AudioStream" uid="uid://drnnro2ykxxum" path="res://Audio/TrampolinePlatform/trampo2.ogg" id="3_7nlh6"]
+[ext_resource type="AudioStream" uid="uid://cx1gah81iieeh" path="res://Audio/TrampolinePlatform/trampo3.ogg" id="4_2e10b"]
 [ext_resource type="Texture2D" uid="uid://8wd84g2wtgq0" path="res://Sprites/TrampolinePlatform/colere-etat-2.png" id="4_laapx"]
 [ext_resource type="Texture2D" uid="uid://bepxw3dfd56gk" path="res://Sprites/TrampolinePlatform/etat-final.png" id="5_n40ti"]
 [ext_resource type="Texture2D" uid="uid://cvain5otykkk8" path="res://Sprites/TrampolinePlatform/mange-perso.png" id="6_rqrsc"]
@@ -10,10 +13,10 @@
 size = Vector3(2, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p57v8"]
-size = Vector3(2, 1, 1)
+size = Vector3(6.4, 1, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ne0h1"]
-size = Vector3(1.75, 0.05, 1)
+size = Vector3(6.4, 0.05, 4)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_50d3p"]
 animations = [{
@@ -44,15 +47,26 @@ visible = false
 mesh = SubResource("BoxMesh_aju7d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(3.19676, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0)
 shape = SubResource("BoxShape3D_p57v8")
+
+[node name="Sounds" type="Node3D" parent="."]
+
+[node name="Sound1" type="AudioStreamPlayer3D" parent="Sounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.521495, 0)
+stream = ExtResource("2_twriu")
+
+[node name="Sound2" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource("3_7nlh6")
+
+[node name="Sound3" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource("4_2e10b")
 
 [node name="PlayerAreaDetectorTop" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.498439, 0)
 collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerAreaDetectorTop"]
-transform = Transform3D(3.6518, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0.0230556, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0230556, 0)
 shape = SubResource("BoxShape3D_ne0h1")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]

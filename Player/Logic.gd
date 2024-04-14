@@ -13,6 +13,9 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var spherePivot = $SpherePivot
 @onready var inventory = $Inventory
 @onready var cursor = $Cursor
+@onready var jumpSounds = $"../Sounds/SonsSaut/AudioStreamPlayer3D"
+@onready var deathSounds = $"../Sounds/SonsMorts/AudioStreamPlayer3D"
+@onready var walkSound: AudioStreamPlayer3D = $"../Sounds/WalkSound"
 
 @onready var visual = $Visual
 var health: int = 1;
@@ -46,7 +49,8 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
+		jumpSounds.play()
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("player_move_left", "player_move_right", "player_move_up", "player_move_down")
@@ -58,6 +62,11 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
+	if is_on_floor() && velocity.x !=0 && !(walkSound.playing):
+		walkSound.play()
+	if (not is_on_floor() || velocity.x == 0) && walkSound.playing:
+		walkSound.stop()
+	
 	_handleCursorPosition()
 	_handleAnimation()
 	_checkHealth()
@@ -67,6 +76,7 @@ func _checkHealth():
 	if(health <= 0):
 		death_player.emit()
 		isAlive = false
+		deathSounds.play()
 		visual.play("death")
 
 func _handleAnimation():

@@ -22,7 +22,7 @@ size = Vector3(8, 3, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_j0j4n"]
 size = Vector3(8, 3, 1)
 
-[node name="Level-0" type="Node3D"]
+[node name="Level-3" type="Node3D"]
 
 [node name="Floor" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
@@ -113,4 +113,5 @@ mesh = SubResource("BoxMesh_2obki")
 shape = SubResource("BoxShape3D_j0j4n")
 
 [node name="NextLevelPoint" parent="." instance=ExtResource("4_0n0bk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.0193, 32, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.0193, 28.267, 0)
+nextSceneFile = "res://Levels/RealLevels/Level-4.tscn"

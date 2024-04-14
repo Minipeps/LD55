@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://31kb25j7ypfh"]
+[gd_scene load_steps=33 format=3 uid="uid://31kb25j7ypfh"]
 
 [ext_resource type="Script" path="res://Player/Logic.gd" id="2_224jm"]
 [ext_resource type="Texture2D" uid="uid://bc0dttgc6xcrh" path="res://Sprites/Perso/marche-droite-1.png" id="2_cyol1"]
@@ -14,6 +14,18 @@
 [ext_resource type="Texture2D" uid="uid://dp6ovswyanqhl" path="res://UI/curseur.png" id="8_itjpk"]
 [ext_resource type="Texture2D" uid="uid://tvp8o5a0edr0" path="res://UI/reset-level.png" id="9_r4baw"]
 [ext_resource type="Script" path="res://Player/Reset.gd" id="14_jalpw"]
+[ext_resource type="PackedScene" uid="uid://diaww2hvh0uf" path="res://Audio/RandomSoundPlayer.tscn" id="15_qndnf"]
+[ext_resource type="AudioStream" uid="uid://b6wuo11lgy3hj" path="res://Audio/Perso/Mort/mort1.ogg" id="16_dmga2"]
+[ext_resource type="AudioStream" uid="uid://v3abru8t20nd" path="res://Audio/Perso/Mort/mort2.ogg" id="17_ltbyp"]
+[ext_resource type="AudioStream" uid="uid://bku8l6y6vfm82" path="res://Audio/Perso/Mort/mort3.ogg" id="18_iuj0a"]
+[ext_resource type="AudioStream" uid="uid://bu50a4hr48wp" path="res://Audio/Perso/Mort/mort4.ogg" id="19_yhd54"]
+[ext_resource type="AudioStream" uid="uid://d2rhh7skvanjq" path="res://Audio/Perso/Mort/mort5.ogg" id="20_6jhfg"]
+[ext_resource type="AudioStream" uid="uid://bfb0ncy448plv" path="res://Audio/Perso/Saut/saut1.ogg" id="21_v3nde"]
+[ext_resource type="AudioStream" uid="uid://crqgxh08nu2s8" path="res://Audio/Perso/Saut/saut2.ogg" id="22_2ay3l"]
+[ext_resource type="AudioStream" uid="uid://dt8724jhvdsl" path="res://Audio/Perso/Saut/saut3.ogg" id="23_57wg0"]
+[ext_resource type="AudioStream" uid="uid://c7j1t1dmxgkyn" path="res://Audio/Perso/Saut/saut4.ogg" id="24_68f8r"]
+[ext_resource type="AudioStream" uid="uid://dspmlpll2xvtt" path="res://Audio/Perso/Saut/saut5.ogg" id="25_nth8a"]
+[ext_resource type="AudioStream" uid="uid://cm2ei4ph56n6e" path="res://Audio/Perso/walk.ogg" id="26_74lf5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xvqk6"]
 
@@ -90,6 +102,32 @@ dof_blur_near_distance = 10.0
 dof_blur_near_transition = 11.0
 dof_blur_amount = 0.06
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vlc4n"]
+streams_count = 5
+stream_0/stream = ExtResource("16_dmga2")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("17_ltbyp")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("18_iuj0a")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("19_yhd54")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("20_6jhfg")
+stream_4/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vo4rd"]
+streams_count = 5
+stream_0/stream = ExtResource("21_v3nde")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("22_2ay3l")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("23_57wg0")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("24_68f8r")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("25_nth8a")
+stream_4/weight = 1.0
+
 [node name="Player" type="Node3D"]
 
 [node name="Logic" type="CharacterBody3D" parent="." groups=["Player"]]
@@ -140,4 +178,22 @@ expand_mode = 2
 stretch_mode = 4
 script = ExtResource("14_jalpw")
 
+[node name="Sounds" type="Node3D" parent="."]
+
+[node name="SonsMorts" parent="Sounds" instance=ExtResource("15_qndnf")]
+
+[node name="AudioStreamPlayer3D" parent="Sounds/SonsMorts" index="0"]
+stream = SubResource("AudioStreamRandomizer_vlc4n")
+
+[node name="SonsSaut" parent="Sounds" instance=ExtResource("15_qndnf")]
+
+[node name="AudioStreamPlayer3D" parent="Sounds/SonsSaut" index="0"]
+stream = SubResource("AudioStreamRandomizer_vo4rd")
+
+[node name="WalkSound" type="AudioStreamPlayer3D" parent="Sounds"]
+stream = ExtResource("26_74lf5")
+
 [connection signal="onItemChanged" from="Logic/Inventory" to="Logic" method="_on_inventory_on_item_changed"]
+
+[editable path="Sounds/SonsMorts"]
+[editable path="Sounds/SonsSaut"]

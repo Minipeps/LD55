@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://diaww2hvh0uf"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_48ytf"]
+
+[node name="RandomSoundPlayer" type="Node3D"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_48ytf")

@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://d0mwlwyu8jsvo" path="res://Sprites/Bullet/venin-grand.png" id="2_48e2f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8ok60"]
-radius = 0.16
-height = 0.595
+radius = 0.23
+height = 1.045
 
 [node name="Bullet" type="Area3D"]
 collision_layer = 8
@@ -15,6 +15,7 @@ speed = 4.0
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 flip_h = true
+pixel_size = 0.02
 texture = ExtResource("2_48e2f")
 
 [node name="DeathTimer" type="Timer" parent="."]
