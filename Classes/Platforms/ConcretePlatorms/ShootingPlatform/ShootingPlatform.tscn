@@ -59,11 +59,10 @@ size = Vector3(3.372, 1.165, 4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.17608, 1.90777, 0)
 collision_layer = 4
 script = ExtResource("1_3mch2")
-speed = null
-counter = 2.0
+counter = 4.0
 
 [node name="ShootTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 4.0
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 offset = Vector2(0, 28.75)
