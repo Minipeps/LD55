@@ -17,6 +17,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var visual = $Visual
 var health: int = 1;
 var isAlive: bool = true
+var isSwitchingSpell: int = 0
+var isCasting: int = 0
 
 signal create_platform(type: int, position: Vector3)
 signal death_player()
@@ -27,6 +29,7 @@ func _process(_delta):
 	# Handle platform spawning action
 	if Input.is_action_just_pressed("spawn_platform") && $SpherePivot/GhostPlatform.canSpawn:
 		if inventory.useSelectedItem():
+			isCasting = 10
 			create_platform.emit(inventory.selectedItem, spherePivot.global_position)
 
 func _physics_process(delta):
@@ -70,6 +73,14 @@ func _handleAnimation():
 	var changeDirection = (!visual.flip_h && velocity.x < 0) || (visual.flip_h && velocity.x > 0)
 	if(changeDirection):
 		visual.flip_h = !visual.flip_h
+	if (isCasting > 0):
+		visual.play("cast")
+		isCasting -= 1
+		return
+	if (isSwitchingSpell > 0):
+		visual.play("search")
+		isSwitchingSpell -= 1
+		return
 	if(velocity.y < 0):
 		visual.play("jump_fall")
 		return
@@ -79,10 +90,9 @@ func _handleAnimation():
 	if(velocity.x != 0 ):
 		visual.play("walk")
 		return
-	visual.play('idle')	
-	
-	
-	
+	visual.play('idle')
+
+
 func _handleCursorPosition():
 	var position2D = get_viewport().get_mouse_position()
 	var position3D = dropPlane.intersects_ray(camera.project_ray_origin(position2D), camera.project_ray_normal(position2D))
@@ -104,3 +114,4 @@ func _on_actual_death_area_body_entered(body):
 func _on_inventory_on_item_changed(newPlatformType):
 	var width = $Inventory.getWidthSelectedItem(newPlatformType)
 	$SpherePivot/GhostPlatform.setWidth(width)
+	isSwitchingSpell = 10
