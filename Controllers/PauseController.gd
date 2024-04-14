@@ -14,8 +14,8 @@ func _process(_delta):
 
 func _initialization():
 	resumeButton.pressed.connect(self._onResumeButtonPressed) #event needs to dbe connected that way because resumeButton is in another node
-	quitButton.pressed.connect(self._onQuitButtonPressed)
-	restartButton.pressed.connect(self._onRestartButtonPressed)
+	#quitButton.pressed.connect(self._onQuitButtonPressed)
+	#restartButton.pressed.connect(self._onRestartButtonPressed)
 
 func _inputsHandler():
 	self._handlePauseInput()

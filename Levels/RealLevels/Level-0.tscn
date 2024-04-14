@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://qjw7tyb07rwb" path="res://Textures/StainedGlass/petit-vitrail-bateau-violet.png" id="18_1kwcn"]
 [ext_resource type="PackedScene" uid="uid://dacqi65qy8880" path="res://Shaders/PostProcessQuad.tscn" id="19_qn8b0"]
 [ext_resource type="PackedScene" uid="uid://f2ac2cgofrib" path="res://Levels/LevelManager/deathArea.tscn" id="20_bbpf7"]
+[ext_resource type="Texture2D" path="res://Sprites/Map/level1.png" id="20_v08iw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_km1n4"]
 albedo_texture = ExtResource("1_f5yl3")
@@ -93,7 +94,7 @@ glow_strength = 2.0
 volumetric_fog_enabled = true
 volumetric_fog_detail_spread = 6.0
 
-[node name="Level-1" type="Node3D"]
+[node name="Level-0" type="Node3D"]
 
 [node name="Floor" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
@@ -1278,6 +1279,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00504875, -6.11307, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9011, -1.06846, 0)
 
 [connection signal="body_entered" from="DeathArea/ActualDeathArea" to="PlatformSpawner" method="_on_actual_death_area_body_entered"]
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -128.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("20_v08iw")
 
 [editable path="Player"]
 [editable path="Player/Sounds/SonsMorts"]
