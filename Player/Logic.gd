@@ -33,7 +33,7 @@ func _process(_delta):
 	# Handle platform spawning action
 	if Input.is_action_just_pressed("spawn_platform") && $SpherePivot/GhostPlatform.canSpawn:
 		if inventory.useSelectedItem():
-			isCasting = 10
+			isCasting = 20
 			create_platform.emit(inventory.selectedItem, spherePivot.global_position)
 
 func _physics_process(delta):
@@ -131,4 +131,4 @@ func _on_actual_death_area_body_entered(body):
 func _on_inventory_on_item_changed(newPlatformType):
 	var width = $Inventory.getWidthSelectedItem(newPlatformType)
 	$SpherePivot/GhostPlatform.setWidth(width)
-	isSwitchingSpell = 10
+	isSwitchingSpell = 20
