@@ -20,10 +20,10 @@ albedo_texture = ExtResource("2_hvwrg")
 [sub_resource type="BoxMesh" id="BoxMesh_xmf08"]
 size = Vector3(100, 100, 1)
 
-[sub_resource type="ImageTexture" id="ImageTexture_6m1t1"]
+[sub_resource type="ImageTexture" id="ImageTexture_bo6hm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onmnc"]
-albedo_texture = SubResource("ImageTexture_6m1t1")
+albedo_texture = SubResource("ImageTexture_bo6hm")
 uv1_scale = Vector3(0.5, 0.5, 0.5)
 uv2_scale = Vector3(0.5, 0.5, 0.5)
 
