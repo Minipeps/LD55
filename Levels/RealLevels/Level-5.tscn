@@ -93,6 +93,9 @@ volumetric_fog_detail_spread = 6.0
 [node name="Player" parent="." instance=ExtResource("2_rjywd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0902996, 3.79143, 0)
 
+[node name="Camera3D" parent="Player/Logic" index="3"]
+current = true
+
 [node name="Inventory" parent="Player/Logic" index="6"]
 inventoryStartAmount = Array[int]([2, 2, 2, 2, 2])
 
@@ -168,7 +171,6 @@ mesh = SubResource("BoxMesh_2obki")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/RectangleTop"]
 shape = SubResource("BoxShape3D_j0j4n")
 
-[node name="NextLevelPoint" parent="." instance=ExtResource("4_dd4is")]
 [node name="Chandelier2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.025514, 0, -0.999674, 0, 1, 0, 0.999674, 0, -0.025514, -0.22611, 7.3837, -29.5343)
 material_override = ExtResource("4_ncecn")
