@@ -2,6 +2,9 @@ extends Control
 
 @onready var tutorialScene = load("res://Menus/Tutorial.tscn")
 
+func _ready():
+	BackgroundMusicPlayer.playMusicLevel(1)
+
 func onStartButtonPressed():
 	var startButton = get_node("VBoxContainer/StartButton")
 	print("start button pressed: first scene" + startButton.getFirstScene())
