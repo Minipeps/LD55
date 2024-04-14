@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var canSpawnColor = Color(1,1,1,1)
-@onready var cannotSpawnColor = Color(1,0,0,1)
+@onready var cannotSpawnColor = Color(1,0.33,0.57,1)
 @onready var sprite: Sprite3D = $Sprite3D
 
 var canSpawn = false

@@ -1,9 +1,10 @@
-[gd_scene load_steps=34 format=3 uid="uid://d1bve6mkhijv1"]
+[gd_scene load_steps=36 format=3 uid="uid://d1bve6mkhijv1"]
 
 [ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="2_82d0c"]
 [ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="3_gtln3"]
 [ext_resource type="PackedScene" uid="uid://duilavst5goen" path="res://Levels/LevelManager/NextLevelPoint.tscn" id="4_xi1me"]
 [ext_resource type="Material" uid="uid://bulmujgbjqrls" path="res://Materials/TriplanarHatchedMat.tres" id="4_yd6vj"]
+[ext_resource type="Texture2D" uid="uid://c2s8xbx8cdylj" path="res://Sprites/Map/level2.png" id="5_3j7vu"]
 [ext_resource type="ArrayMesh" uid="uid://bpf684q2u20n" path="res://Meshes/Chandelier.obj" id="5_julfr"]
 [ext_resource type="ArrayMesh" uid="uid://bvnfseyhw3a2o" path="res://Meshes/Door.obj" id="6_y6q45"]
 [ext_resource type="ArrayMesh" uid="uid://d20sckuoftp2j" path="res://Meshes/Window2.obj" id="7_2373y"]
@@ -17,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://qjw7tyb07rwb" path="res://Textures/StainedGlass/petit-vitrail-bateau-violet.png" id="15_3lj1n"]
 [ext_resource type="ArrayMesh" uid="uid://dwrpm1hcvfkgr" path="res://Meshes/Ballustrade.obj" id="16_wuqj3"]
 [ext_resource type="PackedScene" uid="uid://dacqi65qy8880" path="res://Shaders/PostProcessQuad.tscn" id="17_d57aa"]
+[ext_resource type="PackedScene" uid="uid://f2ac2cgofrib" path="res://Levels/LevelManager/deathArea.tscn" id="18_xmujv"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_067kb"]
 
@@ -99,6 +101,9 @@ volumetric_fog_detail_spread = 6.0
 [node name="Player" parent="." instance=ExtResource("2_82d0c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0903, 3.79143, 0)
 
+[node name="Camera3D" parent="Player/Logic" index="3"]
+current = true
+
 [node name="Inventory" parent="Player/Logic" index="6"]
 inventoryStartAmount = Array[int]([2, 0, 1, 0, 0])
 
@@ -143,7 +148,7 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_6o2ty")
 
 [node name="Box2" type="StaticBody3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 0.132678, 0, 0, 0, 1, -5.00142, 2.53758, -0.017416)
+transform = Transform3D(1, 0, 0, 0, 0.132678, 0, 0, 0, 1, -3.29819, 2.53758, -0.017416)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Box2"]
@@ -155,7 +160,7 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_6o2ty")
 
 [node name="Box3" type="StaticBody3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 0.115825, 0, 0, 0, 1, 1.04319, 3.46043, -0.304018)
+transform = Transform3D(1, 0, 0, 0, 0.115825, 0, 0, 0, 1, 3.1051, 4.41598, -0.488137)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Box3"]
@@ -205,6 +210,18 @@ shape = SubResource("BoxShape3D_j0j4n")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9807, 17, 0)
 nextSceneFile = "res://Levels/RealLevels/Level-2.tscn"
 
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("5_3j7vu")
+
 [node name="Chandelier2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.025514, 0, -0.999674, 0, 1, 0, 0.999674, 0, -0.025514, -0.22611, 7.3837, -32.4009)
 material_override = ExtResource("4_yd6vj")
@@ -212,13 +229,13 @@ mesh = ExtResource("5_julfr")
 skeleton = NodePath("../../PostProcessQuad")
 
 [node name="Chandelier8" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0147364, 0, -0.675192, 0, 1, 0, 0.577394, 0, -0.0172325, -5.02256, 2.51159, -0.57605)
+transform = Transform3D(-0.0147364, 0, -0.675192, 0, 1, 0, 0.577394, 0, -0.0172325, -3.33458, 2.51159, -0.532969)
 material_override = ExtResource("4_yd6vj")
 mesh = ExtResource("5_julfr")
 skeleton = NodePath("../../PostProcessQuad")
 
 [node name="Chandelier9" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0147364, 0, -0.675192, 0, 1, 0, 0.577394, 0, -0.0172325, 1.08159, 3.45723, -0.576051)
+transform = Transform3D(-0.0147364, 0, -0.675192, 0, 1, 0, 0.577394, 0, -0.0172325, 3.09466, 4.42702, -0.524673)
 material_override = ExtResource("4_yd6vj")
 mesh = ExtResource("5_julfr")
 skeleton = NodePath("../../PostProcessQuad")
@@ -4037,6 +4054,12 @@ environment = SubResource("Environment_lda6s")
 [node name="PostProcessQuad" parent="." instance=ExtResource("17_d57aa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.25, 0)
 
+[node name="DeathArea" parent="." instance=ExtResource("18_xmujv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -55, 0)
+
+[connection signal="body_entered" from="DeathArea/ActualDeathArea" to="Player/Logic" method="_on_actual_death_area_body_entered"]
+
 [editable path="Player"]
 [editable path="Player/Sounds/SonsMorts"]
 [editable path="Player/Sounds/SonsSaut"]
+[editable path="DeathArea"]
