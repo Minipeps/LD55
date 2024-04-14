@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3wtltyt0b71m"]
+
+[ext_resource type="Script" path="res://Classes/Platforms/ConcretePlatorms/GhostPlatforms/GhostPlatform.gd" id="1_ppbie"]
+[ext_resource type="Texture2D" uid="uid://lmqdtf3wi5j4" path="res://Sprites/GhostPlatform/preview-bloc-line.png" id="2_7vgfh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7y6g4"]
+
+[node name="GhostPlatform" type="Node3D"]
+script = ExtResource("1_ppbie")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_7y6g4")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.298, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+texture = ExtResource("2_7vgfh")
