@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://crix07qdnvkig"]
+
+[ext_resource type="Script" path="res://Menus/Lore.gd" id="1_56jl4"]
+[ext_resource type="Texture2D" uid="uid://dk6mh446v7x16" path="res://UI/Menu/lore.png" id="1_uxjlo"]
+[ext_resource type="Texture2D" uid="uid://cvxoi048ug3gd" path="res://UI/Menu/how-to-play.png" id="2_4xfkn"]
+[ext_resource type="Texture2D" uid="uid://dcn3k5k7bsam8" path="res://UI/Menu/fond-accueil.png" id="2_agrtm"]
+[ext_resource type="Texture2D" uid="uid://dp6ovswyanqhl" path="res://UI/curseur.png" id="3_xevty"]
+
+[node name="Lore" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_56jl4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_agrtm")
+expand_mode = 2
+
+[node name="LoreText" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = 10.0
+offset_right = -14.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_uxjlo")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="HowTo" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = 10.0
+offset_right = -14.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_4xfkn")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="NextButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.919
+anchor_top = 0.515
+anchor_right = 0.919
+anchor_bottom = 0.515
+offset_left = -52.688
+offset_top = -28.72
+offset_right = 35.312
+offset_bottom = 29.28
+texture_normal = ExtResource("3_xevty")
+
+[node name="PreviousButton" type="TextureButton" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.919
+anchor_top = 0.515
+anchor_right = 0.919
+anchor_bottom = 0.515
+offset_left = -991.688
+offset_top = -28.72
+offset_right = -903.688
+offset_bottom = 29.28
+texture_normal = ExtResource("3_xevty")
+flip_h = true
