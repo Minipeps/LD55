@@ -100,7 +100,7 @@ volumetric_fog_detail_spread = 6.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0903, 3.79143, 0)
 
 [node name="Inventory" parent="Player/Logic" index="6"]
-inventoryStartAmount = Array[int]([2, 1, 0, 0, 0])
+inventoryStartAmount = Array[int]([2, 0, 1, 0, 0])
 
 [node name="PlatformSpawner" parent="." instance=ExtResource("3_gtln3")]
 
