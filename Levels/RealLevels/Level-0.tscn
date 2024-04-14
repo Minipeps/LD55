@@ -104,6 +104,9 @@ mesh = SubResource("BoxMesh_xmud2")
 [node name="Player" parent="." instance=ExtResource("2_wm7ed")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8412, 0.88984, 0)
 
+[node name="Inventory" parent="Player/Logic" index="5"]
+inventoryStartAmount = Array[int]([2, 0, 0, 0, 0])
+
 [node name="PlatformSpawner" parent="." instance=ExtResource("3_twreh")]
 
 [node name="Platforms" type="Node3D" parent="."]
@@ -1266,3 +1269,5 @@ environment = SubResource("Environment_ew84y")
 
 [node name="PostProcessQuad" parent="." instance=ExtResource("19_qn8b0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.25, 0)
+
+[editable path="Player"]

@@ -40,6 +40,9 @@ mesh = SubResource("BoxMesh_xmud2")
 [node name="Player" parent="." instance=ExtResource("2_mpjms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0903, 3.79143, 0)
 
+[node name="Inventory" parent="Player/Logic" index="5"]
+inventoryStartAmount = Array[int]([2, 1, 1, 0, 0])
+
 [node name="PlatformSpawner" parent="." instance=ExtResource("3_n2tci")]
 
 [node name="Platforms" type="Node3D" parent="."]
@@ -154,3 +157,5 @@ shape = SubResource("BoxShape3D_j0j4n")
 [node name="NextLevelPoint" parent="." instance=ExtResource("4_bncm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9807, 25.5, 0)
 nextSceneFile = "res://Levels/RealLevels/Level-3.tscn"
+
+[editable path="Player"]
