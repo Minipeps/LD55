@@ -1,12 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cgvjvqo546f6g"]
 
 [ext_resource type="Script" path="res://Controllers/PauseController.gd" id="1_hlemc"]
-[ext_resource type="PackedScene" uid="uid://dhgd3qlrgsk8g" path="res://Menus/PauseMenu/PauseMenu.tscn" id="2_kao07"]
+[ext_resource type="PackedScene" uid="uid://dhgd3qlrgsk8g" path="res://Menus/PauseMenu/PauseMenu.tscn" id="2_u012k"]
 
 [node name="PauseController" type="Node"]
 process_mode = 3
 script = ExtResource("1_hlemc")
 
-[node name="PauseMenu" parent="." instance=ExtResource("2_kao07")]
-unique_name_in_owner = true
+[node name="PauseMenu" parent="." instance=ExtResource("2_u012k")]
 visible = false
