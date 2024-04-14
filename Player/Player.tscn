@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://31kb25j7ypfh"]
+[gd_scene load_steps=18 format=3 uid="uid://31kb25j7ypfh"]
 
 [ext_resource type="Script" path="res://Player/Logic.gd" id="2_224jm"]
 [ext_resource type="Texture2D" uid="uid://bc0dttgc6xcrh" path="res://Sprites/Perso/marche-droite-1.png" id="2_cyol1"]
@@ -83,6 +83,12 @@ animations = [{
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ljj3r"]
 
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_i8242"]
+dof_blur_near_enabled = true
+dof_blur_near_distance = 10.0
+dof_blur_near_transition = 11.0
+dof_blur_amount = 0.06
+
 [node name="Player" type="Node3D"]
 
 [node name="Logic" type="CharacterBody3D" parent="." groups=["Player"]]
@@ -106,6 +112,8 @@ mesh = SubResource("CapsuleMesh_ljj3r")
 
 [node name="Camera3D" type="Camera3D" parent="Logic"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 11.6588)
+attributes = SubResource("CameraAttributesPractical_i8242")
+fov = 60.0
 size = 10.0
 
 [node name="Cursor" type="Sprite3D" parent="Logic"]
