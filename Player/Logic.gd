@@ -22,6 +22,7 @@ var health: int = 1;
 var isAlive: bool = true
 var isSwitchingSpell: int = 0
 var isCasting: int = 0
+var isTeleporting: bool
 
 signal create_platform(type: int, position: Vector3)
 signal death_player()
@@ -83,6 +84,10 @@ func _handleAnimation():
 	var changeDirection = (!visual.flip_h && velocity.x < 0) || (visual.flip_h && velocity.x > 0)
 	if(changeDirection):
 		visual.flip_h = !visual.flip_h
+	if (isTeleporting):
+		visual.play("teleport")
+		velocity.y = 0.5
+		return
 	if (isCasting > 0):
 		visual.play("cast")
 		isCasting -= 1
