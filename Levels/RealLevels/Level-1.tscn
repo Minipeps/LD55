@@ -94,13 +94,13 @@ fog_height_density = -2.3704
 volumetric_fog_enabled = true
 volumetric_fog_detail_spread = 6.0
 
-[node name="Level-0" type="Node3D"]
+[node name="Level-1" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("2_82d0c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0903, 3.79143, 0)
 
 [node name="Inventory" parent="Player/Logic" index="6"]
-inventoryStartAmount = Array[int]([2, 1, 0, 0, 0])
+inventoryStartAmount = Array[int]([2, 0, 1, 0, 0])
 
 [node name="PlatformSpawner" parent="." instance=ExtResource("3_gtln3")]
 
