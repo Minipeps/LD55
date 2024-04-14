@@ -12,6 +12,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var camera = $Camera3D
 @onready var spherePivot = $SpherePivot
 @onready var inventory = $Inventory
+@onready var cursor = $Cursor
 
 @onready var visual = $Visual
 var health: int = 1;
@@ -24,7 +25,7 @@ func _process(_delta):
 	if(!isAlive):
 		return
 	# Handle platform spawning action
-	if Input.is_action_just_pressed("spawn_platform"):
+	if Input.is_action_just_pressed("spawn_platform") && $SpherePivot/GhostPlatform.canSpawn:
 		if inventory.useSelectedItem():
 			create_platform.emit(inventory.selectedItem, spherePivot.global_position)
 
@@ -91,8 +92,15 @@ func _handleCursorPosition():
 	var finalVector = directionVector.normalized() * finalVectorLength
 	finalVector.z = 0
 	spherePivot.global_position = global_position + finalVector
+	cursor.global_position = global_position + finalVector * 0.5
+	cursor.rotation.z = atan2(finalVector.y, finalVector.x)
 
 
 func _on_actual_death_area_body_entered(body):
 	if(body.name == "Logic"):
 		health = 0
+
+
+func _on_inventory_on_item_changed(newPlatformType):
+	var width = $Inventory.getWidthSelectedItem(newPlatformType)
+	$SpherePivot/GhostPlatform.setWidth(width)

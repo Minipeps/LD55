@@ -6,7 +6,7 @@ var nbTotalItems: int
 
 var inventoryPool: Array[int] = []
 var items: Array[Node] = []
-
+var widths: Array[float] = [3.4, 6.4, 3.4, 3.4, 6.4]
 signal onItemUsed(platformType: int)
 signal onItemChanged(newPlatformType: int)
 
@@ -75,3 +75,7 @@ func useSelectedItem() -> bool:
 	_updateInventoryItemCount(selectedItem)
 	onItemUsed.emit(selectedItem)
 	return true
+	
+func getWidthSelectedItem(index) -> float:
+	return widths[index]
+	
