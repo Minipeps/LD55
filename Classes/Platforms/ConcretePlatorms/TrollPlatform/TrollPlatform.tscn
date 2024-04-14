@@ -7,12 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://i1dg5dm4ritk" path="res://Sprites/TrollPlatform/rigole-1.png" id="6_1i5bq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vs5o2"]
-size = Vector3(2.02734, 1.20679, 1)
+size = Vector3(6.4, 0.34, 1.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u1lqe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ebx0"]
-size = Vector3(2.5, 0.5, 1)
+size = Vector3(6.46179, 0.5, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a7322"]
 animations = [{
@@ -47,7 +47,7 @@ speed = 0.5
 counter = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(3.2, 0, 0, 0, 1, 0, 0, 0, 4, 0.04375, 0.172485, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.172, 0)
 shape = SubResource("BoxShape3D_vs5o2")
 
 [node name="PlayerAreaDetectorRight" type="Area3D" parent="."]
@@ -68,7 +68,7 @@ shape = SubResource("BoxShape3D_u1lqe")
 collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerAreaDetectorTop"]
-transform = Transform3D(2.57191, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.749961, 0)
+transform = Transform3D(1, 0, 0, 0, 0.389, 0, 0, 0, 0.389, 0.230896, 0.749961, 0)
 shape = SubResource("BoxShape3D_1ebx0")
 
 [node name="SnapDuration" type="Timer" parent="."]

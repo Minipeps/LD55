@@ -24,7 +24,7 @@ func _process(_delta):
 	if(!isAlive):
 		return
 	# Handle platform spawning action
-	if Input.is_action_just_pressed("spawn_platform"):
+	if Input.is_action_just_pressed("spawn_platform") && $SpherePivot/GhostPlatform.canSpawn:
 		if inventory.useSelectedItem():
 			create_platform.emit(inventory.selectedItem, spherePivot.global_position)
 
@@ -96,3 +96,8 @@ func _handleCursorPosition():
 func _on_actual_death_area_body_entered(body):
 	if(body.name == "Logic"):
 		health = 0
+
+
+func _on_inventory_on_item_changed(newPlatformType):
+	var width = $Inventory.getWidthSelectedItem(newPlatformType)
+	$SpherePivot/GhostPlatform.setWidth(width)
