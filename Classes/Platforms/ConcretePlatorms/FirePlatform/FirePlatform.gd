@@ -6,8 +6,11 @@ class_name FirePlatform
 @onready var angryTimer: Timer = $AngryTimer
 @onready var fireTimer: Timer = $FireTimer
 
-var timers: Array = [2, 2, 0.5]
-var timersMem: Array = [2, 2, 0.5] #memorize original times to reset 'timers' array
+@onready var angrySound: AudioStreamPlayer3D = $angry
+@onready var fireSound: AudioStreamPlayer3D = $fire
+
+var timers: Array = [2, 2, 1]
+var timersMem: Array = [2, 2, 1] #memorize original times to reset 'timers' array
 var timerIndex = 0
 
 var isLethal: bool = false
@@ -35,11 +38,16 @@ func _process(delta):
 		
 func _definePlatformState(timerIndex):
 	if(timerIndex == 0):
+		angrySound.play()
 		animatedSprite.play("angry")
 	elif(timerIndex == 1):
 		isLethal = true
+		angrySound.stop()
+		fireSound.play()
 		animatedSprite.play("fire")
 	elif(timerIndex == 2):
+		fireSound.stop()
+		# angrySound.play()
 		isLethal = false
 		animatedSprite.play("angry")
 
