@@ -41,7 +41,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_6y86e")
 expand_mode = 2
-stretch_mode = 4
 
 [node name="Eyes" type="TextureRect" parent="."]
 layout_mode = 1

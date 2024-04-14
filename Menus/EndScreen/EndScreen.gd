@@ -10,7 +10,7 @@ func _ready():
 	if(Main.getCurrentGameMode() == Main.GAME_MODE.IN_LEVEL_WIN): 
 		self._showWinScreen()
 	else: 
-		self._showLoseScreen()	
+		self._showLoseScreen()
 	
 func _showWinScreen():
 	%Label.text = winText
