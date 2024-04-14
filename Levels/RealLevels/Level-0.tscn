@@ -94,7 +94,7 @@ glow_strength = 2.0
 volumetric_fog_enabled = true
 volumetric_fog_detail_spread = 6.0
 
-[node name="Level-0" type="Node3D"]
+[node name="Level-1" type="Node3D"]
 
 [node name="Floor" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
@@ -105,9 +105,6 @@ mesh = SubResource("BoxMesh_xmud2")
 
 [node name="Player" parent="." instance=ExtResource("2_wm7ed")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8412, 0.88984, 0)
-
-[node name="Camera3D" parent="Player/Logic" index="3"]
-current = false
 
 [node name="Inventory" parent="Player/Logic" index="6"]
 inventoryStartAmount = Array[int]([2, 0, 0, 0, 0])
