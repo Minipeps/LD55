@@ -79,6 +79,8 @@ func _checkHealth():
 		isAlive = false
 		deathSounds.play()
 		visual.play("death")
+		await get_tree().create_timer(2.0).timeout
+		get_tree().reload_current_scene()
 
 func _handleAnimation():
 	var changeDirection = (!visual.flip_h && velocity.x < 0) || (visual.flip_h && velocity.x > 0)
