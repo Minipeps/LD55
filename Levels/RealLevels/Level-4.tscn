@@ -80,7 +80,7 @@ emission_texture = ExtResource("15_f0ivv")
 
 [sub_resource type="Environment" id="Environment_7ggns"]
 ambient_light_source = 2
-ambient_light_color = Color(0.352941, 0.266667, 0.482353, 1)
+ambient_light_color = Color(0.533333, 0.184314, 0.172549, 1)
 ambient_light_energy = 1.8
 ssao_enabled = true
 ssao_radius = 3.0
@@ -113,6 +113,7 @@ collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Right"]
 transform = Transform3D(1, 0, 0, 0, 47.0664, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_067kb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Right"]
@@ -124,6 +125,7 @@ collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Left"]
 transform = Transform3D(1, 0, 0, 0, 51.7389, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_067kb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Left"]
@@ -135,6 +137,7 @@ collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Box1"]
 transform = Transform3D(1.15869, 0, 0, 0, 0.0894665, 0, 0, 0, 1, 0, 1.15143, 0)
+visible = false
 mesh = SubResource("BoxMesh_ixd0i")
 skeleton = NodePath("../..")
 
@@ -147,6 +150,7 @@ collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Box2"]
 transform = Transform3D(1, 0, 0, 0, 0.0982866, 0, 0, 0, 1, -0.0845127, 1.09036, -0.252937)
+visible = false
 mesh = SubResource("BoxMesh_ixd0i")
 skeleton = NodePath("../..")
 
@@ -158,6 +162,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 18.25, 0)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Box3"]
+visible = false
 mesh = SubResource("BoxMesh_ixd0i")
 skeleton = NodePath("../..")
 
@@ -169,6 +174,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0951, 20.836, 0)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Box4"]
+visible = false
 mesh = SubResource("BoxMesh_ixd0i")
 skeleton = NodePath("../..")
 
@@ -181,6 +187,7 @@ collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Box5"]
 transform = Transform3D(1.0003, 0, 0, 0, 0.178956, 0, 0, 0, 1.0003, 0, 1.03044, 0)
+visible = false
 mesh = SubResource("BoxMesh_ixd0i")
 skeleton = NodePath("../..")
 
@@ -192,6 +199,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 1.00528, 0)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Rectangle1"]
+visible = false
 mesh = SubResource("BoxMesh_2obki")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Rectangle1"]
@@ -202,6 +210,7 @@ transform = Transform3D(-1.44614e-09, 1, 0, -0.0330838, -4.37114e-08, 0, 0, 0, 1
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Rectangle2"]
+visible = false
 mesh = SubResource("BoxMesh_2obki")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Rectangle2"]
@@ -212,16 +221,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 4, 0)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Rectangle3"]
+visible = false
 mesh = SubResource("BoxMesh_2obki")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Rectangle3"]
 shape = SubResource("BoxShape3D_j0j4n")
 
 [node name="Rectangle4" type="StaticBody3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.22666, 16, 0)
+transform = Transform3D(1, 0, 0, 0, 0.709928, 0, 0, 0, 1, 9.22666, 16.4609, 0)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Rectangle4"]
+visible = false
 mesh = SubResource("BoxMesh_2obki")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Rectangle4"]
@@ -232,6 +243,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 26.5, 0)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Rectangle5"]
+visible = false
 mesh = SubResource("BoxMesh_2obki")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Rectangle5"]
@@ -242,6 +254,7 @@ transform = Transform3D(0.294345, 0, 0, 0, 3.31051, 0, 0, 0, 1, -16.7561, 32.586
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Rectangle8"]
+visible = false
 mesh = SubResource("BoxMesh_2obki")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Rectangle8"]
@@ -252,6 +265,7 @@ transform = Transform3D(1, 0, 0, 0, 0.252327, 0, 0, 0, 1, -9.5, 24.6082, 0)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Rectangle7"]
+visible = false
 mesh = SubResource("BoxMesh_2obki")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Rectangle7"]
@@ -262,6 +276,7 @@ transform = Transform3D(1, 0, 0, 0, 0.103898, 0, 0, 0, 1, 0.5, 33.3591, 0)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Rectangle6"]
+visible = false
 mesh = SubResource("BoxMesh_2obki")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Rectangle6"]
@@ -4116,7 +4131,7 @@ skeleton = NodePath("../../../PostProcessQuad")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.367188, 0.321502, -0.872817, 0.0856849, 0.922683, 0.375917, 0.926192, -0.212819, 0.31125, 6, 1.25, 0)
-light_color = Color(0.909804, 0.258824, 0.301961, 1)
+light_color = Color(0.72549, 0.462745, 0.188235, 1)
 light_energy = 2.0
 light_volumetric_fog_energy = 4.773
 shadow_enabled = true
