@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://03eleocqjum8"]
+[gd_scene load_steps=12 format=3 uid="uid://dp71kfwion643"]
 
 [ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="2_na2b1"]
 [ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="3_s7pr5"]
 [ext_resource type="PackedScene" uid="uid://duilavst5goen" path="res://Levels/LevelManager/NextLevelPoint.tscn" id="4_atf0p"]
-[ext_resource type="Texture2D" path="res://Sprites/Map/level5.png" id="5_c4pat"]
+[ext_resource type="Texture2D" uid="uid://b5skwf6h8mebn" path="res://Sprites/Map/level5.png" id="5_c4pat"]
+[ext_resource type="PackedScene" uid="uid://f2ac2cgofrib" path="res://Levels/LevelManager/deathArea.tscn" id="5_oq324"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_067kb"]
 
@@ -197,6 +198,12 @@ grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("5_c4pat")
 
+[node name="DeathArea" parent="." instance=ExtResource("5_oq324")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -55, 0)
+
+[connection signal="body_entered" from="DeathArea/ActualDeathArea" to="Player/Logic" method="_on_actual_death_area_body_entered"]
+
 [editable path="Player"]
 [editable path="Player/Sounds/SonsMorts"]
 [editable path="Player/Sounds/SonsSaut"]
+[editable path="DeathArea"]
