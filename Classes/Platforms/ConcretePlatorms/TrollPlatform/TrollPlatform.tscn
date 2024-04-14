@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://codfph46kk8ut"]
+[gd_scene load_steps=15 format=3 uid="uid://codfph46kk8ut"]
 
 [ext_resource type="Script" path="res://Classes/Platforms/ConcretePlatorms/TrollPlatform/TrollPlatform.gd" id="1_1ol1v"]
 [ext_resource type="Texture2D" uid="uid://x7d5otmakq5h" path="res://Sprites/TrollPlatform/regard-droite.png" id="3_chfud"]
 [ext_resource type="Texture2D" uid="uid://cvc3becn1qi5f" path="res://Sprites/TrollPlatform/regard-gauche.png" id="4_uc4xh"]
 [ext_resource type="Texture2D" uid="uid://f1cbln65jhaw" path="res://Sprites/TrollPlatform/rigole-2.png" id="5_u3dyh"]
 [ext_resource type="Texture2D" uid="uid://i1dg5dm4ritk" path="res://Sprites/TrollPlatform/rigole-1.png" id="6_1i5bq"]
+[ext_resource type="AudioStream" uid="uid://dcg5bu72rxxhp" path="res://Audio/TrollPlatform/troll1.ogg" id="6_hxg2a"]
+[ext_resource type="AudioStream" uid="uid://da7pdc2aj6d8a" path="res://Audio/TrollPlatform/troll2.ogg" id="7_p20rf"]
+[ext_resource type="AudioStream" uid="uid://cleo57otswbv2" path="res://Audio/TrollPlatform/troll3.ogg" id="8_xupxk"]
+[ext_resource type="AudioStream" uid="uid://cefx3bmlg7x25" path="res://Audio/TrollPlatform/troll4.ogg" id="9_bqe8e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vs5o2"]
 size = Vector3(6.4, 0.34, 1.25)
@@ -12,7 +16,7 @@ size = Vector3(6.4, 0.34, 1.25)
 [sub_resource type="BoxShape3D" id="BoxShape3D_u1lqe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ebx0"]
-size = Vector3(6.46179, 0.5, 1)
+size = Vector3(6.462, 0.2, 0.389)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a7322"]
 animations = [{
@@ -38,6 +42,17 @@ animations = [{
 "name": &"snapping",
 "speed": 5.0
 }]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_f1ptk"]
+streams_count = 4
+stream_0/stream = ExtResource("6_hxg2a")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("7_p20rf")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("8_xupxk")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("9_bqe8e")
+stream_3/weight = 1.0
 
 [node name="TrollPlatform" type="StaticBody3D"]
 collision_layer = 4
@@ -68,7 +83,7 @@ shape = SubResource("BoxShape3D_u1lqe")
 collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerAreaDetectorTop"]
-transform = Transform3D(1, 0, 0, 0, 0.389, 0, 0, 0, 0.389, 0.230896, 0.749961, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.230896, 0.749961, 0)
 shape = SubResource("BoxShape3D_1ebx0")
 
 [node name="SnapDuration" type="Timer" parent="."]
@@ -82,6 +97,9 @@ animation = &"moving"
 [node name="MovingTimer" type="Timer" parent="."]
 wait_time = 4.0
 autostart = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_f1ptk")
 
 [connection signal="body_entered" from="PlayerAreaDetectorRight" to="." method="_on_player_area_detector_right_body_entered"]
 [connection signal="body_entered" from="PlayerAreaDetectorLeft" to="." method="_on_player_area_detector_left_body_entered"]

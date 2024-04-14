@@ -1,5 +1,7 @@
 extends Node
 
+@export var inventoryStartAmount : Array[int] = [0, 0, 0, 0, 0]
+
 var selectedItem: int = 0
 var newSelectedItem: int
 var nbTotalItems: int
@@ -14,7 +16,7 @@ signal onItemChanged(newPlatformType: int)
 func _ready():
 	nbTotalItems = $InventoryBar.get_child_count()
 	items = $InventoryBar.get_children()
-	fillInventory([5,5,5,5,5])
+	fillInventory(inventoryStartAmount)
 	self._onSelectedItemChanges()
 
 

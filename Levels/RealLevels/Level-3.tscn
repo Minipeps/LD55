@@ -1,16 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhvtawloyo12f"]
+[gd_scene load_steps=9 format=3 uid="uid://dhvtawloyo12f"]
 
-[ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/640px-Opossum_1.jpg" id="1_71ovb"]
 [ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="2_o3qyi"]
 [ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="3_dw14o"]
 [ext_resource type="PackedScene" uid="uid://duilavst5goen" path="res://Levels/LevelManager/NextLevelPoint.tscn" id="4_0n0bk"]
 [ext_resource type="Texture2D" uid="uid://beij2rqjkpayl" path="res://Sprites/Map/level4.png" id="5_8myjv"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_km1n4"]
-albedo_texture = ExtResource("1_71ovb")
-
-[sub_resource type="BoxMesh" id="BoxMesh_xmud2"]
-size = Vector3(100, 100, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_067kb"]
 
@@ -25,15 +18,11 @@ size = Vector3(8, 3, 1)
 
 [node name="Level-3" type="Node3D"]
 
-[node name="Floor" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
-material_override = SubResource("StandardMaterial3D_km1n4")
-use_collision = true
-collision_layer = 2
-mesh = SubResource("BoxMesh_xmud2")
-
 [node name="Player" parent="." instance=ExtResource("2_o3qyi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0903, 3.79143, 0)
+
+[node name="Inventory" parent="Player/Logic" index="6"]
+inventoryStartAmount = Array[int]([2, 1, 1, 0, 2])
 
 [node name="PlatformSpawner" parent="." instance=ExtResource("3_dw14o")]
 
@@ -128,3 +117,7 @@ offset_top = -261.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("5_8myjv")
+
+[editable path="Player"]
+[editable path="Player/Sounds/SonsMorts"]
+[editable path="Player/Sounds/SonsSaut"]
