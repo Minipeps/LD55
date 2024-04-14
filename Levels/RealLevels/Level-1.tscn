@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="3_gtln3"]
 [ext_resource type="PackedScene" uid="uid://duilavst5goen" path="res://Levels/LevelManager/NextLevelPoint.tscn" id="4_xi1me"]
 [ext_resource type="Material" uid="uid://bulmujgbjqrls" path="res://Materials/TriplanarHatchedMat.tres" id="4_yd6vj"]
-[ext_resource type="Texture2D" uid="uid://c2s8xbx8cdylj" path="res://Sprites/Map/level2.png" id="5_3j7vu"]
+[ext_resource type="Texture2D" path="res://Sprites/Map/level2.png" id="5_3j7vu"]
 [ext_resource type="ArrayMesh" uid="uid://bpf684q2u20n" path="res://Meshes/Chandelier.obj" id="5_julfr"]
 [ext_resource type="ArrayMesh" uid="uid://bvnfseyhw3a2o" path="res://Meshes/Door.obj" id="6_y6q45"]
 [ext_resource type="ArrayMesh" uid="uid://d20sckuoftp2j" path="res://Meshes/Window2.obj" id="7_2373y"]

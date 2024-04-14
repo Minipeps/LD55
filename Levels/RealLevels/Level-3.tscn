@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="2_o3qyi"]
 [ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="3_dw14o"]
 [ext_resource type="PackedScene" uid="uid://duilavst5goen" path="res://Levels/LevelManager/NextLevelPoint.tscn" id="4_0n0bk"]
-[ext_resource type="Texture2D" uid="uid://beij2rqjkpayl" path="res://Sprites/Map/level4.png" id="5_8myjv"]
+[ext_resource type="Texture2D" path="res://Sprites/Map/level4.png" id="5_8myjv"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_067kb"]
 

@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqp60hvuvqhdt"]
+[gd_scene load_steps=9 format=3 uid="uid://bqf0re0sles6d"]
 
 [ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="2_rjywd"]
 [ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="3_wqe3u"]
 [ext_resource type="PackedScene" uid="uid://duilavst5goen" path="res://Levels/LevelManager/NextLevelPoint.tscn" id="4_dd4is"]
-[ext_resource type="Texture2D" uid="uid://bec8xb3kh0xyc" path="res://Sprites/Map/level6.png" id="5_wmulg"]
+[ext_resource type="Texture2D" path="res://Sprites/Map/level6.png" id="5_wmulg"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_067kb"]
 
