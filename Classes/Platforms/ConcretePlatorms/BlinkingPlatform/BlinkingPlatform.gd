@@ -10,6 +10,7 @@ var isFading: bool = false
 
 @onready var animatedSprite: Node = $AnimatedSprite3D
 @onready var staticBody: StaticBody3D = $StaticBody3D
+@onready var sound = $AudioStreamPlayer3D
 
 func _init():
 	speed = 0
@@ -38,6 +39,7 @@ func _fadePlatform():
 
 func _togglePlatform():
 	isFading = false
+	sound.play()
 	isActive = !isActive
 	animatedSprite.modulate = Color(1,1,1, isActive)
 	if isActive:

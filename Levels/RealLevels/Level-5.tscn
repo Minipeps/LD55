@@ -20,8 +20,8 @@ size = Vector3(8, 3, 1)
 [node name="Player" parent="." instance=ExtResource("2_rjywd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0902996, 3.79143, 0)
 
-[node name="Inventory" parent="Player/Logic" index="5"]
-inventoryStartAmount = Array[int]([2, 2, 2, 2, 0])
+[node name="Inventory" parent="Player/Logic" index="6"]
+inventoryStartAmount = Array[int]([2, 2, 2, 2, 2])
 
 [node name="PlatformSpawner" parent="." instance=ExtResource("3_wqe3u")]
 
@@ -95,3 +95,5 @@ shape = SubResource("BoxShape3D_j0j4n")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0193005, 42, 0)
 
 [editable path="Player"]
+[editable path="Player/Sounds/SonsMorts"]
+[editable path="Player/Sounds/SonsSaut"]

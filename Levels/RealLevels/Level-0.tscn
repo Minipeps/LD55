@@ -104,7 +104,7 @@ mesh = SubResource("BoxMesh_xmud2")
 [node name="Player" parent="." instance=ExtResource("2_wm7ed")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8412, 0.88984, 0)
 
-[node name="Inventory" parent="Player/Logic" index="5"]
+[node name="Inventory" parent="Player/Logic" index="6"]
 inventoryStartAmount = Array[int]([2, 0, 0, 0, 0])
 
 [node name="PlatformSpawner" parent="." instance=ExtResource("3_twreh")]
@@ -1271,3 +1271,5 @@ environment = SubResource("Environment_ew84y")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.25, 0)
 
 [editable path="Player"]
+[editable path="Player/Sounds/SonsMorts"]
+[editable path="Player/Sounds/SonsSaut"]

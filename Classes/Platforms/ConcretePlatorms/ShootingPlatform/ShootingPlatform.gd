@@ -2,6 +2,7 @@ extends "res://Classes/Platforms/AbstractPlatform.gd"
 
 @onready var shootTimer: Timer = $ShootTimer
 @onready var animatedSprite: AnimatedSprite3D = $AnimatedSprite3D
+@onready var sound: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 var bulletPrefab = preload("res://Classes/Bullet.tscn")
 
@@ -18,6 +19,7 @@ func getMad():
 
 func shoot():
 	animatedSprite.play("shoot")
+	sound.play()
 	# Shoot bullet towards the player
 	var bullet = bulletPrefab.instantiate()
 	add_child(bullet)
