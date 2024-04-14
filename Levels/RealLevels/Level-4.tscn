@@ -1,12 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://5gnnpmsfwmq3"]
+[gd_scene load_steps=13 format=3 uid="uid://c1g8ixenrm26f"]
 
-[ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/640px-Opossum_1.jpg" id="1_giiwn"]
-[ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="2_mpjms"]
-[ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="3_n2tci"]
-[ext_resource type="PackedScene" uid="uid://duilavst5goen" path="res://Levels/LevelManager/NextLevelPoint.tscn" id="4_bncm1"]
+[ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/640px-Opossum_1.jpg" id="1_654y4"]
+[ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="2_na2b1"]
+[ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="3_s7pr5"]
+[ext_resource type="PackedScene" uid="uid://duilavst5goen" path="res://Levels/LevelManager/NextLevelPoint.tscn" id="4_atf0p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_km1n4"]
-albedo_texture = ExtResource("1_giiwn")
+albedo_texture = ExtResource("1_654y4")
 
 [sub_resource type="BoxMesh" id="BoxMesh_xmud2"]
 size = Vector3(100, 100, 1)
@@ -37,15 +37,15 @@ use_collision = true
 collision_layer = 2
 mesh = SubResource("BoxMesh_xmud2")
 
-[node name="Player" parent="." instance=ExtResource("2_mpjms")]
+[node name="Player" parent="." instance=ExtResource("2_na2b1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0903, 3.79143, 0)
 
-[node name="PlatformSpawner" parent="." instance=ExtResource("3_n2tci")]
+[node name="PlatformSpawner" parent="." instance=ExtResource("3_s7pr5")]
 
 [node name="Platforms" type="Node3D" parent="."]
 
 [node name="Right" type="StaticBody3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 13.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 14, 0)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Right"]
@@ -56,7 +56,7 @@ mesh = SubResource("BoxMesh_067kb")
 shape = SubResource("BoxShape3D_bpgsq")
 
 [node name="Left" type="StaticBody3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 13.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 14, 0)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Left"]
@@ -67,7 +67,7 @@ mesh = SubResource("BoxMesh_067kb")
 shape = SubResource("BoxShape3D_bpgsq")
 
 [node name="Box1" type="StaticBody3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2.25, 0)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Box1"]
@@ -78,7 +78,7 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_6o2ty")
 
 [node name="Box2" type="StaticBody3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 9.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 10.25, 0)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Box2"]
@@ -89,7 +89,7 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_6o2ty")
 
 [node name="Box3" type="StaticBody3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 14.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 15.25, 0)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Box3"]
@@ -100,7 +100,7 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_6o2ty")
 
 [node name="Box4" type="StaticBody3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 13.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 24.25, 0)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Box4"]
@@ -110,19 +110,8 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Box4"]
 shape = SubResource("BoxShape3D_6o2ty")
 
-[node name="Box5" type="StaticBody3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 23.75, 0)
-collision_layer = 2
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Box5"]
-mesh = SubResource("BoxMesh_ixd0i")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Box5"]
-shape = SubResource("BoxShape3D_6o2ty")
-
 [node name="Rectangle1" type="StaticBody3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, 0)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Rectangle1"]
@@ -132,7 +121,7 @@ mesh = SubResource("BoxMesh_2obki")
 shape = SubResource("BoxShape3D_j0j4n")
 
 [node name="Rectangle2" type="StaticBody3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 11.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 12, 0)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Rectangle2"]
@@ -142,7 +131,7 @@ mesh = SubResource("BoxMesh_2obki")
 shape = SubResource("BoxShape3D_j0j4n")
 
 [node name="Rectangle3" type="StaticBody3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 20.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 21, 0)
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Rectangle3"]
@@ -151,6 +140,6 @@ mesh = SubResource("BoxMesh_2obki")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Rectangle3"]
 shape = SubResource("BoxShape3D_j0j4n")
 
-[node name="NextLevelPoint" parent="." instance=ExtResource("4_bncm1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9807, 25.5, 0)
+[node name="NextLevelPoint" parent="." instance=ExtResource("4_atf0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9807, 26, 0)
 nextSceneFile = "res://Levels/RealLevels/Level-3.tscn"
