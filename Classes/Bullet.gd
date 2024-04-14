@@ -29,5 +29,5 @@ func flipSprite():
 
 func _on_body_entered(body):
 	if(body.name == "Logic"):
-		print("player collision!")
+		body.health -= 1
 		destroy()
