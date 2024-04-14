@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cx5tqqwvb5tyc"]
+[gd_scene load_steps=10 format=3 uid="uid://cx5tqqwvb5tyc"]
 
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_vk5ut"]
 [ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/640px-Opossum_1.jpg" id="2_r8l7y"]
 [ext_resource type="Script" path="res://Menus/StartButton.gd" id="3_f6s35"]
+[ext_resource type="Texture2D" uid="uid://bludquvntvuot" path="res://UI/Menu/button-start.png" id="3_tx0o2"]
+[ext_resource type="Texture2D" uid="uid://br0ohvyamcpqf" path="res://UI/Menu/button-start-hover.png" id="4_exn6c"]
+[ext_resource type="Texture2D" uid="uid://c3ualri5de21g" path="res://UI/Menu/button-controls.png" id="5_xdxhn"]
+[ext_resource type="Texture2D" uid="uid://b65jch8rcdwjl" path="res://UI/Menu/button-quit.png" id="7_3knd6"]
+[ext_resource type="Texture2D" uid="uid://dluvgv420eff" path="res://UI/Menu/button-controls-hover.png" id="7_mmyrv"]
+[ext_resource type="Texture2D" uid="uid://bledaju7x1vs5" path="res://UI/Menu/button-quit-hover.png" id="9_u8rag"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -23,29 +29,42 @@ grow_vertical = 2
 texture = ExtResource("2_r8l7y")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 149.0
-offset_top = -246.0
-offset_right = 252.0
-offset_bottom = -145.0
-grow_vertical = 0
+layout_mode = 0
+offset_left = 1.0
+offset_top = 255.0
+offset_right = 1185.0
+offset_bottom = 1559.0
+scale = Vector2(0.3, 0.3)
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="StartButton" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-text = "Start"
+theme_type_variation = &"FlatButton"
+texture_normal = ExtResource("3_tx0o2")
+texture_pressed = ExtResource("4_exn6c")
+texture_hover = ExtResource("4_exn6c")
 script = ExtResource("3_f6s35")
 
-[node name="TutorialButton" type="Button" parent="VBoxContainer"]
+[node name="TutorialButton" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
-text = "How To Play"
+theme_type_variation = &"FlatButton"
+texture_normal = ExtResource("5_xdxhn")
+texture_pressed = ExtResource("7_mmyrv")
+texture_hover = ExtResource("7_mmyrv")
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="QuitButton" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
-text = "Quit"
+theme_type_variation = &"FlatButton"
+texture_normal = ExtResource("7_3knd6")
+texture_pressed = ExtResource("9_u8rag")
+texture_hover = ExtResource("9_u8rag")
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="onStartButtonPressed"]
+[connection signal="button_down" from="VBoxContainer/TutorialButton" to="VBoxContainer/TutorialButton" method="_on_button_down"]
+[connection signal="button_up" from="VBoxContainer/TutorialButton" to="VBoxContainer/TutorialButton" method="_on_button_up"]
 [connection signal="pressed" from="VBoxContainer/TutorialButton" to="." method="onTutorialButtonPressed"]
+[connection signal="button_down" from="VBoxContainer/QuitButton" to="VBoxContainer/QuitButton" method="_on_button_down"]
+[connection signal="button_up" from="VBoxContainer/QuitButton" to="VBoxContainer/QuitButton" method="_on_button_up"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="onQuitButtonPressed"]
