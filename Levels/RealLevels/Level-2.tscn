@@ -142,3 +142,4 @@ shape = SubResource("BoxShape3D_j0j4n")
 
 [node name="NextLevelPoint" parent="." instance=ExtResource("4_bncm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9807, 26, 0)
+nextSceneFile = "res://Levels/RealLevels/Level-3.tscn"

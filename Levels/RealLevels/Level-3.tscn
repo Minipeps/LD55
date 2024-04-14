@@ -1,0 +1,116 @@
+[gd_scene load_steps=11 format=3 uid="uid://dhvtawloyo12f"]
+
+[ext_resource type="Texture2D" uid="uid://c8kfo50a4t6dn" path="res://Menus/640px-Opossum_1.jpg" id="1_71ovb"]
+[ext_resource type="PackedScene" uid="uid://31kb25j7ypfh" path="res://Player/Player.tscn" id="2_o3qyi"]
+[ext_resource type="PackedScene" uid="uid://cv54ygllw4so7" path="res://Spawner/PlatformSpawner.tscn" id="3_dw14o"]
+[ext_resource type="PackedScene" uid="uid://duilavst5goen" path="res://Levels/LevelManager/NextLevelPoint.tscn" id="4_0n0bk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_km1n4"]
+albedo_texture = ExtResource("1_71ovb")
+
+[sub_resource type="BoxMesh" id="BoxMesh_xmud2"]
+size = Vector3(100, 100, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_067kb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bpgsq"]
+size = Vector3(1, 20, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2obki"]
+size = Vector3(8, 3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j0j4n"]
+size = Vector3(8, 3, 1)
+
+[node name="Level-0" type="Node3D"]
+
+[node name="Floor" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0)
+material_override = SubResource("StandardMaterial3D_km1n4")
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_xmud2")
+
+[node name="Player" parent="." instance=ExtResource("2_o3qyi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0903, 3.79143, 0)
+
+[node name="PlatformSpawner" parent="." instance=ExtResource("3_dw14o")]
+
+[node name="Platforms" type="Node3D" parent="."]
+
+[node name="RightBottom" type="StaticBody3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 10, 0)
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/RightBottom"]
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_067kb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/RightBottom"]
+shape = SubResource("BoxShape3D_bpgsq")
+
+[node name="RightTop" type="StaticBody3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 30.018, 0)
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/RightTop"]
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_067kb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/RightTop"]
+shape = SubResource("BoxShape3D_bpgsq")
+
+[node name="LeftBottom" type="StaticBody3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 10, 0)
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/LeftBottom"]
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_067kb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/LeftBottom"]
+shape = SubResource("BoxShape3D_bpgsq")
+
+[node name="LeftTop" type="StaticBody3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 30, 0)
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/LeftTop"]
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_067kb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/LeftTop"]
+shape = SubResource("BoxShape3D_bpgsq")
+
+[node name="Rectangle1" type="StaticBody3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.5, 0)
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Rectangle1"]
+mesh = SubResource("BoxMesh_2obki")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Rectangle1"]
+shape = SubResource("BoxShape3D_j0j4n")
+
+[node name="Rectangle2" type="StaticBody3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 14, 0)
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Rectangle2"]
+mesh = SubResource("BoxMesh_2obki")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Rectangle2"]
+shape = SubResource("BoxShape3D_j0j4n")
+
+[node name="Rectangle3" type="StaticBody3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 26, 0)
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/Rectangle3"]
+mesh = SubResource("BoxMesh_2obki")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/Rectangle3"]
+shape = SubResource("BoxShape3D_j0j4n")
+
+[node name="NextLevelPoint" parent="." instance=ExtResource("4_0n0bk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.0193, 32, 0)
