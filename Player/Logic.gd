@@ -16,6 +16,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var jumpSounds = $"../Sounds/SonsSaut/AudioStreamPlayer3D"
 @onready var deathSounds = $"../Sounds/SonsMorts/AudioStreamPlayer3D"
 @onready var walkSound: AudioStreamPlayer3D = $"../Sounds/WalkSound"
+@onready var spawnSound: AudioStreamPlayer3D = $"../Sounds/Spawn"
 
 @onready var visual = $Visual
 var health: int = 1;
@@ -92,6 +93,8 @@ func _handleAnimation():
 		return
 	if (isCasting > 0):
 		visual.play("cast")
+		if(!spawnSound.playing):
+			spawnSound.play()
 		isCasting -= 1
 		return
 	if (isSwitchingSpell > 0):
