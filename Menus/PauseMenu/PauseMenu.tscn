@@ -118,9 +118,14 @@ texture_pressed = ExtResource("9_3idjg")
 texture_hover = ExtResource("10_xhkv0")
 
 [node name="ResumeButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 1099.0
-offset_top = 15.0
-offset_right = 1139.0
-offset_bottom = 55.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.971
+anchor_top = 0.054
+anchor_right = 0.971
+anchor_bottom = 0.054
+offset_left = -19.592
+offset_top = -19.992
+offset_right = 20.408
+offset_bottom = 20.008
 texture_normal = ExtResource("8_3j5fx")
