@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://codfph46kk8ut"]
+[gd_scene load_steps=16 format=3 uid="uid://codfph46kk8ut"]
 
 [ext_resource type="Script" path="res://Classes/Platforms/ConcretePlatorms/TrollPlatform/TrollPlatform.gd" id="1_1ol1v"]
 [ext_resource type="Texture2D" uid="uid://x7d5otmakq5h" path="res://Sprites/TrollPlatform/regard-droite.png" id="3_chfud"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://da7pdc2aj6d8a" path="res://Audio/TrollPlatform/troll2.ogg" id="7_p20rf"]
 [ext_resource type="AudioStream" uid="uid://cleo57otswbv2" path="res://Audio/TrollPlatform/troll3.ogg" id="8_xupxk"]
 [ext_resource type="AudioStream" uid="uid://cefx3bmlg7x25" path="res://Audio/TrollPlatform/troll4.ogg" id="9_bqe8e"]
+[ext_resource type="PackedScene" uid="uid://cyqporj048mbs" path="res://Classes/Platforms/SpawnOneShotParticles.tscn" id="10_skg7t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vs5o2"]
 size = Vector3(6.4, 0.34, 1.25)
@@ -100,6 +101,8 @@ autostart = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_f1ptk")
+
+[node name="SpawnOneShotParticles" parent="." instance=ExtResource("10_skg7t")]
 
 [connection signal="body_entered" from="PlayerAreaDetectorRight" to="." method="_on_player_area_detector_right_body_entered"]
 [connection signal="body_entered" from="PlayerAreaDetectorLeft" to="." method="_on_player_area_detector_left_body_entered"]

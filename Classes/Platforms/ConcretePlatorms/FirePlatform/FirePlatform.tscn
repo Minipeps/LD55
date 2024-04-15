@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dimcg3bf3dmer"]
+[gd_scene load_steps=13 format=3 uid="uid://dimcg3bf3dmer"]
 
 [ext_resource type="Script" path="res://Classes/Platforms/ConcretePlatorms/FirePlatform/FirePlatform.gd" id="1_t05om"]
 [ext_resource type="Texture2D" uid="uid://befh42e30d2my" path="res://Sprites/FirePlatform/colere-1.png" id="2_xwx25"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c5glvec00hdls" path="res://Sprites/FirePlatform/neutre.png" id="7_14rh0"]
 [ext_resource type="AudioStream" uid="uid://ct7xb4c3qfxxg" path="res://Audio/FirePlatform/angry.ogg" id="8_6bjmw"]
 [ext_resource type="AudioStream" uid="uid://cw2hpnda3gufd" path="res://Audio/FirePlatform/fire.ogg" id="9_cy83m"]
+[ext_resource type="PackedScene" uid="uid://cyqporj048mbs" path="res://Classes/Platforms/SpawnOneShotParticles.tscn" id="10_pdvfo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_woa34"]
 size = Vector3(6.4, 1.178, 5)
@@ -77,6 +78,8 @@ volume_db = -3.0
 
 [node name="fire" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("9_cy83m")
+
+[node name="SpawnOneShotParticles" parent="." instance=ExtResource("10_pdvfo")]
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

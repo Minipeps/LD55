@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://fuw44dc536s3"]
+[gd_scene load_steps=14 format=3 uid="uid://fuw44dc536s3"]
 
 [ext_resource type="Script" path="res://Classes/Platforms/ConcretePlatorms/TrampolinePlatform/trampoline_platform.gd" id="1_of3ma"]
 [ext_resource type="Texture2D" uid="uid://cf6ylqtsdeb7b" path="res://Sprites/TrampolinePlatform/neutre.png" id="2_lvy5i"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://8wd84g2wtgq0" path="res://Sprites/TrampolinePlatform/colere-etat-2.png" id="4_laapx"]
 [ext_resource type="Texture2D" uid="uid://bepxw3dfd56gk" path="res://Sprites/TrampolinePlatform/etat-final.png" id="5_n40ti"]
 [ext_resource type="Texture2D" uid="uid://cvain5otykkk8" path="res://Sprites/TrampolinePlatform/mange-perso.png" id="6_rqrsc"]
+[ext_resource type="PackedScene" uid="uid://cyqporj048mbs" path="res://Classes/Platforms/SpawnOneShotParticles.tscn" id="9_hcjo7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_aju7d"]
 size = Vector3(2, 1, 1)
@@ -73,5 +74,7 @@ shape = SubResource("BoxShape3D_ne0h1")
 offset = Vector2(0, 21.765)
 sprite_frames = SubResource("SpriteFrames_50d3p")
 animation = &"state"
+
+[node name="SpawnOneShotParticles" parent="." instance=ExtResource("9_hcjo7")]
 
 [connection signal="body_entered" from="PlayerAreaDetectorTop" to="." method="_on_player_area_detector_top_body_entered"]

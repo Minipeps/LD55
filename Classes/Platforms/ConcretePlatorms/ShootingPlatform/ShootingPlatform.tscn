@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bme3xpw8xhe17"]
+[gd_scene load_steps=13 format=3 uid="uid://bme3xpw8xhe17"]
 
 [ext_resource type="Script" path="res://Classes/Platforms/ConcretePlatorms/ShootingPlatform/ShootingPlatform.gd" id="1_3mch2"]
 [ext_resource type="Texture2D" uid="uid://bv7f468tifa8f" path="res://Sprites/ShootingPlatform/neutre.png" id="2_naot4"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://w35au7d01mlc" path="res://Sprites/ShootingPlatform/venin-4.png" id="7_7uyws"]
 [ext_resource type="Texture2D" uid="uid://dmpm0htn3axe" path="res://Sprites/ShootingPlatform/venin-5.png" id="8_253tb"]
 [ext_resource type="AudioStream" uid="uid://dbsv8mdojmbde" path="res://Audio/ShootingPlatform/acid.ogg" id="9_ri0ug"]
+[ext_resource type="PackedScene" uid="uid://cyqporj048mbs" path="res://Classes/Platforms/SpawnOneShotParticles.tscn" id="10_f3tnm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vad1n"]
 animations = [{
@@ -75,5 +76,7 @@ shape = SubResource("BoxShape3D_t0cwr")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("9_ri0ug")
+
+[node name="SpawnOneShotParticles" parent="." instance=ExtResource("10_f3tnm")]
 
 [connection signal="animation_looped" from="AnimatedSprite3D" to="." method="_on_animated_sprite_3d_animation_looped"]
