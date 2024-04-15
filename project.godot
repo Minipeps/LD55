@@ -14,6 +14,7 @@ config/name="HellSpawn"
 config/version="1.0.0"
 run/main_scene="res://Menus/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/image="res://UI/logo-rebdile.png"
 config/icon="res://icon.svg"
 
 [autoload]
