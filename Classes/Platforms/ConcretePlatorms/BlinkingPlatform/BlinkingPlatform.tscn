@@ -65,3 +65,4 @@ shape = SubResource("BoxShape3D_um6wu")
 stream = ExtResource("4_ue0bv")
 
 [node name="SpawnOneShotParticles" parent="." instance=ExtResource("5_a373d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.129268)
